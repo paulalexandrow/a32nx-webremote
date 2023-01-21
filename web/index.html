@@ -1,0 +1,381 @@
+<!doctype html>
+<!--
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 3 of the License, or (at your
+option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program. If not, see https://www.gnu.org/licenses/.
+-->
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Paul Alexandrow">
+	<meta name="viewport" content="initial-scale=1">
+	<link href="favicon.png" rel="shortcut icon" />
+	<title>WebRemote for FBW A32NX</title>
+	<link rel="stylesheet" href="libs/jquery-ui/jquery-ui.min.css" type="text/css" />
+	<link rel="stylesheet" href="main.css" type="text/css" />
+	<script type="text/javascript" src="libs/jquery.min.js"></script>
+	<script type="text/javascript" src="libs/jquery-ui/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+
+<div id="connectionPanel">
+	<div id="socketUrlField">
+		<label for="socketURL">FSUIPC WebSocket URL:</label><br />
+		<input id="socketURL" type="text" name="url" value="ws://localhost:2048/fsuipc/" />
+	</div>
+	<div id="autoconnectField">
+		<label for="autoconnect">Auto connect:</label>
+		<input type="checkbox" id="autoconnect" name="autoconnect" />
+	</div>
+</div>
+
+<div id="menu" class="disabled collapsed">
+	<h1>
+		WebRemote for FBW A32NX
+	</h1>
+	<div id="shieldButtons">
+		<button class="halfsize" data-targetshield="sh_efis1">Left ND</button><button class="halfsize" data-targetshield="sh_efis2">Right ND</button>
+		<button class="halfsize" data-targetshield="sh_baro">Baro</button><button class="halfsize" data-targetshield="sh_fcu">FCU</button>
+		<button data-targetshield="sh_fcub">FCU Buttons</button>
+		<button data-targetshield="sh_scratch">Scratchpad</button>
+		<button data-targetshield="sh_gear">Gear &amp; Brakes</button>
+		<button data-targetshield="sh_surf">Flaps &amp; Speed Brake</button>
+		<button data-targetshield="sh_warn">Warning Panel</button>
+		<button data-targetshield="sh_sim">Sim Control</button>
+	</div>
+	<div id="menuButtons">
+		<button id="aboutButton" class="helpButton" data-targetdialog="helpDialogAbout">About</button>
+		<button id="disconnectButton">Disconnect</button>
+	</div>
+	<div class="copyright">
+		&copy; 2023 <a href="https://www.alexandrow.org">Paul Alexandrow</a><br />
+		Released under GNU GPLv3
+	</div>
+	<div id="openMenuAction">❯</div>
+	<div id="closeMenuAction">❮</div>
+</div>
+
+<div id="sh_fcu" class="shield" data-title="FCU" data-width="735">
+	<div class="shieldGroup">
+		<div class="label">SPD</div>
+		<span id="indicator_spd_spd" class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="100" data-maxvalue="399" data-negativeplaceholder="---"></span>
+		<span id="indicator_spd_mach" style="display:none" class="lvar_value_indicator scratchpad_calculator_command fcuValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="10" data-maxvalue="99"  data-fractiondigits="2" data-negativeplaceholder="---"></span>
+		<div class="pushPullGroup">
+			<button class="calculator_button button_push" data-calculatorcommand="(>K:A32NX.FCU_SPD_PUSH)">manage</button>
+			<button class="calculator_button button_pull" data-calculatorcommand="(>K:A32NX.FCU_SPD_PULL)">pull</button>
+		</div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">HDG</div>
+		<span class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_FCU_HEADING_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_HDG_SET)" data-minvalue="0" data-maxvalue="360" data-padzeros="3" data-negativeplaceholder="---" data-forceinteger="1"></span>
+		<div class="pushPullGroup">
+			<button class="calculator_button button_push" data-calculatorcommand="(>K:A32NX.FCU_HDG_PUSH)">manage</button>
+			<button class="calculator_button button_pull" data-calculatorcommand="(>K:A32NX.FCU_HDG_PULL)">pull</button>
+		</div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">ALT</div>
+		<span class="offset_value_indicator scratchpad_calculator_command fcuValue" data-calculatorcommand="(>K:A32NX.FCU_ALT_SET)" data-minvalue="100" data-maxvalue="49000" data-offsetaddress="0x0818" data-offsettype="uint" data-offsetsize="4" data-padzeros="4" data-displayfactor=".000050061643905839895013123359580052"></span>
+		<div class="pushPullGroup">
+			<button class="calculator_button button_push" data-calculatorcommand="(>K:A32NX.FCU_ALT_PUSH)">manage</button>
+			<button class="calculator_button button_pull" data-calculatorcommand="(>K:A32NX.FCU_ALT_PULL)">pull</button>
+		</div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">VS / FPA</div>
+		<span id="indicator_vs_vs" class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_AUTOPILOT_VS_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-6000" data-maxvalue="6000" data-padzeros="4" data-alwaysshowsign="1"></span>
+		<span id="indicator_vs_fpa" class="lvar_value_indicator scratchpad_calculator_command fcuValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_FPA_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-99" data-maxvalue="99" data-alwaysshowsign="1" data-fractiondigits="1"></span>
+		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_TRK_FPA_MODE_ACTIVE"><!-- we need this hidden to register the LVAR for updates --></div>
+		<div class="pushPullGroup">
+			<button class="calculator_button button_push" data-calculatorcommand="(>K:A32NX.FCU_VS_PUSH)">push to level off</button>
+			<button class="calculator_button button_pull" data-calculatorcommand="(>K:A32NX.FCU_VS_PULL)">pull</button>
+		</div>
+	</div>
+	<div id="shieldGroupFcuUnits" class="shieldGroup">
+	<button class="calculator_button" data-calculatorcommand="(>K:A32NX.FCU_SPD_MACH_TOGGLE_PUSH)">SPD<br />MACH</button>
+		<button class="calculator_button" data-calculatorcommand="(>K:A32NX.FCU_TRK_FPA_TOGGLE_PUSH)">HDG / TRK<br />VS / FPA</button>
+	</div>
+
+	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogScratchpad"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
+</div>
+
+<div id="sh_baro" class="shield" data-title="Baro" data-width="300" data-noresize="1">
+	<div class="shieldGroup">
+		<span class="offset_value_indicator scratchpad_offset_target qnh_indicator fcuValue" data-offsetaddress="0x0330" data-offsettype="uint" data-offsetsize="2" data-sendfactor="16" data-displayfactor=".0625"  data-minvalue="948" data-maxvalue="1084"></span>
+		<div class="controlgroup">
+			<button class="lvar_selector_button" data-lvarname="XMLVAR_Baro1_Mode" data-lvarvalue="1">QNH</button>
+			<button class="lvar_selector_button" data-lvarname="XMLVAR_Baro1_Mode" data-lvarvalue="0">QFE</button>
+			<button id="button_baro_mode_std" class="lvar_selector_button" data-lvarname="XMLVAR_Baro1_Mode" data-lvarvalue="2">STD</button>
+		</div>
+	</div>
+	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogScratchpad"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
+</div>
+
+<div id="sh_scratch" class="shield" data-title="Scratchpad" data-width="240" data-noresize="1">
+	<div class="shieldGroup">
+		<div id="scratchpad"></div>
+		<div id="scratchpadButtons">
+			<div>
+				<button data-value="1">1</button><button data-value="2">2</button><button data-value="3">3</button>
+			</div>
+			<div>
+				<button data-value="4">4</button><button data-value="5">5</button><button data-value="6">6</button>
+			</div>
+			<div>
+				<button data-value="7">7</button><button data-value="8">8</button><button data-value="9">9</button>
+			</div>
+			<div>
+				<button data-value="-">+/-</button><button data-value="0">0</button><button data-value="">CLR</button>
+			</div>
+		</div>
+	</div>
+	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogScratchpad"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
+</div>
+
+<div id="sh_efis1" class="shield efisShield" data-title="Left ND" data-width="420">
+	<div class="shieldGroup shieldGroupNdModes">
+		<div class="controlgroup controlgroupEfisFilter">
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_OPTION" data-lvarvalue="1" data-lvardeselectvalue="0">CSTR</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_OPTION" data-lvarvalue="3" data-lvardeselectvalue="0">WPT</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_OPTION" data-lvarvalue="2" data-lvardeselectvalue="0">VOR D</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_OPTION" data-lvarvalue="4" data-lvardeselectvalue="0">NDB</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_OPTION" data-lvarvalue="5" data-lvardeselectvalue="0">ARPT</button>
+		</div>
+		<div class="controlgroup controlgroupNdMode">
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_MODE" data-lvarvalue="0">LS</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_MODE" data-lvarvalue="1">VOR</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_MODE" data-lvarvalue="2">NAV</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_MODE" data-lvarvalue="3">ARC</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_MODE" data-lvarvalue="4">PLAN</button>
+		</div>
+		<div class="controlgroup controlgroupNdRange">
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_RANGE" data-lvarvalue="0">10</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_RANGE" data-lvarvalue="1">20</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_RANGE" data-lvarvalue="2">40</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_RANGE" data-lvarvalue="3">80</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_RANGE" data-lvarvalue="4">160</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_RANGE" data-lvarvalue="5">320</button>
+		</div>
+	</div>
+	<div class="shieldGroup shieldGroupNavSelector">
+		<div class="label">NAV 1</div>
+		<div class="controlgroup">
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_NAVAID_1_MODE" data-lvarvalue="1">ADF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_NAVAID_1_MODE" data-lvarvalue="0">OFF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_NAVAID_1_MODE" data-lvarvalue="2">VOR</button>
+		</div>
+	</div>
+	<div class="shieldGroup shieldGroupNavSelector">
+		<div class="label">NAV 2</div>
+		<div class="controlgroup">
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_NAVAID_2_MODE" data-lvarvalue="1">ADF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_NAVAID_2_MODE" data-lvarvalue="0">OFF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_NAVAID_2_MODE" data-lvarvalue="2">VOR</button>
+		</div>
+	</div>
+	<div class="shieldGroup shieldGroupEfisExtras">
+		<button class="lvar_selector_button" data-lvarname="BTN_LS_1_FILTER_ACTIVE" data-lvarvalue="1" data-lvardeselectvalue="0">LS</button>
+		<button class="calculator_button" data-calculatorcommand="(>K:A32NX.EFIS_L_CHRONO_PUSHED)">Chrono</button>
+	</div>
+</div>
+
+<div id="sh_efis2" class="shield efisShield" data-title="Right ND" data-width="420">
+	<div class="shieldGroup shieldGroupNdModes">
+		<div class="controlgroup controlgroupEfisFilter">
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_OPTION" data-lvarvalue="5" data-lvardeselectvalue="0">ARPT</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_OPTION" data-lvarvalue="4" data-lvardeselectvalue="0">NDB</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_OPTION" data-lvarvalue="2" data-lvardeselectvalue="0">VOR D</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_OPTION" data-lvarvalue="3" data-lvardeselectvalue="0">WPT</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_OPTION" data-lvarvalue="1" data-lvardeselectvalue="0">CSTR</button>
+		</div>
+		<div class="controlgroup controlgroupNdMode">
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_MODE" data-lvarvalue="0">LS</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_MODE" data-lvarvalue="1">VOR</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_MODE" data-lvarvalue="2">NAV</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_MODE" data-lvarvalue="3">ARC</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_MODE" data-lvarvalue="4">PLAN</button>
+		</div>
+		<div class="controlgroup controlgroupNdRange">
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_RANGE" data-lvarvalue="0">10</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_RANGE" data-lvarvalue="1">20</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_RANGE" data-lvarvalue="2">40</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_RANGE" data-lvarvalue="3">80</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_RANGE" data-lvarvalue="4">160</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_RANGE" data-lvarvalue="5">320</button>
+		</div>
+	</div>
+	<div class="shieldGroup shieldGroupNavSelector">
+		<div class="label">NAV 1</div>
+		<div class="controlgroup">
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_NAVAID_1_MODE" data-lvarvalue="1">ADF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_NAVAID_1_MODE" data-lvarvalue="0">OFF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_NAVAID_1_MODE" data-lvarvalue="2">VOR</button>
+		</div>
+	</div>
+	<div class="shieldGroup shieldGroupNavSelector">
+		<div class="label">NAV 2</div>
+		<div class="controlgroup">
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_NAVAID_2_MODE" data-lvarvalue="1">ADF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_NAVAID_2_MODE" data-lvarvalue="0">OFF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_NAVAID_2_MODE" data-lvarvalue="2">VOR</button>
+		</div>
+	</div>
+	<div class="shieldGroup shieldGroupEfisExtras">
+		<button class="lvar_selector_button" data-lvarname="BTN_LS_2_FILTER_ACTIVE" data-lvarvalue="1" data-lvardeselectvalue="0">LS</button>
+		<button class="calculator_button" data-calculatorcommand="(>K:A32NX.EFIS_R_CHRONO_PUSHED)">Chrono</button>
+	</div>
+</div>
+
+<div id="sh_fcub" class="shield" data-title="FCU Buttons" data-width="240" data-noresize="1">
+	<div id="shieldGroupAutopilot" class="shieldGroup">
+		<div id="controlgroupAutopilot" class="controlgroup">
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOPILOT_1_ACTIVE"  data-highlightvalue="1" data-calculatorcommand="(>K:A32NX.FCU_AP_1_PUSH)">AP1</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOTHRUST_STATUS"  data-highlightvalue="1" data-alternativehighlightvalue="2" data-calculatorcommand="(>K:A32NX.FCU_ATHR_PUSH)">A/THR</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOPILOT_2_ACTIVE"  data-highlightvalue="1" data-calculatorcommand="(>K:A32NX.FCU_AP_2_PUSH)">AP2</button>
+		</div>
+		<div id="controlgroupLocAppr" class="controlgroup">
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_LOC_MODE_ACTIVE"  data-highlightvalue="1" data-calculatorcommand="(>K:A32NX.FCU_LOC_PUSH)">LOC</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_APPR_MODE_ACTIVE"  data-highlightvalue="1" data-calculatorcommand="(>K:A32NX.FCU_APPR_PUSH)">APPR</button>
+		</div>
+	</div><div id="shieldGroupFcuExtras" class="shieldGroup">
+		<button class="offset_status_indicator calculator_button" data-offsetaddress="0x2EE0" data-offsettype="uint" data-offsetsize="4" data-highlightvalue="1" data-calculatorcommand="(>K:TOGGLE_FLIGHT_DIRECTOR)">FD 1&amp;2</button>
+		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FMA_EXPEDITE_MODE"  data-highlightvalue="1" data-calculatorcommand="(>K:A32NX.FCU_EXPED_PUSH)">EXPED</button>
+	</div>
+</div>
+
+<div id="sh_gear" class="shield" data-title="Gear &amp; Brakes" data-width="300" data-noresize="1">
+	<div id="shieldGroupAutobrake" class="shieldGroup">
+		<div class="label">AUTO BRK</div>
+		<div class="controlgroup">
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="1" data-calculatorcommand="(>K:A32NX.AUTOBRAKE_BUTTON_LO)">LO</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="2" data-calculatorcommand="(>K:A32NX.AUTOBRAKE_BUTTON_MED)">MED</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="3" data-calculatorcommand="(>K:A32NX.AUTOBRAKE_BUTTON_MAX)">MAX</button>
+		</div>
+	</div><div id="shieldGroupGearExtras" class="shieldGroup">
+		<button class="lvar_selector_button" data-lvarname="A32NX_PARK_BRAKE_LEVER_POS" data-lvarvalue="1" data-lvardeselectvalue="0">PARK BRK</button><button class="lvar_selector_button" data-lvarname="A32NX_GEAR_LEVER_POSITION_REQUEST" data-lvarvalue="1" data-lvardeselectvalue="0">GEAR</button>
+	</div>
+	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogGear"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
+</div>
+
+<div id="sh_warn" class="shield" data-title="Warning-Panel" data-width="280" data-noresize="1">
+	<div class="shieldGroup">
+		<button id="button_autoland" class="lvar_status_indicator" data-lvarname="A32NX_AUTOPILOT_AUTOLAND_WARNING" data-highlightvalue="1">AUTO<br />LAND</button>
+		<button id="button_mastercaut" class="lvar_status_indicator" data-lvarname="A32NX_MASTER_CAUTION" data-highlightvalue="1">MASTER<br />CAUT</button>
+		<button id="button_masterwarn" class="lvar_status_indicator" data-lvarname="A32NX_MASTER_WARNING" data-highlightvalue="1">MASTER<br />WARN</button>
+	</div>
+</div>
+
+<div id="sh_surf" class="shield" data-title="Flaps &amp; Speed Brake" data-width="360">
+	<div class="shieldGroup">
+		<div class="label">SPEED BRAKE</div>
+		<div id="spoilerButtons">
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_ARMED" data-highlightvalue="1" data-calculatorcommand="(>K:SPOILERS_ARM_TOGGLE)">ARMED</button>
+			<div class="controlgroupVertical">
+				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_HANDLE_POSITION" data-highlightvalue="0" data-calculatorcommand="0 (>K:SPOILERS_SET) (>K:SPOILERS_ARM_OFF)">RET</button>
+				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_HANDLE_POSITION" data-highlightvalue="0.5" data-calculatorcommand="8192 (>K:SPOILERS_SET)">1/2</button>
+				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_HANDLE_POSITION" data-highlightvalue="1" data-calculatorcommand="16384 (>K:SPOILERS_SET)">FULL</button>
+			</div>
+		</div>
+		<div id="spoilerSliderContainer">
+			<div id="spoilerSlider"></div>
+		</div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">FLAPS</div>
+		<div id="flapsButtons" class="controlgroupVertical">
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="0" data-calculatorcommand="(>K:FLAPS_UP)">0</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="1" data-calculatorcommand="(>K:FLAPS_1)">1</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="2" data-calculatorcommand="(>K:FLAPS_2)">2</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="3" data-calculatorcommand="(>K:FLAPS_3)">3</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="4" data-calculatorcommand="(>K:FLAPS_DOWN)">FULL</button>
+		</div>
+	</div>
+	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogSurf"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
+</div>
+
+<div id="sh_sim" class="shield" data-title="Sim Control" data-width="180" data-noresize="1">
+	<div class="shieldGroup">
+		<button class="offset_status_indicator calculator_button" data-offsetaddress="0x0264" data-offsettype="uint" data-offsetsize="2" data-highlightvalue="1" data-calculatorcommand="(>K:PAUSE_SET)" data-calculatorisboolsetter="1">PAUSE</button>
+	</div>
+</div>
+
+<div id="helpDialogScratchpad" class="helpDialog" data-title="Help | Scratchpad" data-width="700">
+	<h4>Using the Scratchpad</h4>
+	<p>
+		To enter numeric values (amber fields), you first have to enter the desired value into the <em>scratchpad</em>. The scratchpad can
+		then be <em>transferred</em> to a field by clicking on the latter, similar to the MCDU in the A320.
+	</p>
+	<ul>
+		<li><span class="numericText">[+/-]</span> is a toggle switch that can also be used while or after typing the number.</li>
+		<li>It is not possible to backspace, just to clear the whole scratchpad with <span class="numericText">[clr]</span>.</li>
+		<li>Entering an illegal value will most of the time just fail silently.</li>
+	</ul>
+	<h4>Entering Mach Values</h4>
+	<p>
+		To enter Mach values you have to enter the <em>fraction digits only</em>.<br />
+		For example, enter <span class="numericText">79</span> for Mach <span class="numericText">.79<span>.
+	</p>
+	<h4>Entering FPA Values</h4>
+	<p>
+		To enter an FPA you have to enter the value <em>times 10</em>.<br />
+		For example: enter <span class="numericText">-33</span> for an FPA of <span class="numericText">-3.3</span> degrees.
+	</p>
+</div>
+
+<div id="helpDialogGear" class="helpDialog" data-title="Help | Gear &amp; Brakes" data-width="500">
+	<h4>Commanded vs. Actual Setting</h4>
+	<p>
+		The GEAR and PARK BRK buttons indicate <em>commanded</em> lever position. They neither tell if a lever <em>actually</em> is
+		in that position nor if the gear is <em>actually</em> locked down or the parking brake set.
+	</p>
+	<p>
+		For this you must check the respective <em>indications</em> like you would in a real world aircraft.
+	</p>
+</div>
+
+<div id="helpDialogSurf" class="helpDialog" data-title="Help | Flaps &amp; Speed Brake" data-width="500">
+	<h4>Commanded vs. Actual Setting</h4>
+	<p>
+		The FLAPS and SPEED BRAKE buttons indicate <em>lever position</em>. They do not tell if the corresponding control surfaces
+		<em>actually are</em> in that position.
+	</p>
+	<p>
+		For this you must check the respective <em>indications</em> like you would in a real world aircraft.
+	</p>
+</div>
+
+<div id="helpDialogAbout" class="helpDialog" data-title="About WebRemote for FBW A32NX" data-width="700">
+	<h4>Documentation and Download</h4>
+	<p>
+		The WebRemote for FBW A32NX is an open source project released under the
+		<a href="https://www.gnu.org/licenses/quick-guide-gplv3.html">GNU GPLv3</a>.
+	</p>
+	<p>
+		You can find the latest version and all documentation on its GitHub page: <a class="repositoryLink" href="https://github.com/paulalexandrow/a32nx-webremote">https://github.com/paulalexandrow/a32nx-webremote</a>
+	</p>
+	<h4>Thanks</h4>
+	<p>
+		Thanks to all the people and teams behind the projects the WebRemote builds upon!
+	</p>
+	<ul class="thirdPartyLinks">
+		<li><a href="http://flybywiresim.com">FlyByWire Simulations</a></li>
+		<li><a href="http://www.fsuipc.com">FSUIPC</a></li>
+		<li><a href="http://fsuipcwebsockets.paulhenty.com">FSUIPC WebSocket Server</a></li>
+	</ul>
+	<p class="copyright">
+		&copy; 2023 <a href="https://www.alexandrow.org">Paul Alexandrow</a>
+	</p>
+</div>
+
+</body>
+</html>

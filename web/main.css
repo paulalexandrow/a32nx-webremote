@@ -1,0 +1,565 @@
+/*
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 3 of the License, or (at your
+option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program. If not, see https://www.gnu.org/licenses/.
+*/
+
+
+/* GENERAL PART */
+
+body {
+	color: #FFF;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 14pt;
+	background: #a7b7ca url(background.png) repeat;
+	padding: 0;
+	margin: 0;
+}
+
+a:link, a:visited, a:active {
+	font-weight: bold;
+	color: #FFF;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+button {
+	white-space: nowrap;
+}
+
+/* GENERAL FORMS */
+
+input, button, textarea {
+	outline: none;
+}
+
+input[type=text] {
+	padding: 0.5em;
+	border-radius: 0.3em;
+	border: none;
+}
+
+/* OVERRIDING JQUERYUI */
+
+.ui-dialog .ui-dialog-content {
+	padding: 0.5em 0;
+}
+
+.ui-widget-overlay {
+	z-index: 10000;
+	background-color: #0006;
+}
+
+/* CONNECTION DIALOG */
+
+#connectionPanel.ui-dialog-content {
+	padding: 0.5em 2em;
+}
+
+#socketUrlField {
+	text-align:center;
+	padding-top: 0.9em;
+}
+
+#socketUrlField input {
+	box-sizing: border-box;
+	margin-top: 0.5em;
+	width: 100%;
+}
+
+#autoconnectField {
+	margin-top: 0.8em;
+}
+
+#autoconnectField input {
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
+	position: relative;
+    bottom: 1px;
+}
+
+#autoconnectField label, #autoconnectField input {
+	cursor: pointer;
+}
+
+.connectionDialog .ui-dialog-titlebar-close {
+    visibility: hidden;
+}
+
+.connectionDialog  .ui-dialog-titlebar {
+	text-align: center;
+}
+
+/* MENU */
+
+#menu {
+	position: absolute;
+	min-height: 35em;
+	height: 100vh;
+	width: 14.5em;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	text-align: center;
+	background: #3b4c61EE;
+	padding: 0 3.75em 0 1.9em;
+}
+
+#menu.disabled {
+	display: none !important;
+}
+
+#menu.collapsed {
+	left: -16.7em;
+}
+
+#menu button.ui-widget {
+	font-weight: bold;
+	margin-bottom:0.2em;
+	width: 98%;
+	margin-right: 2%;
+	box-sizing: border-box;
+}
+
+#menu button.ui-widget.halfsize {
+	width: 48%;
+}
+
+#menu .copyright {
+	box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+	padding: 0.5em;
+	background: #3b4c61;
+	font-size: 0.8em;
+	left: 0;
+	width: 100%;
+}
+
+#menuButtons {
+	margin-top: 2em;
+}
+
+#menu h1 {
+	margin-bottom: 1em;
+	font-size: 1.8em;
+}
+
+#closeMenuAction, #openMenuAction {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 0.7em;
+	font-size: 5em;
+	line-height: 100vh;
+	cursor: pointer;
+	color: #DDD;
+}
+#closeMenuAction:hover, #openMenuAction:hover {
+	color: #FFF;
+	background-color: #0002;
+}
+#closeMenuAction {
+	display: none;
+}
+
+/* GENERIC SHIELDS */
+
+.shieldDialog {
+	z-index: 97;
+}
+
+.shieldGroup {
+	border: 0.15em solid #FFF;
+	border-radius: 0.3em;
+	padding: 0.3em;
+	margin-bottom: 0.5em;
+}
+
+.shieldGroup:last-child {
+	margin-bottom: 0;
+}
+
+.shieldGroup .label {
+	font-weight: bold;
+	font-size: 0.9em;
+	padding-bottom: 0.4em;
+}
+
+.shieldGroup button.ui-widget {
+	font-weight: bold;
+	font-size: 0.9em;
+	padding: 0.6em 0;
+}
+
+.shieldGroup .label {
+	margin-left: 0.2em;
+}
+
+.ui-dialog .ui-dialog-titlebar-close.helpButton {
+	right: 1.7em;
+}
+
+/* INDIVIDUAL SHIELDS */
+
+.fcuValue {
+	font-family: monospace;
+	font-size: 1.4em;
+	font-weight: bold;
+	text-align: right;
+	color:  #ff8d00;
+	background-color: #2d1900;
+	box-shadow: inset 0 0 0.3em #ff8d00;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0.2em 0.5em;
+	height: 1.2em;
+	border: 0.1em solid #202C3B;
+	border-radius: 0.3em;
+	cursor: pointer;
+}
+
+#shieldGroupAutobrake .controlgroup {
+	width: 100%;
+}
+
+#shieldGroupAutobrake button {
+	box-sizing: border-box;
+	width: 33%;
+}
+
+#shieldGroupGearExtras button {
+	box-sizing: border-box;
+	width: 48%;
+	margin: 0;
+}
+
+#shieldGroupGearExtras button:first-child {
+	margin-right: 4%;
+}
+
+#scratchpad {
+	font-family: monospace;
+	background-color: #111;
+	font-size: 1.4em;
+	font-weight: bold;
+	padding: 0.2em 0;
+	height: 1.2em;
+	border: 0.1em solid #202C3B;
+	text-align: center;
+	overflow: hidden;
+	border-radius: 0.1em;
+	margin-bottom: 0.4em;
+}
+
+#scratchpadButtons {
+	text-align: center;
+}
+
+#scratchpadButtons button {
+	width: 4em;
+	height: 2.5em;
+	margin-bottom: 0.3em;
+	margin-right: 0.3em;
+}
+#scratchpadButtons button:last-child {
+	margin-right: 0;
+}
+
+#sh_baro {
+	text-align:center;
+}
+
+#sh_baro .fcuValue {
+	width: 2.5em;
+	margin-right: 0.3em;
+}
+
+#sh_baro .controlgroup {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#sh_baro .controlgroup button {
+	width: 3.2em;
+	margin: 0;
+}
+
+#sh_fcub .shieldGroup {
+	text-align: center;
+}
+
+#controlgroupAutopilot {
+	box-sizing: border-box;
+	margin-bottom: 0.3em;
+}
+
+#controlgroupAutopilot button {
+	width: 4.8em;
+}
+
+#controlgroupAutopilot button:first-child, #controlgroupAutopilot button:last-child {
+	width: 4em;
+}
+
+#controlgroupLocAppr button, #shieldGroupFcuExtras button {
+	width: 5em;
+}
+
+.efisShield .shieldGroup {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.shieldGroupNdModes {
+	box-sizing: border-box;
+	text-align: center;
+	width: 22.5em;
+}
+
+.shieldGroupNdModes .controlgroup {
+	margin-bottom: 0.3em;
+}
+
+.shieldGroupNdModes .controlgroupEfisFilter {
+	margin-bottom: 1em;
+}
+
+.shieldGroupNdModes .controlgroupNdRange {
+	margin-bottom: 0;
+}
+
+.shieldGroupNdModes .controlgroupEfisFilter button, .shieldGroupNdModes .controlgroupNdMode button {
+	width: 4.8em;
+}
+
+.shieldGroupNdModes .controlgroupNdRange button {
+	width: 4em;
+}
+
+.shieldGroupNavSelector, .shieldGroupEfisExtras {
+	width: 10.2em;
+	text-align: center;
+}
+
+.shieldGroupNavSelector button {
+	box-sizing: border-box;
+	width: 3.7em;
+}
+
+.shieldGroupEfisExtras button {
+	width: 5.3em;
+}
+
+#sh_fcu .shieldGroup {
+	box-sizing: border-box;
+	width: 7.6em;
+	display: inline-block;
+	height: 7.6em;
+	vertical-align: top;
+}
+
+#sh_fcu .fcuValue {
+	width: 3.4em;
+	display: block;
+	text-align: center;
+	margin: auto;
+}
+
+.pushPullGroup {
+	width: 100%;
+	margin: auto;
+	margin-top: 0.3em;
+	text-align: center;
+}
+
+.button_push, .button_pull {
+	width: 3.2em;
+	height: 2.4em;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+
+.button_push::after, .button_pull::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: '';
+	background-image: url('pull.svg');
+	background-size: 1.8em 1.8em;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: inline-block;
+	width:3.2em;
+	height: 2.4em;
+}
+
+.button_push::after {
+	background-image: url('push.svg');
+}
+
+#shieldGroupFcuUnits {
+	padding-top: 0.6em;
+}
+
+#shieldGroupFcuUnits button {
+	display: block;
+	font-size: 0.8em;
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0.6em;
+	border-radius: 2em;
+	padding: 0.62em 0 0.48em 0;
+}
+
+#sh_warn .shieldGroup {
+	text-align: center;
+}
+
+#sh_warn button {
+	font-size: 0.7em;
+	line-height: 2em;
+	width: 5.5em;
+	height:5.5em;
+	margin-right: 0.8em;
+	border-width: 0.2em;
+	border-color: #202c3b;
+}
+
+#sh_warn button:last-child {
+	margin-right: 0;
+}
+
+#sh_surf button {
+	width: 6em;
+	text-align: center;
+}
+
+#sh_surf .shieldGroup {
+	display: inline-block;
+	width: 8.5em;
+	height: 12.5em;
+	text-align: center;
+	vertical-align: top;
+}
+
+#sh_surf .label {
+	display: block;
+	text-align: left;
+}
+
+#spoilerButtons, #spoilerSliderContainer {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#spoilerButtons .controlgroupVertical {
+	display: block;
+	margin-top: 1.3em;
+}
+
+#spoilerSlider {
+	height: 8.4em;
+	margin: 1.2em 0.65em 0 1em;
+	background: #202c3b;
+}
+
+#spoilerSlider .ui-slider-handle {
+	width: 2.2em;
+	height: 2.2em;
+	left: -0.7em;
+	margin-bottom: -1.1em;
+}
+
+#spoilerSlider .ui-slider-range {
+	background: #202c3b;
+}
+
+#flapsButtons button {
+	width: 8em;
+}
+
+#button_autoland.ui-state-active {
+	color: #000;
+	background: #FF1528;
+	border-color: #202c3b;
+}
+
+#button_masterwarn.ui-state-active {
+	color: #FF1528;
+	background: #000;
+	border-color: #202c3b;
+}
+
+#button_mastercaut.ui-state-active {
+	color: #FFDF4F;
+	background: #000;
+	border-color: #202c3b;
+}
+
+#sh_sim .shieldGroup {
+	text-align: center;
+}
+
+#sh_sim button {
+	width: 80%;
+}
+
+/* HELP DIALOGS */
+
+.helpDialog.ui-dialog-content {
+	font-size: 12pt;
+	line-height: 1.5em;
+	padding: 0 1em;
+}
+
+.helpDialog h4 {
+	margin: 1.5em 0 0.2em 0;
+}
+
+.helpDialog h4:first-child {
+	margin-top: 0.5em;
+}
+
+.helpDialog p {
+	margin-top: 0;
+}
+
+.helpDialog .numericText {
+	font-family: monospace;
+	font-weight: bold;
+}
+
+.helpDialog em {
+	text-decoration: underline;
+	font-style: normal;
+}
+
+#helpDialogAbout.ui-dialog-content {
+
+}
+
+#helpDialogAbout .repositoryLink, #helpDialogAbout .copyright {
+	display: block;
+	text-align: center;
+	margin-top: 1.5em;
+}
+
+#helpDialogAbout .thirdPartyLinks a {
+	font-weight: normal;
+}

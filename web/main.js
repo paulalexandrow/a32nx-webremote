@@ -159,7 +159,7 @@ $(function() {
 
 
 	var updateShieldConfig = function() {
-		var config = []; // We want to save as much data as (URL length)possible, so we go with arrays and fixed indexes instead of an object with keys.
+		var config = []; // We want to save as much data as (URL length) possible, so we go with arrays and fixed indexes instead of an object with keys.
 		$(".shield").each(function() {
 			if ($(this).dialog("isOpen")) {
 				var o = $(this).dialog("widget").offset();

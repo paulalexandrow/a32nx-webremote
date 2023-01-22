@@ -499,8 +499,19 @@ $(function() {
 				$("#shieldButtons button[data-targetshield='" + $(this).attr("id") + "']").removeClass("ui-state-active");
 				updateShieldConfig();
 			},
+			beforeClose: function() {
+				var p = $(this).dialog("widget").position();
+				$(this).data("lastPosition", { left: p.left, top: p.top }); // This position "save" will not survive in the URL, but in the current window. This is by design.
+			},
 			open: function() {
 				$("#shieldButtons button[data-targetshield='" + $(this).attr("id") + "']").addClass("ui-state-active");
+				if ($(this).data("lastPosition")) {
+					$(this).dialog("widget").position({
+						my: "left top",
+						at: "left+" + $(this).data("lastPosition").left + " top+" + $(this).data("lastPosition").top,
+						of: "body"
+					});
+				}
 				updateShieldConfig();
 			},
 			dragStop: function() {

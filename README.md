@@ -2,7 +2,7 @@
 
 ## Introduction
 
-WebRemote for FBW A32NX is a customizable **web-based remote control** for [FlyByWire Simulation's A32NX](https://flybywiresim.com). It works with any modern browser on PCs, Tablets or Phones.
+WebRemote for FBW A32NX is a customizable **web-based remote control** for [FlyByWire Simulation's A32NX](https://flybywiresim.com). It works with any modern browser on PCs, tablets or phones.
 
 ![screenshot](https://user-images.githubusercontent.com/17183796/213882716-094afb5a-c80a-4d4e-94a3-9e28c6a0bd40.jpg)
 

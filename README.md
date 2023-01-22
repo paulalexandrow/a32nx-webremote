@@ -27,7 +27,7 @@ You need the following programs installed and running:
  - [Microsoft Flight Simulator](https://www.flightsimulator.com) (2020 version)
  - [FlyByWire's add-on A32NX](https://flybywiresim.com)
  - [FSUIPC7 for MSFS](http://www.fsuipc.com) (the free/unregistered version is sufficient)
- - [FSUIPC WebSockets Server](http://fsuipcwebsockets.paulhenty.com) (already bundled with FSUIPC)
+ - [FSUIPC WebSockets Server](http://fsuipcwebsockets.paulhenty.com) (already bundled with FSUIPC, but you have to enable "Auto-Start" under "Add-ons")
 
 ### Local Setup
 

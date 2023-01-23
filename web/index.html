@@ -69,8 +69,9 @@ with this program. If not, see https://www.gnu.org/licenses/.
 <div id="sh_fcu" class="shield" data-title="FCU" data-width="735">
 	<div class="shieldGroup">
 		<div class="label">SPD</div>
-		<span id="indicator_spd_spd" class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="100" data-maxvalue="399" data-negativeplaceholder="---"></span>
-		<span id="indicator_spd_mach" style="display:none" class="lvar_value_indicator scratchpad_calculator_command fcuValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="10" data-maxvalue="99"  data-fractiondigits="2" data-negativeplaceholder="---"></span>
+		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_SPD_MANAGED_DASHES"><!-- we need this hidden to register the LVAR for updates --></div>
+		<span id="indicator_spd_spd" class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="100" data-maxvalue="399" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_SPD_MANAGED_DASHES"></span>
+		<span id="indicator_spd_mach" style="display:none" class="lvar_value_indicator scratchpad_calculator_command fcuValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="10" data-maxvalue="99"  data-fractiondigits="2" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_SPD_MANAGED_DASHES"></span>
 		<div class="pushPullGroup">
 			<button class="calculator_button button_push" data-calculatorcommand="(>K:A32NX.FCU_SPD_PUSH)">manage</button>
 			<button class="calculator_button button_pull" data-calculatorcommand="(>K:A32NX.FCU_SPD_PULL)">pull</button>
@@ -78,7 +79,8 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 	<div class="shieldGroup">
 		<div class="label">HDG</div>
-		<span class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_FCU_HEADING_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_HDG_SET)" data-minvalue="0" data-maxvalue="360" data-padzeros="3" data-negativeplaceholder="---" data-forceinteger="1"></span>
+		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_HDG_MANAGED_DASHES"><!-- we need this hidden to register the LVAR for updates --></div>
+		<span class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_FCU_HEADING_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_HDG_SET)" data-minvalue="0" data-maxvalue="360" data-padzeros="3" data-forceinteger="1" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_HDG_MANAGED_DASHES"></span>
 		<div class="pushPullGroup">
 			<button class="calculator_button button_push" data-calculatorcommand="(>K:A32NX.FCU_HDG_PUSH)">manage</button>
 			<button class="calculator_button button_pull" data-calculatorcommand="(>K:A32NX.FCU_HDG_PULL)">pull</button>

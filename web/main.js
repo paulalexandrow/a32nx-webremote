@@ -254,8 +254,8 @@ $(function() {
 							if ($(this).data("forceinteger")) {
 								value = Math.round(value);
 							}
-							if ((value < 0) && $(this).data("negativeplaceholder")) {
-								$(this).text($(this).data("negativeplaceholder"));
+							if ($(this).data("placeholder") && data.hasOwnProperty($(this).data("placeholdertriggerlvar")) && data[$(this).data("placeholdertriggerlvar")]) {
+								$(this).text($(this).data("placeholder"));
 							} else {
 								var str;
 								if ($(this).data("fractiondigits")) {

@@ -18,13 +18,13 @@ $(function() {
 	// Completely disable jQueryUI's autofocus. It does more harm than good in our case.
 	$.ui.dialog.prototype._focusTabbable = $.noop;
 
-	var socket = null;
-	var lvars = {};
-	var offsets = {};
-	var inhibitUpdateHash = false;
-	var retryConnection = false;
+	let socket = null;
+	let lvars = {};
+	let offsets = {};
+	let inhibitUpdateHash = false;
+	let retryConnection = false;
 
-	var initializeSocket = function() {
+	let initializeSocket = function() {
 		if (socket != null) return;
 		try {
 			socket = new WebSocket($("#socketURL").val(), "fsuipc");
@@ -77,7 +77,7 @@ $(function() {
 				alert("A socket error occurred.");
 			};
 			socket.onmessage = function(msg) {
-				var response = JSON.parse(msg.data);
+				let response = JSON.parse(msg.data);
 				if (response.success) {
 					switch (response.command) {
 						case "vars.read":
@@ -103,7 +103,7 @@ $(function() {
 		}
 	});
 
-	var openMenu = function(instantly) {
+	let openMenu = function(instantly) {
 		$("#menu").removeClass("collapsed", instantly ? 0 : 500, function() {
 			$('#openMenuAction').hide();
 			$('#closeMenuAction').show();
@@ -111,7 +111,7 @@ $(function() {
 		updateHash({ "m": "1" });
 	};
 
-	var closeMenu = function() {
+	let closeMenu = function() {
 		$("#menu").addClass("collapsed", 500, function() {
 			$('#closeMenuAction').hide();
 			$('#openMenuAction').show();
@@ -122,11 +122,11 @@ $(function() {
 	$('#openMenuAction').click(function() { openMenu(false) });
 	$('#closeMenuAction').click(function() { closeMenu() });
 
-	var readHash = function() {
+	let readHash = function() {
 		if (window.location.hash.length < 2 || !window.location.hash.startsWith("#")) return {};
 
-		var result = {};
-		var params = new URLSearchParams(window.location.hash.substr(1));
+		let result = {};
+		let params = new URLSearchParams(window.location.hash.substr(1));
 		for (const [key, val] of params.entries()) {
 			// we have no duplicate keys, so this is save
 			if (key == "c") {
@@ -140,10 +140,10 @@ $(function() {
 		return result;
 	};
 
-	var updateHash = function(p) {
+	let updateHash = function(p) {
 		if (inhibitUpdateHash) return;
 
-		var params = new URLSearchParams((window.location.hash.length < 2 || !window.location.hash.startsWith("#") ? undefined : window.location.hash.substring(1)));
+		let params = new URLSearchParams((window.location.hash.length < 2 || !window.location.hash.startsWith("#") ? undefined : window.location.hash.substring(1)));
 		$.each(p, function(key, val) {
 			if (params.has(key)) params.delete(key);
 			if (val) {
@@ -158,11 +158,11 @@ $(function() {
 	};
 
 
-	var updateShieldConfig = function() {
-		var config = []; // We want to save as much data as (URL length) possible, so we go with arrays and fixed indexes instead of an object with keys.
+	let updateShieldConfig = function() {
+		let config = []; // We want to save as much data as (URL length) possible, so we go with arrays and fixed indexes instead of an object with keys.
 		$(".shield").each(function() {
 			if ($(this).dialog("isOpen")) {
-				var o = $(this).dialog("widget").offset();
+				let o = $(this).dialog("widget").offset();
 				config.push([
 					$(this).attr("id"),
 					Math.round(o.top),
@@ -176,12 +176,12 @@ $(function() {
 		updateHash({ "c": (config.length > 0) ? config : null});
 	};
 
-	var applyShieldConfig = function() {
+	let applyShieldConfig = function() {
 		inhibitUpdateHash = true;
-		var p = readHash();
+		let p = readHash();
 		if (p["c"]) {
 			$.each(p["c"], function(idx, val) {
-				var shield = $("#" + val[0]);
+				let shield = $("#" + val[0]);
 				shield.dialog("open");
 				shield.css("overflow", "hidden");
 				shield.dialog("option", "width", val[3]);
@@ -200,7 +200,7 @@ $(function() {
 		inhibitUpdateHash = false;
 	};
 
-	var updateLvars = function(data) {
+	let updateLvars = function(data) {
 		$.each(data, function(key, val) {
 			if (lvars.hasOwnProperty(key)) {
 
@@ -250,14 +250,14 @@ $(function() {
 						break;
 					case "value_indicator":
 						$(".lvar_value_indicator[data-lvarname='" + key + "\']").each(function() {
-							var value = parseFloat(val);
+							let value = parseFloat(val);
 							if ($(this).data("forceinteger")) {
 								value = Math.round(value);
 							}
 							if ($(this).data("placeholder") && data.hasOwnProperty($(this).data("placeholdertriggerlvar")) && data[$(this).data("placeholdertriggerlvar")]) {
 								$(this).text($(this).data("placeholder"));
 							} else {
-								var str;
+								let str;
 								if ($(this).data("fractiondigits")) {
 									str = value.toFixed($(this).data("fractiondigits"));
 								} else {
@@ -282,7 +282,7 @@ $(function() {
 		}
 	};
 
-	var updateOffsets = function(data) {
+	let updateOffsets = function(data) {
 		$.each(data, function(key, val) {
 			if (offsets.hasOwnProperty(key)) {
 				switch (offsets[key].type) {
@@ -292,7 +292,7 @@ $(function() {
 						break;
 					case "value_indicator":
 						$(".offset_value_indicator[data-offsetaddress=\'" + key + "\']").each(function() {
-							var str = val;
+							let str = val;
 							if ($(this).data("displayfactor")) {
 								str = Math.round(str * parseFloat($(this).data("displayfactor")));
 							}
@@ -310,7 +310,7 @@ $(function() {
 	};
 
 	// Baro behavior is special and needs to be hardcoded
-	var updateBaro = function() {
+	let updateBaro = function() {
 		if ($("#button_baro_mode_std").hasClass("ui-state-active")) {
 			$(".qnh_indicator").text("Std");
 		} else {
@@ -318,8 +318,8 @@ $(function() {
 		}
 	}
 
-	var consumeScratchpad = function() {
-		var result = $("#scratchpad").text();
+	let consumeScratchpad = function() {
+		let result = $("#scratchpad").text();
 		$("#scratchpad").text("");
 
 		if (result == "") return -1; // will just fail silently
@@ -333,9 +333,9 @@ $(function() {
 		return result;
 	}
 
-	var padZeros = function(str, count) {
+	let padZeros = function(str, count) {
 		// Dragon: There is a reason we work so clumsily with strings here. Do not refactor to numbers.
-		var negative = false;
+		let negative = false;
 		if (str.substring(0,1) == "-") {
 			str = str.substr(1);
 			negative = true;
@@ -399,7 +399,7 @@ $(function() {
 
 	$(".scratchpad_calculator_command").click(function() {
 		if (socket == null) return;
-		var value = consumeScratchpad();
+		let value = consumeScratchpad();
 		if (value < $(this).data("minvalue") || value > $(this).data("maxvalue")) return; // fail silently
 		if ($(this).data("sendfactor")) {
 			value = value * $(this).data("sendfactor");
@@ -413,7 +413,7 @@ $(function() {
 
 	$(".lvar_selector_button").click(function() {
 		if (socket == null) return;
-		var v;
+		let v;
 		if (!$(this).hasClass("ui-state-active")) {
 			v = $(this).data("lvarvalue");
 		} else if (typeof $(this).data("lvardeselectvalue") !== "undefined") {
@@ -429,20 +429,26 @@ $(function() {
 
 	$(".calculator_button").click(function() {
 		if (socket == null) return;
-		var cmd = $(this).data("calculatorcommand");
-		if ($(this).data("calculatorisboolsetter")) {
-			cmd = ($(this).hasClass("ui-state-active") ? "0 " : "1 ") +  cmd;
+		let commands;
+		if ($(this).data("disablecalculatorcommands") && $(this).hasClass("ui-state-active")) {
+			commands = $(this).data("disablecalculatorcommands").split("|");
+		} else {
+			commands = $(this).data("calculatorcommands").split("|");
 		}
-		socket.send(JSON.stringify({
-			command: "vars.calc",
-			name: "calc",
-			code: cmd
-		}));
+		for (let c in commands) {
+			setTimeout(function() {
+				socket.send(JSON.stringify({
+					command: "vars.calc",
+					name: "calc",
+					code: commands[c]
+				}));
+			}, c * 100); // separate commands by 100ms by default (warn and caut buttons need this)
+		}
 	});
 
 	$(".scratchpad_offset_target").click(function() {
 		if (socket == null) return;
-		var value = consumeScratchpad();
+		let value = consumeScratchpad();
 		if (value < $(this).data("minvalue") || value > $(this).data("maxvalue")) return; // fail silently
 		if ($(this).data("sendfactor")) {
 			value = value * $(this).data("sendfactor");
@@ -474,7 +480,7 @@ $(function() {
     });
 
 	$("#shieldButtons button").click(function() {
-		var d = $("#" + $(this).data("targetshield"));
+		let d = $("#" + $(this).data("targetshield"));
 		if (d.dialog("isOpen")) {
 			d.dialog("close");
 		} else {
@@ -500,7 +506,7 @@ $(function() {
 				updateShieldConfig();
 			},
 			beforeClose: function() {
-				var p = $(this).dialog("widget").position();
+				let p = $(this).dialog("widget").position();
 				$(this).data("lastPosition", { left: p.left, top: p.top }); // This position "save" will not survive in the URL, but in the current window. This is by design.
 			},
 			open: function() {
@@ -581,7 +587,7 @@ $(function() {
 			]
 	});
 
-	var config = readHash();
+	let config = readHash();
 	if (config["socketurl"]) {
 		$("#socketURL").val(config["socketurl"]);
 	} else {

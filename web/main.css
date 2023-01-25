@@ -303,21 +303,21 @@ input[type=text] {
 	text-align: center;
 }
 
+#sh_fcub button {
+	width: 5em;
+}
+
 #controlgroupAutopilot {
 	box-sizing: border-box;
-	margin-bottom: 0.3em;
+	margin-bottom: 0.4em;
 }
 
-#controlgroupAutopilot button {
-	width: 4.8em;
+#controlgroupLocAppr {
+	margin-right: 0.6em;
 }
 
-#controlgroupAutopilot button:first-child, #controlgroupAutopilot button:last-child {
-	width: 4em;
-}
-
-#controlgroupLocAppr button, #shieldGroupFcuExtras button {
-	width: 5em;
+#controlgroupLocAppr button {
+	width: 4.7em;
 }
 
 .efisShield .shieldGroup {
@@ -361,8 +361,9 @@ input[type=text] {
 	width: 3.7em;
 }
 
-.shieldGroupEfisExtras button {
-	width: 5.3em;
+.shieldGroupEfisExtras button.ui-widget {
+	padding-left: 0.62em;
+	padding-right: 0.62em;
 }
 
 #sh_fcu .shieldGroup {

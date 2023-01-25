@@ -73,8 +73,8 @@ with this program. If not, see https://www.gnu.org/licenses/.
 		<span id="indicator_spd_spd" class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="100" data-maxvalue="399" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_SPD_MANAGED_DASHES"></span>
 		<span id="indicator_spd_mach" style="display:none" class="lvar_value_indicator scratchpad_calculator_command fcuValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="10" data-maxvalue="99"  data-fractiondigits="2" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_SPD_MANAGED_DASHES"></span>
 		<div class="pushPullGroup">
-			<button class="calculator_button button_push" data-calculatorcommand="(>K:A32NX.FCU_SPD_PUSH)">manage</button>
-			<button class="calculator_button button_pull" data-calculatorcommand="(>K:A32NX.FCU_SPD_PULL)">pull</button>
+			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_SPD_PUSH)">manage</button>
+			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_SPD_PULL)">pull</button>
 		</div>
 	</div>
 	<div class="shieldGroup">
@@ -82,31 +82,32 @@ with this program. If not, see https://www.gnu.org/licenses/.
 		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_HDG_MANAGED_DASHES"><!-- we need this hidden to register the LVAR for updates --></div>
 		<span class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_FCU_HEADING_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_HDG_SET)" data-minvalue="0" data-maxvalue="360" data-padzeros="3" data-forceinteger="1" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_HDG_MANAGED_DASHES"></span>
 		<div class="pushPullGroup">
-			<button class="calculator_button button_push" data-calculatorcommand="(>K:A32NX.FCU_HDG_PUSH)">manage</button>
-			<button class="calculator_button button_pull" data-calculatorcommand="(>K:A32NX.FCU_HDG_PULL)">pull</button>
+			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_HDG_PUSH)">manage</button>
+			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_HDG_PULL)">pull</button>
 		</div>
 	</div>
 	<div class="shieldGroup">
 		<div class="label">ALT</div>
 		<span class="offset_value_indicator scratchpad_calculator_command fcuValue" data-calculatorcommand="(>K:A32NX.FCU_ALT_SET)" data-minvalue="100" data-maxvalue="49000" data-offsetaddress="0x0818" data-offsettype="uint" data-offsetsize="4" data-padzeros="4" data-displayfactor=".000050061643905839895013123359580052"></span>
 		<div class="pushPullGroup">
-			<button class="calculator_button button_push" data-calculatorcommand="(>K:A32NX.FCU_ALT_PUSH)">manage</button>
-			<button class="calculator_button button_pull" data-calculatorcommand="(>K:A32NX.FCU_ALT_PULL)">pull</button>
+			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_ALT_PUSH)">manage</button>
+			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_ALT_PULL)">pull</button>
 		</div>
 	</div>
 	<div class="shieldGroup">
 		<div class="label">VS / FPA</div>
-		<span id="indicator_vs_vs" class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_AUTOPILOT_VS_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-6000" data-maxvalue="6000" data-padzeros="4" data-alwaysshowsign="1"></span>
+		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_VS_MANAGED"><!-- we need this hidden to register the LVAR for updates --></div>
+		<span id="indicator_vs_vs" class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_AUTOPILOT_VS_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-6000" data-maxvalue="6000" data-padzeros="4" data-alwaysshowsign="1" data-placeholder="-----" data-placeholdertriggerlvar="A32NX_FCU_VS_MANAGED"></span>
 		<span id="indicator_vs_fpa" class="lvar_value_indicator scratchpad_calculator_command fcuValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_FPA_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-99" data-maxvalue="99" data-alwaysshowsign="1" data-fractiondigits="1"></span>
 		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_TRK_FPA_MODE_ACTIVE"><!-- we need this hidden to register the LVAR for updates --></div>
 		<div class="pushPullGroup">
-			<button class="calculator_button button_push" data-calculatorcommand="(>K:A32NX.FCU_VS_PUSH)">push to level off</button>
-			<button class="calculator_button button_pull" data-calculatorcommand="(>K:A32NX.FCU_VS_PULL)">pull</button>
+			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_VS_PUSH)">push to level off</button>
+			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_VS_PULL)">pull</button>
 		</div>
 	</div>
 	<div id="shieldGroupFcuUnits" class="shieldGroup">
-	<button class="calculator_button" data-calculatorcommand="(>K:A32NX.FCU_SPD_MACH_TOGGLE_PUSH)">SPD<br />MACH</button>
-		<button class="calculator_button" data-calculatorcommand="(>K:A32NX.FCU_TRK_FPA_TOGGLE_PUSH)">HDG / TRK<br />VS / FPA</button>
+	<button class="calculator_button" data-calculatorcommands="(>K:A32NX.FCU_SPD_MACH_TOGGLE_PUSH)">SPD<br />MACH</button>
+		<button class="calculator_button" data-calculatorcommands="(>K:A32NX.FCU_TRK_FPA_TOGGLE_PUSH)">HDG / TRK<br />VS / FPA</button>
 	</div>
 
 	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogScratchpad"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
@@ -187,8 +188,9 @@ with this program. If not, see https://www.gnu.org/licenses/.
 		</div>
 	</div>
 	<div class="shieldGroup shieldGroupEfisExtras">
+		<button class="calculator_button" data-calculatorcommands="(>K:A32NX.EFIS_L_CHRONO_PUSHED)">Chrono</button>
+		<button class="offset_status_indicator calculator_button" data-offsetaddress="0x2EE0" data-offsettype="uint" data-offsetsize="4" data-highlightvalue="1" data-calculatorcommands="1 (>K:TOGGLE_FLIGHT_DIRECTOR)">FD</button>
 		<button class="lvar_selector_button" data-lvarname="BTN_LS_1_FILTER_ACTIVE" data-lvarvalue="1" data-lvardeselectvalue="0">LS</button>
-		<button class="calculator_button" data-calculatorcommand="(>K:A32NX.EFIS_L_CHRONO_PUSHED)">Chrono</button>
 	</div>
 </div>
 
@@ -235,24 +237,19 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 	<div class="shieldGroup shieldGroupEfisExtras">
 		<button class="lvar_selector_button" data-lvarname="BTN_LS_2_FILTER_ACTIVE" data-lvarvalue="1" data-lvardeselectvalue="0">LS</button>
-		<button class="calculator_button" data-calculatorcommand="(>K:A32NX.EFIS_R_CHRONO_PUSHED)">Chrono</button>
+		<button class="offset_status_indicator calculator_button" data-offsetaddress="0x2EE0" data-offsettype="uint" data-offsetsize="4" data-highlightvalue="1" data-calculatorcommands="2 (>K:TOGGLE_FLIGHT_DIRECTOR)">FD</button>
+		<button class="calculator_button" data-calculatorcommands="(>K:A32NX.EFIS_R_CHRONO_PUSHED)">Chrono</button>
 	</div>
 </div>
 
-<div id="sh_fcub" class="shield" data-title="FCU Buttons" data-width="240" data-noresize="1">
-	<div id="shieldGroupAutopilot" class="shieldGroup">
-		<div id="controlgroupAutopilot" class="controlgroup">
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOPILOT_1_ACTIVE"  data-highlightvalue="1" data-calculatorcommand="(>K:A32NX.FCU_AP_1_PUSH)">AP1</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOTHRUST_STATUS"  data-highlightvalue="1" data-alternativehighlightvalue="2" data-calculatorcommand="(>K:A32NX.FCU_ATHR_PUSH)">A/THR</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOPILOT_2_ACTIVE"  data-highlightvalue="1" data-calculatorcommand="(>K:A32NX.FCU_AP_2_PUSH)">AP2</button>
-		</div>
-		<div id="controlgroupLocAppr" class="controlgroup">
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_LOC_MODE_ACTIVE"  data-highlightvalue="1" data-calculatorcommand="(>K:A32NX.FCU_LOC_PUSH)">LOC</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_APPR_MODE_ACTIVE"  data-highlightvalue="1" data-calculatorcommand="(>K:A32NX.FCU_APPR_PUSH)">APPR</button>
-		</div>
-	</div><div id="shieldGroupFcuExtras" class="shieldGroup">
-		<button class="offset_status_indicator calculator_button" data-offsetaddress="0x2EE0" data-offsettype="uint" data-offsetsize="4" data-highlightvalue="1" data-calculatorcommand="(>K:TOGGLE_FLIGHT_DIRECTOR)">FD 1&amp;2</button>
-		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FMA_EXPEDITE_MODE"  data-highlightvalue="1" data-calculatorcommand="(>K:A32NX.FCU_EXPED_PUSH)">EXPED</button>
+<div id="sh_fcub" class="shield" data-title="FCU Buttons" data-width="300" data-noresize="1">
+	<div id="shieldGroupAutopilot" class="shieldGroup"><div id="controlgroupAutopilot" class="controlgroup"><button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOPILOT_1_ACTIVE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_AP_1_PUSH)">AP1</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOTHRUST_STATUS"  data-highlightvalue="1" data-alternativehighlightvalue="2" data-calculatorcommands="(>K:A32NX.FCU_ATHR_PUSH)">A/THR</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOPILOT_2_ACTIVE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_AP_2_PUSH)">AP2</button>
+		</div><div id="controlgroupLocAppr" class="controlgroup">
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_LOC_MODE_ACTIVE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_LOC_PUSH)">LOC</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_APPR_MODE_ACTIVE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_APPR_PUSH)">APPR</button>
+		</div><button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FMA_EXPEDITE_MODE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_EXPED_PUSH)">EXPED</button>
 	</div>
 </div>
 
@@ -260,9 +257,9 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<div id="shieldGroupAutobrake" class="shieldGroup">
 		<div class="label">AUTO BRK</div>
 		<div class="controlgroup">
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="1" data-calculatorcommand="(>K:A32NX.AUTOBRAKE_BUTTON_LO)">LO</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="2" data-calculatorcommand="(>K:A32NX.AUTOBRAKE_BUTTON_MED)">MED</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="3" data-calculatorcommand="(>K:A32NX.AUTOBRAKE_BUTTON_MAX)">MAX</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.AUTOBRAKE_BUTTON_LO)">LO</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="2" data-calculatorcommands="(>K:A32NX.AUTOBRAKE_BUTTON_MED)">MED</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="3" data-calculatorcommands="(>K:A32NX.AUTOBRAKE_BUTTON_MAX)">MAX</button>
 		</div>
 	</div><div id="shieldGroupGearExtras" class="shieldGroup">
 		<button class="lvar_selector_button" data-lvarname="A32NX_PARK_BRAKE_LEVER_POS" data-lvarvalue="1" data-lvardeselectvalue="0">PARK BRK</button><button class="lvar_selector_button" data-lvarname="A32NX_GEAR_LEVER_POSITION_REQUEST" data-lvarvalue="1" data-lvardeselectvalue="0">GEAR</button>
@@ -273,8 +270,8 @@ with this program. If not, see https://www.gnu.org/licenses/.
 <div id="sh_warn" class="shield" data-title="Warning Panel" data-width="280" data-noresize="1">
 	<div class="shieldGroup">
 		<button id="button_autoland" class="lvar_status_indicator" data-lvarname="A32NX_AUTOPILOT_AUTOLAND_WARNING" data-highlightvalue="1">AUTO<br />LAND</button>
-		<button id="button_mastercaut" class="lvar_status_indicator" data-lvarname="A32NX_MASTER_CAUTION" data-highlightvalue="1">MASTER<br />CAUT</button>
-		<button id="button_masterwarn" class="lvar_status_indicator" data-lvarname="A32NX_MASTER_WARNING" data-highlightvalue="1">MASTER<br />WARN</button>
+		<button id="button_mastercaut" class="lvar_status_indicator calculator_button" data-lvarname="A32NX_MASTER_CAUTION" data-highlightvalue="1" data-calculatorcommands="1 (>L:PUSH_AUTOPILOT_MASTERCAUT_L)|0 (>L:PUSH_AUTOPILOT_MASTERCAUT_L)">MASTER<br />CAUT</button>
+		<button id="button_masterwarn" class="lvar_status_indicator calculator_button" data-lvarname="A32NX_MASTER_WARNING" data-highlightvalue="1" data-calculatorcommands="1 (>L:PUSH_AUTOPILOT_MASTERAWARN_L)|0 (>L:PUSH_AUTOPILOT_MASTERAWARN_L)">MASTER<br />WARN</button>
 	</div>
 </div>
 
@@ -282,11 +279,11 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<div class="shieldGroup">
 		<div class="label">SPEED BRAKE</div>
 		<div id="spoilerButtons">
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_ARMED" data-highlightvalue="1" data-calculatorcommand="(>K:SPOILERS_ARM_TOGGLE)">ARMED</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_ARMED" data-highlightvalue="1" data-calculatorcommands="(>K:SPOILERS_ARM_TOGGLE)">ARMED</button>
 			<div class="controlgroupVertical">
-				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_HANDLE_POSITION" data-highlightvalue="0" data-calculatorcommand="0 (>K:SPOILERS_SET) (>K:SPOILERS_ARM_OFF)">RET</button>
-				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_HANDLE_POSITION" data-highlightvalue="0.5" data-calculatorcommand="8192 (>K:SPOILERS_SET)">1/2</button>
-				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_HANDLE_POSITION" data-highlightvalue="1" data-calculatorcommand="16384 (>K:SPOILERS_SET)">FULL</button>
+				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_HANDLE_POSITION" data-highlightvalue="0" data-calculatorcommands="0 (>K:SPOILERS_SET)|(>K:SPOILERS_ARM_OFF)">RET</button>
+				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_HANDLE_POSITION" data-highlightvalue="0.5" data-calculatorcommands="8192 (>K:SPOILERS_SET)">1/2</button>
+				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_HANDLE_POSITION" data-highlightvalue="1" data-calculatorcommands="16384 (>K:SPOILERS_SET)">FULL</button>
 			</div>
 		</div>
 		<div id="spoilerSliderContainer">
@@ -296,11 +293,11 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<div class="shieldGroup">
 		<div class="label">FLAPS</div>
 		<div id="flapsButtons" class="controlgroupVertical">
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="0" data-calculatorcommand="(>K:FLAPS_UP)">0</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="1" data-calculatorcommand="(>K:FLAPS_1)">1</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="2" data-calculatorcommand="(>K:FLAPS_2)">2</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="3" data-calculatorcommand="(>K:FLAPS_3)">3</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="4" data-calculatorcommand="(>K:FLAPS_DOWN)">FULL</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="0" data-calculatorcommands="(>K:FLAPS_UP)">0</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="1" data-calculatorcommands="(>K:FLAPS_1)">1</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="2" data-calculatorcommands="(>K:FLAPS_2)">2</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="3" data-calculatorcommands="(>K:FLAPS_3)">3</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="4" data-calculatorcommands="(>K:FLAPS_DOWN)">FULL</button>
 		</div>
 	</div>
 	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogSurf"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
@@ -308,7 +305,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 
 <div id="sh_sim" class="shield" data-title="Sim Control" data-width="180" data-noresize="1">
 	<div class="shieldGroup">
-		<button class="offset_status_indicator calculator_button" data-offsetaddress="0x0264" data-offsettype="uint" data-offsetsize="2" data-highlightvalue="1" data-calculatorcommand="(>K:PAUSE_SET)" data-calculatorisboolsetter="1">PAUSE</button>
+		<button class="offset_status_indicator calculator_button" data-offsetaddress="0x0264" data-offsettype="uint" data-offsetsize="2" data-highlightvalue="1" data-calculatorcommands="1 (>K:PAUSE_SET)" data-disablecalculatorcommands="0 (>K:PAUSE_SET)">PAUSE</button>
 	</div>
 </div>
 

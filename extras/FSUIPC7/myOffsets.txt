@@ -1,0 +1,3 @@
+// offset, size, simvar, type, units [, w]
+0x66C0, 1, AUTOPILOT FLIGHT DIRECTOR ACTIVE:1, I64, Bool
+0x66C1, 1, AUTOPILOT FLIGHT DIRECTOR ACTIVE:2, I64, Bool

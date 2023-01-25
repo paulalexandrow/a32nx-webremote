@@ -304,7 +304,7 @@ input[type=text] {
 }
 
 #sh_fcub button {
-	width: 5em;
+	width: 4em;
 }
 
 #controlgroupAutopilot {
@@ -316,8 +316,8 @@ input[type=text] {
 	margin-right: 0.6em;
 }
 
-#controlgroupLocAppr button {
-	width: 4.7em;
+#controlgroupAutopilot button:nth-child(2) {
+	width: 4.6em;
 }
 
 .efisShield .shieldGroup {

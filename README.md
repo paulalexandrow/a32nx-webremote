@@ -67,7 +67,9 @@ For this we will install our own webserver on **(A)**. Assuming **(A)** is runni
 4. If everything was done correctly a browser on **(A)** can now be opened and WebRemote will run when entering **(A)**'s own IP address (*not* `localhost`).
 5. If Step 4 was successful repeat it on **(B)** (still using **(A)**'s IP address). If this does not work, you will have to open the Default Site's port in **(A)**'s firewall, called Microsoft Defender.
 
-You can now use WebRemote on as many devices as you want and update them all centrally on **(A)**! This is also the preferred variant, because we need the IIS in the next step anyways. There are of course many other versions to get the data across, like shared network folders etc., but to mention all of these is out of the scope of this guide.
+You can now use WebRemote on as many devices as you want and update them all centrally on **(A)**! This is also the preferred variant, because we need the IIS in the next step anyways. Conveniently, IIS starts automatically with windows and once it is set up correctly you do not have to think about it again.
+
+There are of course many other versions to get the data across, like shared network folders etc., but to mention all of these is out of the scope of this guide.
 
 #### Solving Problem 2
 

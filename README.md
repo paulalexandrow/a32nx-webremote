@@ -6,6 +6,19 @@ WebRemote for FBW A32NX is a customizable **browser-based remote control** for [
 
 ![screenshot](https://user-images.githubusercontent.com/17183796/213882716-094afb5a-c80a-4d4e-94a3-9e28c6a0bd40.jpg)
 
+## Table of Contents
+
+- [Philosophy](#philosophy)
+- [Setup](#setup)
+  - [Prerequesites](#prerequesites)
+  - [Local Setup](#local-setup)
+  - [High Convenience Setup](#high-convenience-setup-recommended-but-optional)
+  - [Remote Setup](#remote-setup-optional)
+- [Quickguide](#quickguide)
+- [Support](#support-bug-reports-and-feature-requests)
+- [License](#license)
+- [Contact](#contact--collaboration)
+
 ## Philosophy
 
 WebRemote was created to manage the aircraft systems that a flight crew most frequently interacts with during a normal flight, so that immersion-breaking use of the mouse cursor is almost not necessary anymore. This is especially useful when using a VR headset, where a second person, i.e. pilot monitoring, can assist the pilot flying. WebRemote works best when used in conjunction with FlyByWire's own SimBridge MCDU.
@@ -25,18 +38,29 @@ There are different options to run WebRemote. They build on top of each other, s
 
 You need the following programs installed and running:
  - [Microsoft Flight Simulator](https://www.flightsimulator.com) (2020 version)
- - [FlyByWire's add-on A32NX](https://flybywiresim.com)
+ - [FlyByWire's add-on A32NX](https://flybywiresim.com) (WebRemote is tested with the current development version)
  - [FSUIPC7 for MSFS](http://www.fsuipc.com) (the free/unregistered version is sufficient)
  - [FSUIPC WebSockets Server](http://fsuipcwebsockets.paulhenty.com) (already bundled with FSUIPC, but you have to enable "Auto-Start" under "Add-ons")
 
 ### Local Setup
 
-1. Download `a32nx-webremote` from github and unpack it to a local folder of your choice.
-2. Locate the file `index.html` in the `web` subfolder and open it in your browser.
-3. If you are running FSUIPC WebSockets with its default settings, enter `ws://localhost:2048/fsuipc/` for the WebSocket URL and click "Connect".
-4. If a local setup is all you want, you are now done and may continue with the [quickguide](#quickguide).
+1. Download `a32nx-webremote` and unpack it to a local folder of your choice.
+2. Locate the file `myOffsets.txt` in the `extras/FSUIPC7/` subfolder and copy it to the FSUIPC installation folder. Restart FSUIPC.
+3. Locate the file `index.html` in the `web` subfolder and open it in your browser.
+4. If you are running FSUIPC WebSockets with its default settings, enter `ws://localhost:2048/fsuipc/` for the WebSocket URL and click "Connect".
+5. If a local setup is all you want, you are now done and may continue with the [quickguide](#quickguide).
 
-### Remote Setup
+### High Convenience Setup (recommended but optional)
+
+Instead of downloading a packaged release bundle you could clone the git repository with a git-client of your choice (for example [GitHub's own client](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)).
+
+WebRemote's `main` branch, even though considered a development branch, should always be in a stable state and will probably give you a better experience than an older release-snapshot.
+
+Keep in mind that during upgrades you would still have to manually copy `myOffsets.txt` as described in [Local Setup](#local-setup). You can avoid that by creating a symlink of the same name from FSUIPC's installation directory to WebRemote's using the [mklink](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/mklink) command.
+
+You are now able to coveniently upgrade WebRemote for FBW A32NX with the click of a button!
+
+### Remote Setup (optional)
 
 We will assume you are running MSFS, FSUIPC and FSUIPC WebSockets Server all on Machine **(A)** (with an example IP address of `10.0.0.2`) and want to use WebRemote on another device, called Machine **(B)**. We will also assume both machines are connected via a LAN. This leaves us with two problems to be solved:
 
@@ -111,11 +135,11 @@ WebRemote stores its configuration in the hash part (that comes after the `#`) o
 
 So if you want to save a certain layout, just save the current URL as bookmark in your browser. This way WebRemote can remain a completely static solution while you can still save as many different bookmarks (i.e. configurations) for different scenarios, browser tabs, devices and so on as you like. These URLs can also be copied to other devices where the still work the same.
 
-## Known Issues
+## Support, Bug Reports and Feature Requests
 
-Known bugs and planned improvements are listed on the GitHub [issues page](https://github.com/paulalexandrow/a32nx-webremote/issues). Please check there if your issue has already been addressed.
+If you want to report a bug, please check first on the [issues page](https://github.com/paulalexandrow/a32nx-webremote/issues), if your problem is already known. If not, any feedback, suggestion or feature request is always welcome of course!
 
-If not, any feedback is always welcome of course!
+In case of any problems with installing or running WebRemote, you can [contact](#contact--collaboration) me directly. I will try to answer all inquiries in a timely manner, but please keep in mind that this is a non-profit project I work on in my spare time. 
 
 ## License
 

@@ -281,7 +281,7 @@ input[type=text] {
 }
 
 #sh_baro {
-	text-align:center;
+	text-align: center;
 }
 
 #sh_baro .fcuValue {
@@ -289,13 +289,21 @@ input[type=text] {
 	margin-right: 0.3em;
 }
 
-#sh_baro .controlgroup {
+#button_qnhUnits {
 	display: inline-block;
 	vertical-align: middle;
+	font-size: 0.6em;
+	height: 3.9em;
+	width: 3.9em;
 }
 
-#sh_baro .controlgroup button {
-	width: 3.2em;
+#controlgroupBaroMode {
+	display: block;
+	margin-top: 0.3em;
+}
+
+#controlgroupBaroMode button {
+	width: 33.33%;
 	margin: 0;
 }
 

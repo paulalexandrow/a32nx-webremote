@@ -80,7 +80,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<div class="shieldGroup">
 		<div class="label">HDG</div>
 		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_HDG_MANAGED_DASHES"><!-- we need this hidden to register the LVAR for updates --></div>
-		<span class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_FCU_HEADING_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_HDG_SET)" data-minvalue="0" data-maxvalue="360" data-padzeros="3" data-forceinteger="1" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_HDG_MANAGED_DASHES"></span>
+		<span class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_FCU_HEADING_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_HDG_SET)" data-minvalue="0" data-maxvalue="360" data-padzeros="3" data-fractiondigits="0" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_HDG_MANAGED_DASHES"></span>
 		<div class="pushPullGroup">
 			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_HDG_PUSH)">manage</button>
 			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_HDG_PULL)">pull</button>
@@ -88,7 +88,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 	<div class="shieldGroup">
 		<div class="label">ALT</div>
-		<span class="offset_value_indicator scratchpad_calculator_command fcuValue" data-calculatorcommand="(>K:A32NX.FCU_ALT_SET)" data-minvalue="100" data-maxvalue="49000" data-offsetaddress="0x0818" data-offsettype="uint" data-offsetsize="4" data-padzeros="4" data-displayfactor=".000050061643905839895013123359580052"></span>
+		<span class="offset_value_indicator scratchpad_calculator_command fcuValue" data-calculatorcommand="(>K:A32NX.FCU_ALT_SET)" data-minvalue="100" data-maxvalue="49000" data-offsetaddress="0x0818" data-offsettype="uint" data-offsetsize="4" data-fractiondigits="0" data-padzeros="4" data-displayfactor=".000050061643905839895013123359580052"></span>
 		<div class="pushPullGroup">
 			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_ALT_PUSH)">manage</button>
 			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_ALT_PULL)">pull</button>
@@ -97,7 +97,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<div class="shieldGroup">
 		<div class="label">VS / FPA</div>
 		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_VS_MANAGED"><!-- we need this hidden to register the LVAR for updates --></div>
-		<span id="indicator_vs_vs" class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_AUTOPILOT_VS_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-6000" data-maxvalue="6000" data-padzeros="4" data-alwaysshowsign="1" data-placeholder="-----" data-placeholdertriggerlvar="A32NX_FCU_VS_MANAGED"></span>
+		<span id="indicator_vs_vs" class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_AUTOPILOT_VS_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-6000" data-maxvalue="6000" data-fractiondigits="0" data-padzeros="4" data-alwaysshowsign="1" data-placeholder="-----" data-placeholdertriggerlvar="A32NX_FCU_VS_MANAGED"></span>
 		<span id="indicator_vs_fpa" class="lvar_value_indicator scratchpad_calculator_command fcuValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_FPA_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-99" data-maxvalue="99" data-alwaysshowsign="1" data-fractiondigits="1"></span>
 		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_TRK_FPA_MODE_ACTIVE"><!-- we need this hidden to register the LVAR for updates --></div>
 		<div class="pushPullGroup">
@@ -113,10 +113,13 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogScratchpad"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
 </div>
 
-<div id="sh_baro" class="shield" data-title="Baro" data-width="300" data-noresize="1">
+<div id="sh_baro" class="shield" data-title="Baro" data-width="180" data-noresize="1">
+	<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="XMLVAR_Baro_Selector_HPA_1"><!-- we need this hidden to register the LVAR for updates --></div>
 	<div class="shieldGroup">
-		<span class="offset_value_indicator scratchpad_offset_target qnh_indicator fcuValue" data-offsetaddress="0x0330" data-offsettype="uint" data-offsetsize="2" data-sendfactor="16" data-displayfactor=".0625"  data-minvalue="948" data-maxvalue="1084"></span>
-		<div class="controlgroup">
+		<span id="indicator_baro_hpa" class="offset_value_indicator scratchpad_offset_target qnh_indicator fcuValue" data-offsetaddress="0x0330" data-offsettype="uint" data-offsetsize="2" data-sendfactor="16" data-displayfactor=".0625"  data-minvalue="948" data-maxvalue="1084" data-fractiondigits="0"></span>
+		<span id="indicator_baro_inhg" class="offset_value_indicator scratchpad_offset_target qnh_indicator fcuValue" style="display:none" data-offsetaddress="0x0330" data-offsettype="uint" data-offsetsize="2" data-sendfactor="5.4182218667" data-displayfactor=".0018456239" data-minvalue="2799" data-maxvalue="3201" data-fractiondigits="2"></span>
+		<button id="button_qnhUnits" class="calculator_button" data-calculatorcommands="(L:XMLVAR_Baro_Selector_HPA_1) ! (>L:XMLVAR_Baro_Selector_HPA_1)">hPa</br>inHg</button>
+		<div id="controlgroupBaroMode" class="controlgroup">
 			<button class="lvar_selector_button" data-lvarname="XMLVAR_Baro1_Mode" data-lvarvalue="1">QNH</button>
 			<button class="lvar_selector_button" data-lvarname="XMLVAR_Baro1_Mode" data-lvarvalue="0">QFE</button>
 			<button id="button_baro_mode_std" class="lvar_selector_button" data-lvarname="XMLVAR_Baro1_Mode" data-lvarvalue="2">STD</button>
@@ -329,6 +332,11 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<p>
 		To enter an FPA you have to enter the value <em>times 10</em>.<br />
 		For example: enter <span class="numericText">-33</span> for an FPA of <span class="numericText">-3.3</span> degrees.
+	</p>
+	<h4>Entering inHg Baro Values</h4>
+	<p>
+		To enter a QNH in inHg you have to enter the value <em>times 100</em>.<br />
+		For example: enter <span class="numericText">2992</span> for a QNH of <span class="numericText">29.92</span> inHg.
 	</p>
 </div>
 

@@ -229,8 +229,20 @@ $(function() {
 
 					}
 				}
-				// ... BARO modes
+				// ... BARO
 				if (key == "XMLVAR_Baro1_Mode" && val == "3") val = "2";
+				if (key == "XMLVAR_Baro_Selector_HPA_1") {
+					if (val == 1) {
+						// hPa
+						$("#indicator_baro_inhg").hide();
+						$("#indicator_baro_hpa").show();
+					} else {
+						// inHg
+						$("#indicator_baro_inhg").show();
+						$("#indicator_baro_hpa").hide();
+
+					}
+				}
 				// ... SPOILERS
 				if (key == "A32NX_SPOILERS_HANDLE_POSITION") {
 					$("#spoilerSlider").slider("value", 1 - val);
@@ -251,9 +263,6 @@ $(function() {
 					case "value_indicator":
 						$(".lvar_value_indicator[data-lvarname='" + key + "\']").each(function() {
 							let value = parseFloat(val);
-							if ($(this).data("forceinteger")) {
-								value = Math.round(value);
-							}
 							if ($(this).data("placeholder") && data.hasOwnProperty($(this).data("placeholdertriggerlvar")) && data[$(this).data("placeholdertriggerlvar")]) {
 								$(this).text($(this).data("placeholder"));
 							} else {
@@ -292,15 +301,18 @@ $(function() {
 						break;
 					case "value_indicator":
 						$(".offset_value_indicator[data-offsetaddress=\'" + key + "\']").each(function() {
-							let str = val;
+							let value = parseFloat(val);
 							if ($(this).data("displayfactor")) {
-								str = Math.round(str * parseFloat($(this).data("displayfactor")));
+								value = value * parseFloat($(this).data("displayfactor"));
 							}
-							if ($(this).data("padzeros")) {
-								str = str.toString().padStart($(this).data("padzeros"), "0")
+							let str;
+							if ($(this).data("fractiondigits") !== undefined) {
+								str = value.toFixed($(this).data("fractiondigits"));
+							} else {
+								str = value.toString();
 							}
-							$(this).text(str);
-							$(this).data("lastvalue", str);
+							$(this).data("lastvalue", $(this).data("padzeros") ? padZeros(str, $(this).data("padzeros")) : str);
+							$(this).text($(this).data("lastvalue"));
 						});
 						updateBaro(); // some hardcoded necessity
 						break;
@@ -314,7 +326,9 @@ $(function() {
 		if ($("#button_baro_mode_std").hasClass("ui-state-active")) {
 			$(".qnh_indicator").text("Std");
 		} else {
-			$(".qnh_indicator").text($(".qnh_indicator").data("lastvalue"));
+			$(".qnh_indicator").each(function() {
+				$(this).text($(this).data("lastvalue"));
+			});
 		}
 	}
 

@@ -44,17 +44,41 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<h1>
 		WebRemote for FBW A32NX
 	</h1>
-	<div id="shieldButtons">
-		<button class="halfsize" data-targetshield="sh_efis1">Left ND</button><button class="halfsize" data-targetshield="sh_efis2">Right ND</button>
-		<button class="halfsize" data-targetshield="sh_baro">Baro</button><button class="halfsize" data-targetshield="sh_fcu">FCU</button>
-		<button data-targetshield="sh_fcub">FCU Buttons</button>
-		<button data-targetshield="sh_scratch">Scratchpad</button>
-		<button data-targetshield="sh_gear">Gear &amp; Brakes</button>
-		<button data-targetshield="sh_surf">Flaps &amp; Speed Brake</button>
-		<button data-targetshield="sh_warn">Warning Panel</button>
-		<button data-targetshield="sh_sim">Sim Control</button>
+	<!-- group ids are short to save URL space -->
+	<div id="mg_g" class="buttonGroup switchGroup">
+		<div class="header">
+			<button data-targetgroup="mg_o">&lt;</button><h2>Glare Shield</h2><button data-targetgroup="mg_p">&gt;</button>
+		</div>
+		<button class="shieldButton halfsize" data-targetshield="sh_efis1">Left ND</button><button class="shieldButton halfsize" data-targetshield="sh_efis2">Right ND</button>
+		<button class="shieldButton halfsize" data-targetshield="sh_fcu">FCU</button><button class="shieldButton halfsize" data-targetshield="sh_fcub">Autoflight</button>
+		<button class="shieldButton halfsize" data-targetshield="sh_baro">Baro</button><button class="shieldButton halfsize" data-targetshield="sh_warn">Warning</button>
 	</div>
-	<div id="menuButtons">
+	<div id="mg_p" class="buttonGroup switchGroup ui-helper-hidden">
+		<div class="header">
+			<button data-targetgroup="mg_g">&lt;</button><h2>Pedestal</h2><button data-targetgroup="mg_o">&gt;</button>
+		</div>
+		<button class="shieldButton" data-targetshield="sh_gear">Gear &amp; Brakes</button>
+		<button class="shieldButton" data-targetshield="sh_surf">Flaps &amp; Speed Brake</button>
+		<button class="shieldButton halfsize" data-targetshield="sh_trim">Trim</button><button class="shieldButton halfsize" data-targetshield="sh_eng">Engines</button>
+		<button class="shieldButton" data-targetshield="sh_atc">ATC</button>
+	</div>
+	<div id="mg_o" class="buttonGroup switchGroup ui-helper-hidden">
+		<div class="header">
+			<button data-targetgroup="mg_p">&lt;</button><h2>Overhead</h2><button data-targetgroup="mg_g">&gt;</button>
+		</div>
+		<button class="shieldButton halfsize" data-targetshield="sh_adir">ADIRs</button><button class="shieldButton halfsize" data-targetshield="sh_fire">Fire</button>
+		<button class="shieldButton halfsize" data-targetshield="sh_hyd">Hydraulic</button><button class="shieldButton halfsize" data-targetshield="sh_fuel">Fuel</button>
+		<button class="shieldButton halfsize" data-targetshield="sh_elec">Electric</button><button class="shieldButton halfsize" data-targetshield="sh_cond">Air Cond</button>
+		<button class="shieldButton halfsize" data-targetshield="sh_ice">Anti Ice</button><button class="shieldButton halfsize" data-targetshield="sh_apu">APU</button>
+		<button class="shieldButton halfsize" data-targetshield="sh_lte">Ext Lights</button><button class="shieldButton halfsize" data-targetshield="sh_lti">Int Lights</button>
+		<button class="shieldButton halfsize" data-targetshield="sh_gpws">GPWS</button><button class="shieldButton halfsize" data-targetshield="sh_om">Misc</button>
+	</div>
+
+	<div class="buttonGroup">
+		<button class="shieldButton" data-targetshield="sh_scratch">Scratchpad</button>
+		<button class="shieldButton" data-targetshield="sh_sim">Sim Control</button>
+	</div>
+	<div class="buttonGroup">
 		<button id="aboutButton" class="helpButton" data-targetdialog="helpDialogAbout">About</button>
 		<button id="disconnectButton">Disconnect</button>
 	</div>
@@ -245,7 +269,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
-<div id="sh_fcub" class="shield" data-title="FCU Buttons" data-width="240" data-noresize="1">
+<div id="sh_fcub" class="shield" data-title="Autoflight" data-width="240" data-noresize="1">
 	<div id="shieldGroupAutopilot" class="shieldGroup"><div id="controlgroupAutopilot" class="controlgroup"><button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOPILOT_1_ACTIVE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_AP_1_PUSH)">AP1</button>
 			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOTHRUST_STATUS"  data-highlightvalue="1" data-alternativehighlightvalue="2" data-calculatorcommands="(>K:A32NX.FCU_ATHR_PUSH)">A/THR</button>
 			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOPILOT_2_ACTIVE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_AP_2_PUSH)">AP2</button>

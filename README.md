@@ -131,7 +131,7 @@ WebRemote stores its configuration in the hash part (that comes after the `#`) o
 - The WebSocket URL in use
 - The state of the "autoconnect" checkbox
 - The position and size of all open widgets
-- The state of the menu (expanded or collapsed)
+- The position and content of the side-menu
 
 So if you want to save a certain layout, just save the current URL as bookmark in your browser. This way WebRemote can remain a completely static solution while you can still save as many different bookmarks (i.e. configurations) for different scenarios, browser tabs, devices and so on as you like. These URLs can also be copied to other devices where the still work the same.
 

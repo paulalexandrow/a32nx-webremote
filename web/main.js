@@ -197,6 +197,10 @@ $(function() {
 		if (p["m"]) {
 			openMenu(true);
 		}
+		if (p["g"]) {
+			$(".buttonGroup.switchGroup").hide();
+			$("#" + p["g"]).show();
+		}
 		inhibitUpdateHash = false;
 	};
 
@@ -493,7 +497,13 @@ $(function() {
 		}
     });
 
-	$("#shieldButtons button").click(function() {
+	$(".buttonGroup .header button").click(function() {
+		$(".buttonGroup.switchGroup").hide();
+		$("#" + $(this).data("targetgroup")).show();
+		updateHash({ "g": $(this).data("targetgroup") });
+	});
+
+	$(".shieldButton").click(function() {
 		let d = $("#" + $(this).data("targetshield"));
 		if (d.dialog("isOpen")) {
 			d.dialog("close");
@@ -516,7 +526,7 @@ $(function() {
 				$(".ui-dialog-titlebar", $(this).dialog("widget")).append($(".helpButton", this));
 			},
 			close: function() {
-				$("#shieldButtons button[data-targetshield='" + $(this).attr("id") + "']").removeClass("ui-state-active");
+				$(".shieldButton[data-targetshield='" + $(this).attr("id") + "']").removeClass("ui-state-active");
 				updateShieldConfig();
 			},
 			beforeClose: function() {
@@ -524,7 +534,7 @@ $(function() {
 				$(this).data("lastPosition", { left: p.left, top: p.top }); // This position "save" will not survive in the URL, but in the current window. This is by design.
 			},
 			open: function() {
-				$("#shieldButtons button[data-targetshield='" + $(this).attr("id") + "']").addClass("ui-state-active");
+				$(".shieldButton[data-targetshield='" + $(this).attr("id") + "']").addClass("ui-state-active");
 				if ($(this).data("lastPosition")) {
 					$(this).dialog("widget").position({
 						my: "left top",

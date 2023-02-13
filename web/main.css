@@ -149,13 +149,38 @@ input[type=text] {
 	width: 100%;
 }
 
-#menuButtons {
-	margin-top: 2em;
-}
-
 #menu h1 {
 	margin-bottom: 1em;
 	font-size: 1.8em;
+}
+
+.buttonGroup {
+	margin-top: 2em;
+}
+
+.buttonGroup .header {
+	margin-bottom: 0.8em;
+	white-space: nowrap;
+	text-align: center;
+	padding-right: 2%;
+}
+
+.buttonGroup .header>*, #menu .buttonGroup .header button.ui-widget {
+	display: inline-block;
+	width: 60%;
+	margin: 0;
+	box-sizing: border-box;
+	vertical-align: middle;
+}
+
+.buttonGroup .header h2 {
+	font-size: 16pt;
+}
+
+#menu .buttonGroup .header button.ui-widget {
+	 width: 20%;
+	 text-align: center;
+	 margin-bottom: 0.1em;
 }
 
 #closeMenuAction, #openMenuAction {

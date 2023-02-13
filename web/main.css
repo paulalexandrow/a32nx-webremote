@@ -20,7 +20,7 @@ body {
 	color: #FFF;
 	font-family: Arial,Helvetica,sans-serif;
 	font-size: 14pt;
-	background: #a7b7ca url(background.png) repeat;
+	background: #A7B7CA url(background.png) repeat;
 	padding: 0;
 	margin: 0;
 }
@@ -114,7 +114,7 @@ input[type=text] {
 	left: 0;
 	z-index: 9999;
 	text-align: center;
-	background: #3b4c61EE;
+	background: #3B4C61EE;
 	padding: 0 3.75em 0 1.9em;
 }
 
@@ -143,7 +143,7 @@ input[type=text] {
     position: absolute;
     bottom: 0;
 	padding: 0.5em;
-	background: #3b4c61;
+	background: #3B4C61;
 	font-size: 0.8em;
 	left: 0;
 	width: 100%;
@@ -239,6 +239,77 @@ input[type=text] {
 	right: 1.7em;
 }
 
+/* GENERIC PUSHBUTTONS */
+
+.pushButton, .pushButton.ui-state-active {
+	display: inline-block;
+	width: 3.5em;
+	border: none;
+	background: transparent;
+	text-align: center;
+}
+
+.pushButton>.label {
+	text-align: center;
+	text-align-last: center;
+	font-size: 0.7em;
+	margin: 0;
+	padding-bottom: 0;
+}
+
+.pb, .pb.ui-state-active {
+	display: inline-block;
+	background: linear-gradient(328deg, rgba(42,42,42,1) 0%, rgba(47,47,47,1) 83%);
+	border: 0.2em solid #222;
+	width: 4.5em;
+	height: 4.5em;
+	cursor: pointer;
+	font-size: 0.7em;
+	border-radius: 0.3em;
+	text-align: center;
+	color: #222;
+}
+
+.pb:hover, .pb.ui-state-active:hover {
+	background: linear-gradient(328deg, rgba(57,57,57,1) 0%, rgba(62,62,62,1) 83%);
+}
+
+.pb>span {
+	display: inline-block;
+	margin-top: 0.55em;
+	box-sizing: border-box;
+}
+
+.pb .main {
+	border: 0.15em solid #222;
+	border-radius: 0.1em;
+	padding: 0.2em 0.2em 0.1em 0.2em;
+	width: 80%;
+	
+}
+
+.pb.ui-state-active .main {
+	color: #FFF;
+	border-color: #FFF;
+	text-shadow: 0 0 0.1em #FFF;
+}
+
+.pushButton.ui-state-active .pb .secondary {
+	color: #FFDF4F;
+	text-shadow: 0 0 0.1em #FFDF4F;
+}
+
+.pushButton.ui-state-active .pb .secondary.activeGreen {
+	color: #2BEC24;
+	text-shadow: 0 0 0.1em #2BEC24;
+}
+
+.pushButton .pb.ui-state-active .main.activeBlue {
+	color: #54BEFF;
+	border-color: #54BEFF;
+	text-shadow: 0 0 0.1em #54BEFF;
+}
+
 /* INDIVIDUAL SHIELDS */
 
 .fcuValue {
@@ -246,9 +317,9 @@ input[type=text] {
 	font-size: 1.4em;
 	font-weight: bold;
 	text-align: right;
-	color:  #ff8d00;
-	background-color: #2d1900;
-	box-shadow: inset 0 0 0.3em #ff8d00;
+	color:  #FF8D00;
+	background-color: #2D1900;
+	box-shadow: inset 0 0 0.3em #FF8D00;
 	display: inline-block;
 	vertical-align: middle;
 	padding: 0.2em 0.5em;
@@ -290,7 +361,8 @@ input[type=text] {
 }
 
 #shieldGroupAutobrake #indicator_decel.ui-state-active {
-	color: #2bec24;
+	color: #2BEC24;
+	text-shadow: 0 0 0.1em #2BEC24;
 }
 
 #shieldGroupGearExtras button {
@@ -498,7 +570,7 @@ input[type=text] {
 	height:5.5em;
 	margin-right: 0.8em;
 	border-width: 0.2em;
-	border-color: #202c3b;
+	border-color: #202C3B;
 }
 
 #sh_warn button:last-child {
@@ -536,7 +608,7 @@ input[type=text] {
 #spoilerSlider {
 	height: 8.4em;
 	margin: 1.2em 0.65em 0 1em;
-	background: #202c3b;
+	background: #202C3B;
 }
 
 #spoilerSlider .ui-slider-handle {
@@ -547,7 +619,7 @@ input[type=text] {
 }
 
 #spoilerSlider .ui-slider-range {
-	background: #202c3b;
+	background: #202C3B;
 }
 
 #flapsButtons button {
@@ -557,19 +629,19 @@ input[type=text] {
 #button_autoland.ui-state-active {
 	color: #000;
 	background: #FF1528;
-	border-color: #202c3b;
+	border-color: #202C3B;
 }
 
 #button_masterwarn.ui-state-active {
 	color: #FF1528;
 	background: #000;
-	border-color: #202c3b;
+	border-color: #202C3B;
 }
 
 #button_mastercaut.ui-state-active {
 	color: #FFDF4F;
 	background: #000;
-	border-color: #202c3b;
+	border-color: #202C3B;
 }
 
 #sh_sim .shieldGroup {

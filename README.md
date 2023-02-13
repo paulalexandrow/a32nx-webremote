@@ -133,7 +133,7 @@ WebRemote stores its configuration in the hash part (that comes after the `#`) o
 - The position and size of all open widgets
 - The state of the menu (expanded or collapsed)
 
-So if you want to save a certain layout, just save the current URL as bookmark in your browser. This way WebRemote can remain a completely static solution while you can still save as many different bookmarks (i.e. configurations) for different scenarios, browser tabs, devices and so on as you like. These URLs can also be copied to other devices where the still work the same.
+So if you want to save a certain layout, just save the current URL as bookmark in your browser. This way WebRemote can remain a completely static solution while you can still save as many different bookmarks (i.e. configurations) for different scenarios, browser tabs, devices and so on as you like. These URLs can also be copied to other devices where they still work the same.
 
 ## Support, Bug Reports and Feature Requests
 

@@ -667,6 +667,22 @@ input[type=text] {
 	width: 80%;
 }
 
+#sh_adir .shieldGroup {
+	max-width: 17.5em;
+	text-align: center;
+	display: inline-block;
+}
+
+#sh_adir .shieldGroup>* {
+	vertical-align: middle;
+}
+
+#sh_adir button {
+	margin-top: 0.6em;
+	width: 3.3em;
+	height: 3.3em;
+}
+
 /* HELP DIALOGS */
 
 .helpDialog.ui-dialog-content {

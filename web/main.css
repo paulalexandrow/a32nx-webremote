@@ -391,6 +391,18 @@ input[type=text] {
 	margin-right: 0;
 }
 
+#sh_fuel .shieldGroup {
+	display: inline-block;
+	text-align: center;
+	width: 12em;
+}
+
+#sh_fuel .shieldGroup>.label {
+	font-size: 0.7em;
+	text-align: center;
+	text-align-last: center;
+}
+
 
 #scratchpad {
 	font-family: monospace;

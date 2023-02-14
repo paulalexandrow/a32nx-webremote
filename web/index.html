@@ -408,6 +408,48 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
+<div id="sh_fuel" class="shield" data-title="Fuel" data-width="735">
+	<div class="shieldGroup">
+		<div class="label">L TK PUMPS</div>
+		<div class="pushButton"><!-- FAULT light not yet implemented by FBW TODO? -->
+			<div class="label">1</div>
+			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66C6" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="2 (>K:FUELSYSTEM_PUMP_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+		</div>
+		<div class="pushButton"><!-- FAULT light not yet implemented by FBW TODO? -->
+			<div class="label">2</div>
+			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66C9" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="5 (>K:FUELSYSTEM_PUMP_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+		</div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">CTR TK</div>
+		<div class="pushButton"><!-- FAULT light not yet implemented by FBW TODO? -->
+			<div class="label">PUMP 1</div>
+			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66C5" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="1 (>K:FUELSYSTEM_PUMP_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+		</div>
+
+		<div class="pushButton"><!-- FAULT light not yet implemented by FBW TODO? -->
+			<div class="label">X FEED</div>
+			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66D1" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="3 (>K:FUELSYSTEM_VALVE_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">ON</span></div>
+		</div>
+
+		<div class="pushButton"><!-- FAULT light not yet implemented by FBW TODO? -->
+			<div class="label">PUMP 2</div>
+			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66C8" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="4 (>K:FUELSYSTEM_PUMP_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+		</div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">R TK PUMPS</div>
+		<div class="pushButton"><!-- FAULT light not yet implemented by FBW TODO? -->
+			<div class="label">1</div>
+			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66C7" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="3 (>K:FUELSYSTEM_PUMP_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+		</div>
+		<div class="pushButton"><!-- FAULT light not yet implemented by FBW TODO? -->
+			<div class="label">2</div>
+			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66D0" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="6 (>K:FUELSYSTEM_PUMP_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+		</div>
+	</div>
+</div>
+
 <div id="sh_adir" class="shield" data-title="ADIRs" data-width="340">
 	<div class="shieldGroup">
 		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ADIRS_IR_1_PB_HAS_FAULT" data-highlightvalue="1">

@@ -337,30 +337,65 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
-<div id="sh_elec" class="shield" data-title="Electric" data-width="500">
+<div id="sh_elec" class="shield" data-title="Electric" data-width="480">
 	<div class="shieldGroup">
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ELEC_BAT_1_PB_HAS_FAULT" data-highlightvalue="1">
-			<div class="label">BAT 1</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ELEC_BAT_1_PB_IS_AUTO" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ELEC_BAT_1_PB_IS_AUTO)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ELEC_BAT_1_PB_IS_AUTO)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
-		</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ELEC_BAT_2_PB_HAS_FAULT" data-highlightvalue="1">
-			<div class="label">BAT 2</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ELEC_BAT_2_PB_IS_AUTO" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ELEC_BAT_2_PB_IS_AUTO)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ELEC_BAT_2_PB_IS_AUTO)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
-		</div>
+		<span class="nobreak">
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ELEC_BAT_1_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">BAT 1</div>
+				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ELEC_BAT_1_PB_IS_AUTO" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ELEC_BAT_1_PB_IS_AUTO)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ELEC_BAT_1_PB_IS_AUTO)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+			</div>
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ELEC_BAT_2_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">BAT 2</div>
+				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ELEC_BAT_2_PB_IS_AUTO" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ELEC_BAT_2_PB_IS_AUTO)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ELEC_BAT_2_PB_IS_AUTO)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+			</div>
+		</span>
 		<div class="pushButton offset_status_indicator" data-offsetaddress="0x07AA" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1">
 			<div class="label">EXT PWR</div>
 			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x07AB" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(>K:TOGGLE_EXTERNAL_POWER)"><span class="secondary activeGreen">AVAIL</span><br/><span class="main activeBlue">ON</span></div>
 		</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ELEC_ENG_GEN_1_PB_HAS_FAULT" data-highlightvalue="1">
-			<div class="label">GEN 1</div>
-			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66C2" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="(>K:TOGGLE_ALTERNATOR1)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+		<span class="nobreak">
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ELEC_ENG_GEN_1_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">GEN 1</div>
+				<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66C2" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="(>K:TOGGLE_ALTERNATOR1)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+			</div>
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ELEC_ENG_GEN_2_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">GEN 2</div>
+				<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66C3" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="(>K:TOGGLE_ALTERNATOR2)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+			</div>
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ELEC_APU_GEN_1_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">APU GEN</div>
+				<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66C4" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="(>K:APU_GENERATOR_SWITCH_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+			</div>
+		</span>
+		<div class="pushButton">
+			<div class="label">BUS TIE</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ELEC_BUS_TIE_PB_IS_AUTO" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ELEC_BUS_TIE_PB_IS_AUTO)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ELEC_BUS_TIE_PB_IS_AUTO)"><span class="secondary">&nbsp;</span><br/><span class="main">OFF</span></div>
 		</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ELEC_ENG_GEN_2_PB_HAS_FAULT" data-highlightvalue="1">
-			<div class="label">GEN 2</div>
-			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66C3" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="(>K:TOGGLE_ALTERNATOR2)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
-		</div>		
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ELEC_AC_ESS_FEED_PB_HAS_FAULT" data-highlightvalue="1">
+			<div class="label">AC ESS</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ELEC_AC_ESS_FEED_PB_IS_NORMAL" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ELEC_AC_ESS_FEED_PB_IS_NORMAL)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ELEC_AC_ESS_FEED_PB_IS_NORMAL)"><span class="secondary">FAULT</span><br/><span class="main">ALTN</span></div>
+		</div>
+		<span class="nobreak">
+			<div class="pushButton guarded lvar_status_indicator" data-lvarname="A32NX_OVHD_ELEC_IDG_1_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">IDG 1</div>
+				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ELEC_IDG_1_PB_IS_RELEASED" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_OVHD_ELEC_IDG_1_PB_IS_RELEASED)"><span class="secondary">FAULT</span><br/><span class="main activeRed">DISC</span></div>
+			</div>
+			<div class="pushButton guarded lvar_status_indicator" data-lvarname="A32NX_OVHD_ELEC_IDG_2_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">IDG 2</div>
+				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ELEC_IDG_2_PB_IS_RELEASED" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_OVHD_ELEC_IDG_2_PB_IS_RELEASED)"><span class="secondary">FAULT</span><br/><span class="main activeRed">DISC</span></div>
+			</div>
+		</span>
+		<span class="nobreak">
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ELEC_GALY_AND_CAB_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">GALY</div>
+				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ELEC_GALY_AND_CAB_PB_IS_AUTO" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ELEC_GALY_AND_CAB_PB_IS_AUTO)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ELEC_GALY_AND_CAB_PB_IS_AUTO)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+			</div>
+			<div class="pushButton">
+				<div class="label">COMM</div>
+				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ELEC_COMMERCIAL_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ELEC_COMMERCIAL_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ELEC_COMMERCIAL_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+			</div>
+		</span>
 	</div>
-	<!-- TODO APU GEN, ACC ESS, IDG1, IDG2, BUS TIE + layout/design + resizing + initial size -->	
 </div>
 
 <div id="helpDialogScratchpad" class="helpDialog" data-title="Help | Scratchpad" data-width="700">

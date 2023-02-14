@@ -39,6 +39,10 @@ button {
 	white-space: nowrap;
 }
 
+.nobreak {
+	white-space: nowrap;
+}
+
 /* GENERAL FORMS */
 
 input, button, textarea {
@@ -243,10 +247,11 @@ input[type=text] {
 
 .pushButton, .pushButton.ui-state-active {
 	display: inline-block;
-	width: 3.5em;
+	width: 3.8em;
 	border: none;
 	background: transparent;
 	text-align: center;
+	height: 4.7em;
 }
 
 .pushButton>.label {
@@ -254,7 +259,7 @@ input[type=text] {
 	text-align-last: center;
 	font-size: 0.7em;
 	margin: 0;
-	padding-bottom: 0;
+	padding-bottom: 0.15em;
 }
 
 .pb, .pb.ui-state-active {
@@ -268,6 +273,10 @@ input[type=text] {
 	border-radius: 0.3em;
 	text-align: center;
 	color: #222;
+}
+
+.pushButton.guarded .pb {
+	border-color: #A8111D;
 }
 
 .pb:hover, .pb.ui-state-active:hover {
@@ -308,6 +317,12 @@ input[type=text] {
 	color: #54BEFF;
 	border-color: #54BEFF;
 	text-shadow: 0 0 0.1em #54BEFF;
+}
+
+.pushButton .pb.ui-state-active .main.activeRed {
+	color: #E01223;
+	border-color: #E01223;
+	text-shadow: 0 0 0.1em #E01223;
 }
 
 /* INDIVIDUAL SHIELDS */

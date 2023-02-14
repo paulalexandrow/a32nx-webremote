@@ -255,7 +255,7 @@ input[type=text] {
 	border: none;
 	background: transparent;
 	text-align: center;
-	height: 4.7em;
+	margin-bottom: 0.4em;
 }
 
 .pushButton>.label {
@@ -357,10 +357,6 @@ input[type=text] {
 	margin-left: 0.3em;
 }
 
-#autobrakeGroup {
-	height: 7.3em;
-}
-
 /* hint: only the selected autobrake button should display the DECEL light */
 #autobrakeGroup .pushButton.ui-state-active .pb .secondary.activeGreen {
 	color: #222;
@@ -403,6 +399,46 @@ input[type=text] {
 	text-align-last: center;
 }
 
+#shieldGroupWipers, #shieldGroupOverheadMisc1 {
+	width: 12.2em;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#shieldGroupOverheadMisc1 .pushButton {
+	margin-bottom: 0;
+	width: 50%;
+	box-sizing: border-box;
+}
+
+#shieldGroupWipers>div .label {
+	font-size: 0.8em;
+	width: 1em;
+	display: inline-block;
+}
+
+#shieldGroupWipers>div:last-child {
+	margin-top: 0.5em;
+	margin-bottom: 0.2em;
+}
+
+#shieldGroupWipers .controlgroup button {
+	width: 4em;
+}
+
+/* Setting the wipers to OFF does not set the circuit power to zero, so we need to use some CSS magic here */
+#shieldGroupWipers .controlgroup.ui-state-active {
+	background: transparent;
+	border: none;
+}
+#shieldGroupWipers .controlgroup:not(.ui-state-active) button {
+	border: 1px solid #333;
+    background: #333 url(libs/jquery-ui/images/ui-bg_inset-soft_30_333_1x100.png) 50% 50% repeat-x;
+}
+#shieldGroupWipers .controlgroup:not(.ui-state-active) button:first-child {
+	border: 1px solid #1bc215;
+    background: #1bc215 url(libs/jquery-ui/images/ui-bg_highlight-soft_40_1bc215_1x100.png) 50% 50% repeat-x;
+}
 
 #scratchpad {
 	font-family: monospace;
@@ -682,8 +718,6 @@ input[type=text] {
 }
 
 #sh_adir .shieldGroup {
-	max-width: 17.5em;
-	text-align: center;
 	display: inline-block;
 }
 

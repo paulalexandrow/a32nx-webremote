@@ -511,6 +511,37 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
+<div id="sh_om" class="shield" data-title="Overhead Misc" data-width="245">
+	<div id="shieldGroupOverheadMisc1" class="shieldGroup">
+		<div class="pushButton">
+			<div class="label">CVR<br/>GND CTL</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_RCDR_GROUND_CONTROL_ON" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_RCDR_GROUND_CONTROL_ON)" data-disablecalculatorcommands="0 (>L:A32NX_RCDR_GROUND_CONTROL_ON)"><span class="secondary">&nbsp;</span><br/><span class="main activeBlue">ON</span></div>
+		</div><div class="pushButton">
+			<div class="label">OXY CREW<br/>SUPPLY</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="PUSH_OVHD_OXYGEN_CREW" data-highlightvalue="1" data-calculatorcommands="1 (>L:PUSH_OVHD_OXYGEN_CREW)" data-disablecalculatorcommands="0 (>L:PUSH_OVHD_OXYGEN_CREW)"><span class="secondary">&nbsp;</span><br/><span class="main">OFF</span></div>
+		</div>
+	</div>
+	<div id="shieldGroupWipers" class="shieldGroup">
+		<div class="label">WIPERS</div>
+		<div>
+			<span class="label">L</span>
+			<div class="controlgroup offset_status_indicator" data-offsetaddress="0x66D2" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1">
+				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D3" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0"   data-calculatorcommands="(A:CIRCUIT SWITCH ON:77, Bool) if{ 77 (>K:ELECTRICAL_CIRCUIT_TOGGLE) }">OFF</button>
+				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D3" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="75"  data-calculatorcommands="(A:CIRCUIT SWITCH ON:77, Bool) ! if{ 77 (>K:ELECTRICAL_CIRCUIT_TOGGLE) } 75 77 (>K:2:ELECTRICAL_CIRCUIT_POWER_SETTING_SET)">SLOW</button>
+				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D3" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="100" data-calculatorcommands="(A:CIRCUIT SWITCH ON:77, Bool) ! if{ 77 (>K:ELECTRICAL_CIRCUIT_TOGGLE) } 100 77 (>K:2:ELECTRICAL_CIRCUIT_POWER_SETTING_SET)">FAST</button>
+			</div>
+		</div>
+		<div>
+			<span class="label">R</span>
+			<div class="controlgroup offset_status_indicator" data-offsetaddress="0x66D4" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1">
+				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D5" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0"   data-calculatorcommands="(A:CIRCUIT SWITCH ON:80, Bool) if{ 80 (>K:ELECTRICAL_CIRCUIT_TOGGLE) }">OFF</button>
+				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D5" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="75"  data-calculatorcommands="(A:CIRCUIT SWITCH ON:80, Bool) ! if{ 80 (>K:ELECTRICAL_CIRCUIT_TOGGLE) } 75 80 (>K:2:ELECTRICAL_CIRCUIT_POWER_SETTING_SET)">SLOW</button>
+				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D5" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="100" data-calculatorcommands="(A:CIRCUIT SWITCH ON:80, Bool) ! if{ 80 (>K:ELECTRICAL_CIRCUIT_TOGGLE) } 100 80 (>K:2:ELECTRICAL_CIRCUIT_POWER_SETTING_SET)">FAST</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 <div id="helpDialogScratchpad" class="helpDialog" data-title="Help | Scratchpad" data-width="700">
 	<h4>Using the Scratchpad</h4>
 	<p>

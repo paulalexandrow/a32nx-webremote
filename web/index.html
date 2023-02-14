@@ -280,17 +280,27 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
-<div id="sh_gear" class="shield" data-title="Gear &amp; Brakes" data-width="300" data-noresize="1">
-	<div id="shieldGroupAutobrake" class="shieldGroup">
+<div id="sh_gear" class="shield" data-title="Gear &amp; Brakes" data-width="350">
+	<div id="autobrakeGroup" class="shieldGroup">
 		<div class="label">AUTO BRK</div>
-		<div class="controlgroup">
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.AUTOBRAKE_BUTTON_LO)">LO</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="2" data-calculatorcommands="(>K:A32NX.AUTOBRAKE_BUTTON_MED)">MED</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="3" data-calculatorcommands="(>K:A32NX.AUTOBRAKE_BUTTON_MAX)">MAX</button>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_AUTOBRAKES_DECEL_LIGHT" data-highlightvalue="1">
+			<div class="label">LO</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.AUTOBRAKE_BUTTON_LO)")><span class="secondary activeGreen">DECEL</span><br/><span class="main activeBlue">ON</span></div>
 		</div>
-		<span id="indicator_decel" class="lvar_status_indicator" data-lvarname="A32NX_AUTOBRAKES_DECEL_LIGHT" data-highlightvalue="1">DECEL</span>
-	</div><div id="shieldGroupGearExtras" class="shieldGroup">
-		<button class="lvar_selector_button" data-lvarname="A32NX_PARK_BRAKE_LEVER_POS" data-lvarvalue="1" data-lvardeselectvalue="0">PARK BRK</button><button class="lvar_selector_button" data-lvarname="A32NX_GEAR_LEVER_POSITION_REQUEST" data-lvarvalue="1" data-lvardeselectvalue="0">GEAR</button>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_AUTOBRAKES_DECEL_LIGHT" data-highlightvalue="1">
+			<div class="label">MED</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="2" data-calculatorcommands="(>K:A32NX.AUTOBRAKE_BUTTON_MED)")><span class="secondary activeGreen">DECEL</span><br/><span class="main activeBlue">ON</span></div>
+		</div>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_AUTOBRAKES_DECEL_LIGHT" data-highlightvalue="1">
+			<div class="label">MAX</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="3" data-calculatorcommands="(>K:A32NX.AUTOBRAKE_BUTTON_MAX)")><span class="secondary activeGreen">DECEL</span><br/><span class="main activeBlue">ON</span></div>
+		</div>
+		<div id="brakefanPushButton" class="pushButton lvar_status_indicator" data-lvarname="A32NX_BRAKES_HOT" data-highlightvalue="1">
+			<div class="label">BRK FAN</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_BRAKE_FAN_BTN_PRESSED" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_BRAKE_FAN_BTN_PRESSED)" data-disablecalculatorcommands="0 (>L:A32NX_BRAKE_FAN_BTN_PRESSED)"><span class="secondary">HOT</span><br/><span class="main">ON</span></div>
+		</div>
+	</div><div id="gearGroup" class="shieldGroup">
+		<button class="lvar_selector_button" data-lvarname="A32NX_PARK_BRAKE_LEVER_POS" data-lvarvalue="1" data-lvardeselectvalue="0">PARK BRK</button><button class="offset_status_indicator calculator_button" data-offsetaddress="0x0BFD" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(>K:ANTISKID_BRAKES_TOGGLE)">ANTI SKID</button><button class="lvar_selector_button" data-lvarname="A32NX_GEAR_LEVER_POSITION_REQUEST" data-lvarvalue="1" data-lvardeselectvalue="0">GEAR</button>
 	</div>
 	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogGear"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
 </div>

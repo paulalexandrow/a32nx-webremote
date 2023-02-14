@@ -66,6 +66,10 @@ input[type=text] {
 	background-color: #0006;
 }
 
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+	font-weight: bold;
+}
+
 /* CONNECTION DIALOG */
 
 #connectionPanel.ui-dialog-content {
@@ -343,51 +347,50 @@ input[type=text] {
 	cursor: pointer;
 }
 
-#shieldGroupAutobrake {
-	box-sizing: border-box;
-	white-space: nowrap;
-	text-align-last: justify;
-}
-
-#shieldGroupAutobrake .controlgroup {
-	width: 11em;
-	box-sizing: border-box;
-}
-
-#shieldGroupAutobrake button {
-	box-sizing: border-box;
-	width: 33%;
-	text-align: center;
-}
-
-#shieldGroupAutobrake #indicator_decel {
-	box-sizing: border-box;
+#sh_gear .shieldGroup {
 	display: inline-block;
-	background: #222;
-	vertical-align: middle;
-	border: 0.1em solid #111;
-	border-radius: 0.3em;
-	font-size: 0.8em;
-	font-weight: bold;
-	color: #000;
-	padding: 0.71em 0.6em;
+	width: 18em;
+	vertical-align: top;
 	text-align: center;
+	box-sizing: border-box;
+	margin-right: 0.3em;
+	margin-left: 0.3em;
 }
 
-#shieldGroupAutobrake #indicator_decel.ui-state-active {
+#autobrakeGroup {
+	height: 7.3em;
+}
+
+/* hint: only the selected autobrake button should display the DECEL light */
+#autobrakeGroup .pushButton.ui-state-active .pb .secondary.activeGreen {
+	color: #222;
+	text-shadow: none;
+}
+#autobrakeGroup .pushButton.ui-state-active .pb.ui-state-active .secondary.activeGreen {
 	color: #2BEC24;
 	text-shadow: 0 0 0.1em #2BEC24;
 }
 
-#shieldGroupGearExtras button {
-	box-sizing: border-box;
-	width: 48%;
-	margin: 0;
+#brakefanPushButton {
+	border-left: 0.15em solid #FFF;
+	margin-left: 0.3em;
+	padding-left: 0.6em;
 }
 
-#shieldGroupGearExtras button:first-child {
-	margin-right: 4%;
+#gearGroup {
+	width: 7.4em;
 }
+
+#gearGroup button {
+	box-sizing: border-box;
+	width: 32%;
+	margin-right: 2%;
+}
+
+#gearGroup button:last-child {
+	margin-right: 0;
+}
+
 
 #scratchpad {
 	font-family: monospace;

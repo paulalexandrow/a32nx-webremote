@@ -294,7 +294,6 @@ input[type=text] {
 	border-radius: 0.1em;
 	padding: 0.2em 0.2em 0.1em 0.2em;
 	width: 80%;
-	
 }
 
 .pb.ui-state-active .main {
@@ -681,6 +680,10 @@ input[type=text] {
 	margin-top: 0.6em;
 	width: 3.3em;
 	height: 3.3em;
+}
+
+#sh_apu .shieldGroup {
+	text-align: center;
 }
 
 /* HELP DIALOGS */

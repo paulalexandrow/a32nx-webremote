@@ -68,7 +68,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 		</div>
 		<button class="shieldButton halfsize" data-targetshield="sh_adir">ADIRs</button><button class="shieldButton halfsize" data-targetshield="sh_fire">Fire</button>
 		<button class="shieldButton halfsize" data-targetshield="sh_hyd">Hydraulic</button><button class="shieldButton halfsize" data-targetshield="sh_fuel">Fuel</button>
-		<button class="shieldButton halfsize" data-targetshield="sh_elec">Electric</button><button class="shieldButton halfsize" data-targetshield="sh_cond">Air Cond</button>
+		<button class="shieldButton halfsize" data-targetshield="sh_elec">Electric</button><button class="shieldButton halfsize" data-targetshield="sh_air">Air Cond</button>
 		<button class="shieldButton halfsize" data-targetshield="sh_ice">Anti Ice</button><button class="shieldButton halfsize" data-targetshield="sh_apu">APU</button>
 		<button class="shieldButton halfsize" data-targetshield="sh_lte">Ext Lights</button><button class="shieldButton halfsize" data-targetshield="sh_lti">Int Lights</button>
 		<button class="shieldButton halfsize" data-targetshield="sh_gpws">GPWS</button><button class="shieldButton halfsize" data-targetshield="sh_om">Misc</button>
@@ -538,6 +538,59 @@ with this program. If not, see https://www.gnu.org/licenses/.
 				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D5" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="75"  data-calculatorcommands="(A:CIRCUIT SWITCH ON:80, Bool) ! if{ 80 (>K:ELECTRICAL_CIRCUIT_TOGGLE) } 75 80 (>K:2:ELECTRICAL_CIRCUIT_POWER_SETTING_SET)">SLOW</button>
 				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D5" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="100" data-calculatorcommands="(A:CIRCUIT SWITCH ON:80, Bool) ! if{ 80 (>K:ELECTRICAL_CIRCUIT_TOGGLE) } 100 80 (>K:2:ELECTRICAL_CIRCUIT_POWER_SETTING_SET)">FAST</button>
 			</div>
+		</div>
+	</div>
+</div>
+
+<div id="sh_air" class="shield" data-title="Air Condition" data-width="545">
+	<div class="shieldGroup">
+		<div class="nobreak">
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_PNEU_ENG_1_BLEED_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">ENG 1 BLEED</div>
+				<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66D6" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="1 (>K:ENGINE_BLEED_AIR_SOURCE_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+			</div>
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_PNEU_APU_BLEED_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">APU BLEED</div>
+				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_PNEU_APU_BLEED_PB_IS_ON" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_OVHD_PNEU_APU_BLEED_PB_IS_ON)" data-disablecalculatorcommands="0 (>L:A32NX_OVHD_PNEU_APU_BLEED_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main activeBlue">ON</span></div>
+			</div>
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_PNEU_ENG_2_BLEED_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">ENG 2 BLEED</div>
+				<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66D7" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="2 (>K:ENGINE_BLEED_AIR_SOURCE_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+			</div>
+		</div>
+		<div class="nobreak">
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_COND_PACK_1_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">PACK 1</div>
+				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_COND_PACK_1_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_COND_PACK_1_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_COND_PACK_1_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+			</div>
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_COND_PACK_2_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">PACK 2</div>
+				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_COND_PACK_2_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_COND_PACK_2_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_COND_PACK_2_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+			</div>
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_COND_HOT_AIR_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">HOT AIR</div>
+				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_COND_HOT_AIR_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_COND_HOT_AIR_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_COND_HOT_AIR_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+			</div>
+		</div>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_AIRCOND_RAMAIR_FAULT" data-highlightvalue="1">
+			<div class="label">RAM AIR</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_AIRCOND_RAMAIR_TOGGLE" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_AIRCOND_RAMAIR_TOGGLE)" data-disablecalculatorcommands="0 (>L:A32NX_AIRCOND_RAMAIR_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">ON</span></div>
+		</div>
+	</div>
+	<div id="shieldGroupPackFlow" class="shieldGroup">
+		<div class="label">PACK FLOW</div>
+		<div class="controlgroup">
+			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_PACKFLOW_Position" data-lvarvalue="0">LO</button>	
+			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_PACKFLOW_Position" data-lvarvalue="1">NORM</button>	
+			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_PACKFLOW_Position" data-lvarvalue="2">HI</button>	
+		</div>
+	</div>
+	<div id="shieldGroupXbleed" class="shieldGroup">
+		<div class="label">X BLEED</div>
+		<div class="controlgroup">
+			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_XBLEED_Position" data-lvarvalue="0">SHUT</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_XBLEED_Position" data-lvarvalue="1">AUTO</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_XBLEED_Position" data-lvarvalue="2">OPEN</button>
 		</div>
 	</div>
 </div>

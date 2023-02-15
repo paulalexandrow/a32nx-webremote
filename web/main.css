@@ -41,6 +41,11 @@ button {
 
 .nobreak {
 	white-space: nowrap;
+	display: inline-block;
+}
+
+.nobreak>* {
+	white-space: normal;
 }
 
 /* GENERAL FORMS */
@@ -277,6 +282,7 @@ input[type=text] {
 	border-radius: 0.3em;
 	text-align: center;
 	color: #222;
+	font-weight: normal;
 }
 
 .pushButton.guarded .pb {
@@ -733,6 +739,19 @@ input[type=text] {
 
 #sh_apu .shieldGroup {
 	text-align: center;
+}
+
+#sh_air .shieldGroup {
+	display: inline-block;
+}
+
+#shieldGroupPackFlow,  #shieldGroupXbleed {
+	text-align: center;
+	min-width: 13.55em;
+}
+
+#sh_air .controlgroup button {
+	width: 4em;
 }
 
 /* HELP DIALOGS */

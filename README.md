@@ -113,6 +113,7 @@ We will use the IIS that we just set up as a *forward proxy*. That means it will
    - For the rule's *action* select `Rewrite` as type and `http://localhost:2048/{R:1}` as Rewrite URL.
    - Check "Append query string".
 4. In the new site's "Configuration Editor" locate the `system.webServer/webSocket` section and assure "enabled" is set to `true`.
+5. In the "Server Proxy Settings" for the "Application Request Routing Cache" check "Enable proxy". 
 
 You are done! Following our example you can now open `http://10.0.0.2` in a browser on machine **(B)** or any other device connected to the LAN. There you enter `ws://10.0.0.2:81/fsuipc/` for the Socket URL and WebRemote is connected to your A32NX. :sunglasses:
 

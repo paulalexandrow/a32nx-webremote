@@ -604,8 +604,10 @@ $(function() {
 	let config = readHash();
 	if (config["socketurl"]) {
 		$("#socketURL").val(config["socketurl"]);
+	} else if (!window.location.host || window.location.host == "localhost") {
+		$("#socketURL").val("ws://localhost:2048/fsuipc/"); // best guess for local setup
 	} else {
-		$("#socketURL").val("ws://"  + window.location.host + ":2048/fsuipc/"); // best guess
+		$("#socketURL").val("ws://"  + window.location.host + "/fsuipc/");  // best guess for remote setup
 	}
 	if (config["autoconnect"]) {
 		$("#autoconnectField input").prop("checked", true);

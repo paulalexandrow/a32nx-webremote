@@ -426,24 +426,22 @@ with this program. If not, see https://www.gnu.org/licenses/.
 			<div class="label">PUMP 1</div>
 			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66C5" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="1 (>K:FUELSYSTEM_PUMP_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
 		</div>
-
-		<div class="pushButton"><!-- FAULT light not yet implemented by FBW TODO? -->
+		<div class="pushButton"><!-- FAULT light not yet implemented by FBW -->
 			<div class="label">X FEED</div>
 			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66D1" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="3 (>K:FUELSYSTEM_VALVE_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">ON</span></div>
 		</div>
-
-		<div class="pushButton"><!-- FAULT light not yet implemented by FBW TODO? -->
+		<div class="pushButton"><!-- FAULT light not yet implemented by FBW -->
 			<div class="label">PUMP 2</div>
 			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66C8" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="4 (>K:FUELSYSTEM_PUMP_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
 		</div>
 	</div>
 	<div class="shieldGroup">
 		<div class="label">R TK PUMPS</div>
-		<div class="pushButton"><!-- FAULT light not yet implemented by FBW TODO? -->
+		<div class="pushButton"><!-- FAULT light not yet implemented by FBW -->
 			<div class="label">1</div>
 			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66C7" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="3 (>K:FUELSYSTEM_PUMP_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
 		</div>
-		<div class="pushButton"><!-- FAULT light not yet implemented by FBW TODO? -->
+		<div class="pushButton"><!-- FAULT light not yet implemented by FBW -->
 			<div class="label">2</div>
 			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66D0" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="6 (>K:FUELSYSTEM_PUMP_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
 		</div>
@@ -580,9 +578,9 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<div id="shieldGroupPackFlow" class="shieldGroup">
 		<div class="label">PACK FLOW</div>
 		<div class="controlgroup">
-			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_PACKFLOW_Position" data-lvarvalue="0">LO</button>	
-			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_PACKFLOW_Position" data-lvarvalue="1">NORM</button>	
-			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_PACKFLOW_Position" data-lvarvalue="2">HI</button>	
+			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_PACKFLOW_Position" data-lvarvalue="0">LO</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_PACKFLOW_Position" data-lvarvalue="1">NORM</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_PACKFLOW_Position" data-lvarvalue="2">HI</button>
 		</div>
 	</div>
 	<div id="shieldGroupXbleed" class="shieldGroup">
@@ -591,6 +589,22 @@ with this program. If not, see https://www.gnu.org/licenses/.
 			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_XBLEED_Position" data-lvarvalue="0">SHUT</button>
 			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_XBLEED_Position" data-lvarvalue="1">AUTO</button>
 			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_XBLEED_Position" data-lvarvalue="2">OPEN</button>
+		</div>
+	</div>
+</div>
+
+<div id="sh_eng" class="shield" data-title="Engines" data-width="280">
+	<div id="shieldGroupEngMaster" class="shieldGroup">
+		<div class="label">MASTER</div>
+			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CB" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="1 (>K:FUELSYSTEM_VALVE_OPEN)" data-disablecalculatorcommands="1 (>K:FUELSYSTEM_VALVE_CLOSE)">ENG 1</button>
+			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CC" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="2 (>K:FUELSYSTEM_VALVE_OPEN)" data-disablecalculatorcommands="2 (>K:FUELSYSTEM_VALVE_CLOSE)">ENG 2</button>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">MODE</div>
+		<div class="controlgroup">
+			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CA" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="0 (>K:TURBINE_IGNITION_SWITCH_SET1) 0 (>K:TURBINE_IGNITION_SWITCH_SET2)">CRANK</button>
+			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CA" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="1 (>K:TURBINE_IGNITION_SWITCH_SET1) 1 (>K:TURBINE_IGNITION_SWITCH_SET2)">NORM</button>
+			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CA" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="2" data-calculatorcommands="2 (>K:TURBINE_IGNITION_SWITCH_SET1) 2 (>K:TURBINE_IGNITION_SWITCH_SET2)">IGN<br />START</button>
 		</div>
 	</div>
 </div>

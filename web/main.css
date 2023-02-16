@@ -754,6 +754,26 @@ input[type=text] {
 	width: 4em;
 }
 
+#sh_eng .shieldGroup {
+	width: 14em;
+	display: inline-block;
+	text-align: center;
+}
+
+#sh_eng button {
+	height: 3.5em;
+	width: 5em;
+}
+
+#shieldGroupEngMaster button {
+	width: 4em;
+	height: 4em;
+}
+
+#shieldGroupEngMaster button:last-child {
+	margin-left: 1.5em;
+}
+
 /* HELP DIALOGS */
 
 .helpDialog.ui-dialog-content {

@@ -320,6 +320,11 @@ $(function() {
 						});
 						updateBaro(); // some hardcoded necessity
 						break;
+					case "percent_slider":
+						$(".offset_percent_slider[data-offsetaddress=\'" + key + "\']").each(function() {
+							$(this).slider("value", val);
+						});
+						break;
 				}
 			}
 		});
@@ -381,7 +386,7 @@ $(function() {
 
 	// parse offsets from document
 	$(".offset_status_indicator").each(function() {
-		if (!offsets.hasOwnProperty($(this).data("offsetaddress".toString()))) {
+		if (!offsets.hasOwnProperty($(this).data("offsetaddress").toString())) {
 			offsets[$(this).data("offsetaddress").toString()] = {
 				type: "status_indicator",
 				offsetaddress: parseInt($(this).data("offsetaddress")),
@@ -391,7 +396,7 @@ $(function() {
 		}
 	});
 	$(".offset_value_indicator").each(function() {
-		if (!offsets.hasOwnProperty($(this).data("offsetaddress".toString()))) {
+		if (!offsets.hasOwnProperty($(this).data("offsetaddress").toString())) {
 			offsets[$(this).data("offsetaddress").toString()] = {
 				type: "value_indicator",
 				offsetaddress: parseInt($(this).data("offsetaddress")),
@@ -399,6 +404,33 @@ $(function() {
 				offsetsize: parseInt($(this).data("offsetsize"))
 			};
 		}
+	});
+	$(".offset_percent_slider").each(function() {
+		if (!offsets.hasOwnProperty($(this).data("offsetaddress").toString())) {
+			offsets[$(this).data("offsetaddress").toString()] = {
+				type: "percent_slider",
+				offsetaddress: parseInt($(this).data("offsetaddress")),
+				offsettype: $(this).data("offsettype"),
+				offsetsize: parseInt($(this).data("offsetsize"))
+			};
+		}
+		let calcCode = $(this).data("calculatorcommand");
+		$(this).slider({
+			range: "max",
+			min: 0,
+			max: 100,
+			step: 1,
+			value: 0,
+			animate: "slow",
+			stop: function(e, u) {
+				if (socket == null) return;
+				socket.send(JSON.stringify({
+					command: "vars.calc",
+					name: "calc",
+					code: calcCode.replace("{0}", u.value.toString())
+				}));
+			}
+		});
 	});
 
 	$("#scratchpadButtons button").click(function() {

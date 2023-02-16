@@ -75,6 +75,35 @@ input[type=text] {
 	font-weight: bold;
 }
 
+.ui-slider {
+	background: #202C3B;
+	margin-left: 1em;
+}
+
+.ui-slider-vertical {
+	margin: 1.2em 0.65em 0 1em;
+}
+
+.ui-slider .ui-slider-handle {
+	width: 2.2em;
+	height: 2.2em;
+}
+
+.ui-slider:not(.ui-slider-vertical) .ui-slider-handle {
+	top: -0.7em;
+	margin-left: -1.1em;
+}
+
+.ui-slider-vertical .ui-slider-handle {
+	left: -0.7em;
+	margin-bottom: -1.1em;
+
+}
+
+.ui-slider .ui-slider-range {
+	background: #202C3B;
+}
+
 /* CONNECTION DIALOG */
 
 #connectionPanel.ui-dialog-content {
@@ -678,19 +707,6 @@ input[type=text] {
 
 #spoilerSlider {
 	height: 8.4em;
-	margin: 1.2em 0.65em 0 1em;
-	background: #202C3B;
-}
-
-#spoilerSlider .ui-slider-handle {
-	width: 2.2em;
-	height: 2.2em;
-	left: -0.7em;
-	margin-bottom: -1.1em;
-}
-
-#spoilerSlider .ui-slider-range {
-	background: #202C3B;
 }
 
 #flapsButtons button {
@@ -772,6 +788,51 @@ input[type=text] {
 
 #shieldGroupEngMaster button:last-child {
 	margin-left: 1.5em;
+}
+
+#sh_lti .shieldGroup {
+	display: inline-block;
+	height: 9.5em;
+	width: 5em;
+	vertical-align: top;
+	text-align: center;
+}
+
+#sh_lti .shieldGroup .label {
+	height: 2em;
+	text-align: center;
+	text-align-last: center;
+	margin-bottom: 0.5em;
+}
+
+#sh_lti button {
+	width: 4.5em;
+}
+
+#sh_ltn .shieldGroup {
+	display: inline-block;
+	width: 21em;
+	box-sizing: border-box;
+	line-height: 2.5em;
+}
+
+#sh_ltn .shieldGroup:first-child {
+	margin-right: 0.5em;
+}
+
+#sh_ltn .sliderGroup .label {
+	font-size: 0.8em;
+	display: inline-block;
+	width: 9em;
+	box-sizing: border-box;
+	padding-bottom: 0.2em;
+}
+
+#sh_ltn .offset_percent_slider {
+	display: inline-block;
+	width: 10em;
+	box-sizing: border-box;
+	top: 0.1em;
 }
 
 /* HELP DIALOGS */

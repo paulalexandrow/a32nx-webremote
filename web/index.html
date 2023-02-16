@@ -60,7 +60,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 		<button class="shieldButton" data-targetshield="sh_gear">Gear &amp; Brakes</button>
 		<button class="shieldButton" data-targetshield="sh_surf">Flaps &amp; Speed Brake</button>
 		<button class="shieldButton halfsize" data-targetshield="sh_trim">Trim</button><button class="shieldButton halfsize" data-targetshield="sh_eng">Engines</button>
-		<button class="shieldButton" data-targetshield="sh_atc">ATC</button>
+		<button class="shieldButton halfsize" data-targetshield="sh_ltn">Inst Lights</button><button class="shieldButton halfsize" data-targetshield="sh_atc">ATC</button>
 	</div>
 	<div id="mg_o" class="buttonGroup switchGroup ui-helper-hidden">
 		<div class="header">
@@ -605,6 +605,101 @@ with this program. If not, see https://www.gnu.org/licenses/.
 			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CA" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="0 (>K:TURBINE_IGNITION_SWITCH_SET1) 0 (>K:TURBINE_IGNITION_SWITCH_SET2)">CRANK</button>
 			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CA" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="1 (>K:TURBINE_IGNITION_SWITCH_SET1) 1 (>K:TURBINE_IGNITION_SWITCH_SET2)">NORM</button>
 			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CA" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="2" data-calculatorcommands="2 (>K:TURBINE_IGNITION_SWITCH_SET1) 2 (>K:TURBINE_IGNITION_SWITCH_SET2)">IGN<br />START</button>
+		</div>
+	</div>
+</div>
+
+<div id="sh_lti" class="shield" data-title="Internal Lights" data-width="575">
+	<div class="shieldGroup">
+		<div class="label">SEAT BELTS</div>
+		<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CD" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(>K:CABIN_SEATBELTS_ALERT_SWITCH_TOGGLE)">ON</button>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">NO SMOKING</div>
+		<div class="controlgroupVertical">
+			<button class="lvar_selector_button" data-lvarname="XMLVAR_SWITCH_OVHD_INTLT_NOSMOKING_Position" data-lvarvalue="0">ON</button>
+			<button class="lvar_selector_button" data-lvarname="XMLVAR_SWITCH_OVHD_INTLT_NOSMOKING_Position" data-lvarvalue="1">AUTO</button>
+			<button class="lvar_selector_button" data-lvarname="XMLVAR_SWITCH_OVHD_INTLT_NOSMOKING_Position" data-lvarvalue="2">OFF</button>
+		</div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">EMER EXIT LT</div>
+		<div class="controlgroupVertical">
+			<button class="lvar_selector_button" data-lvarname="XMLVAR_SWITCH_OVHD_INTLT_EMEREXIT_Position" data-lvarvalue="0">ON</button>
+			<button class="lvar_selector_button" data-lvarname="XMLVAR_SWITCH_OVHD_INTLT_EMEREXIT_Position" data-lvarvalue="1">ARM</button>
+			<button class="lvar_selector_button" data-lvarname="XMLVAR_SWITCH_OVHD_INTLT_EMEREXIT_Position" data-lvarvalue="2">OFF</button>
+		</div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">ANN LT</div>
+		<div class="controlgroupVertical">
+			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_INTLT_ANN" data-lvarvalue="0">TEST</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_INTLT_ANN" data-lvarvalue="1">BRT</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_INTLT_ANN" data-lvarvalue="2">DIM</button>
+		</div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">DOME</div>
+		<div class="controlgroupVertical">
+			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CE" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="100" data-calculatorcommands="1 (>K:2:CABIN_LIGHTS_SET) 100 (>K:LIGHT_POTENTIOMETER_7_SET)">BRT</button>
+			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CE" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="50" data-calculatorcommands="1 (>K:2:CABIN_LIGHTS_SET) 50 (>K:LIGHT_POTENTIOMETER_7_SET)">DIM</button>
+			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CE" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="0 (>K:2:CABIN_LIGHTS_SET) 0 (>K:LIGHT_POTENTIOMETER_7_SET)">OFF</button>
+		</div>
+	</div>
+</div>
+
+<div id="sh_ltn" class="shield" data-title="Instrument Lights" data-width="800">
+	<div class="shieldGroup">
+		<div class="label">INSTRUMENT LIGHTS</div>
+		<div class="sliderGroup">
+			<div class="label">OVHD INTEG LT</div>
+			<div class="offset_percent_slider" data-offsetaddress="0x66CF" data-offsettype="uint" data-offsetsize="1" data-calculatorcommand="{0} 86 (>K:2:LIGHT_POTENTIOMETER_SET)"></div>
+		</div>
+		<div class="sliderGroup">
+			<div class="label">FCU INTEG LT</div>
+			<div class="offset_percent_slider" data-offsetaddress="0x66D8" data-offsettype="uint" data-offsetsize="1" data-calculatorcommand="{0} 84 (>K:2:LIGHT_POTENTIOMETER_SET)"></div>
+		</div>
+		<div class="sliderGroup">
+			<div class="label">FCU LCD LT</div>
+			<div class="offset_percent_slider" data-offsetaddress="0x66D9" data-offsettype="uint" data-offsetsize="1" data-calculatorcommand="{0} 87 (>K:2:LIGHT_POTENTIOMETER_SET)"></div>
+		</div>
+		<div class="sliderGroup">
+			<div class="label">MAIN FLOOD LT</div>
+			<div class="offset_percent_slider" data-offsetaddress="0x66DB" data-offsettype="uint" data-offsetsize="1" data-calculatorcommand="{0} 83 (>K:2:LIGHT_POTENTIOMETER_SET)"></div>
+		</div>
+		<div class="sliderGroup">
+			<div class="label">PED INTEG LT</div>
+			<div class="offset_percent_slider" data-offsetaddress="0x66DA" data-offsettype="uint" data-offsetsize="1" data-calculatorcommand="{0} 85 (>K:2:LIGHT_POTENTIOMETER_SET)"></div>
+		</div>
+		<div class="sliderGroup">
+			<div class="label">PED FLOOD LT</div>
+			<div class="offset_percent_slider" data-offsetaddress="0x66DC" data-offsettype="uint" data-offsetsize="1" data-calculatorcommand="{0} 76 (>K:2:LIGHT_POTENTIOMETER_SET)"></div>
+		</div>
+	</div><div class="shieldGroup">
+		<div class="label">DISPLAY BRIGHTNESS</div>
+		<div class="sliderGroup">
+			<div class="label">CPT PFD</div>
+			<div class="offset_percent_slider" data-offsetaddress="0x66DD" data-offsettype="uint" data-offsetsize="1" data-calculatorcommand="{0} 88 (>K:2:LIGHT_POTENTIOMETER_SET)"></div>
+		</div>
+		<div class="sliderGroup">
+			<div class="label">CPT ND</div>
+			<div class="offset_percent_slider" data-offsetaddress="0x66DE" data-offsettype="uint" data-offsetsize="1" data-calculatorcommand="{0} 89 (>K:2:LIGHT_POTENTIOMETER_SET)"></div>
+		</div>
+		<div class="sliderGroup">
+			<div class="label">FO PFD</div>
+			<div class="offset_percent_slider" data-offsetaddress="0x66DF" data-offsettype="uint" data-offsetsize="1" data-calculatorcommand="{0} 90 (>K:2:LIGHT_POTENTIOMETER_SET)"></div>
+		</div>
+		<div class="sliderGroup">
+			<div class="label">FO ND</div>
+			<div class="offset_percent_slider" data-offsetaddress="0x66E0" data-offsettype="uint" data-offsetsize="1" data-calculatorcommand="{0} 91 (>K:2:LIGHT_POTENTIOMETER_SET)"></div>
+		</div>
+		<div class="sliderGroup">
+			<div class="label">ECAM UPPER</div>
+			<div class="offset_percent_slider" data-offsetaddress="0x66E1" data-offsettype="uint" data-offsetsize="1" data-calculatorcommand="{0} 92 (>K:2:LIGHT_POTENTIOMETER_SET)"></div>
+		</div>
+		<div class="sliderGroup">
+			<div class="label">ECAM LOWER</div>
+			<div class="offset_percent_slider" data-offsetaddress="0x66E2" data-offsettype="uint" data-offsetsize="1" data-calculatorcommand="{0} 93 (>K:2:LIGHT_POTENTIOMETER_SET)"></div>
 		</div>
 	</div>
 </div>

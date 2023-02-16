@@ -54,7 +54,7 @@ You need the following programs installed and running:
 
 Instead of downloading a packaged release bundle you could clone the git repository with a git-client of your choice (for example [GitHub's own client](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)).
 
-WebRemote's `main` branch, even though considered a development branch, should always be in a stable state and will probably give you a better experience than an older release-snapshot.
+WebRemote's `main` branch, should always be in a stable state and will probably give you more features and a better overall experience than an older release-snapshot.
 
 Keep in mind that during upgrades you would still have to manually copy `myOffsets.txt` as described in [Local Setup](#local-setup). You can avoid that by creating a symlink of the same name from FSUIPC's installation directory to WebRemote's using the [mklink](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/mklink) command.
 
@@ -62,60 +62,51 @@ You are now able to coveniently upgrade WebRemote for FBW A32NX with the click o
 
 ### Remote Setup (optional)
 
-We will assume you are running MSFS, FSUIPC and FSUIPC WebSockets Server all on Machine **(A)** (with an example IP address of `10.0.0.2`) and want to use WebRemote on another device, called Machine **(B)**. We will also assume both machines are connected via a LAN. This leaves us with two problems to be solved:
+We will assume you are running MSFS, FSUIPC and FSUIPC WebSockets Server all on Machine **(A)** (with an example IP address of `192.168.0.2`, which you need to substitute for your own) and want to use WebRemote on another device, called Machine **(B)**. We will also assume both machines are connected via a LAN. This leaves us with two problems to be solved:
 
 1. How do we get the WebRemote, i.e. the content of `a32nx-webremote/web`, to **(B)**?
 2. How do we transfer data from FSUIPC WebSockets running on **(A)** to WebRemote running on **(B)** and back?
 
-The (only good) solution to problem #2 is the same either way and we will walk through it further down. For problem #1 there are basically two options:
+The (only good) solution to these problems is running a webserver on **(A)**. It is planned for WebRemote to come with its own webserver in the future, but until then it is recommended to use Windows' free and built-in server called IIS. (There are of course many other versions to get the data across, like shared network folders etc., but to mention all of these is out of the scope of this guide.)
 
-#### Solving Problem 1
+#### Install IIS
 
-##### Variant 1
+1. To install IIS, open "Turn Windows features on or off" and select "Internet Information Services". The subselection should already be set with reasonable defaults. Additionally,  make sure "WebSocket Protocol" is checked.
+2. Download and install two extra modules for the IIS: "[URL Rewrite](https://www.iis.net/downloads/microsoft/url-rewrite)" and "[Application Request Routing](https://www.iis.net/downloads/microsoft/application-request-routing)".
 
-1. Extract a copy of `a32nx-webremote`, to **(B)** and locally (on **(B)**) open it in a browser, like you did during the local setup.
-2. For the WebSocket URL you have to use the IP address of **(A)** and the port you will choose in Step [Solving Problem 2](#solving-problem-2). In our example it would be `ws://10.0.0.2:81/fsuipc/`.
+#### Configure the Server
 
-This variant might be simpler if you are running WebRemote on just a single device, as it is pretty much a local setup on **(B)**. But WebRemote can also run on multiple devices **(C)**, **(D)** and so on. You probably do not want to keep all those installations up-to-date and synchronized separately, and this is where [Variant 2](#variant-2) will help you.
+3. Open the "Internet Information Services (IIS) Manager", that was automatically installed alongside IIS.
+4. Under "Application Request Routing Cache" → "Server Proxy Settings" check "Enable proxy". 
 
-##### Variant 2
+#### Configure the Default Site
 
-For this we will install our own webserver on **(A)**. Assuming **(A)** is running Microsoft Windows (which it most probably is, if it runs MSFS), IIS, Microsoft's own webserver, can be installed for free.
+5. On the left, locate "Default Web Site".
+6. As the exact steps might change with different versions of IIS, it would be of no use to go into too much detail here, but you want to assure the following:
+   - The *physical path* of the site points to the `a32nx-webremote/web` folder. (under "Basic Settings")
+   - The *binding* of the site points to **(A)**'s IP address `192.168.0.2` (*not* `localhost`) with a port of `80`.  (under "Bindings")
+7. Make sure the IIS user (normally called `IIS_IUSRS`) has the *permission* to read from the physical path. This is not done in the IIS Manager program but in Windows' File Explorer.
 
-1. To install IIS, open "Turn Windows features on or off" and select "Internet Information Services". The subselection should already be set with reasonable defaults. Additonally, to solve problem #2 later,  make sure "WebSocket Protocol" is checked.
-2. Open the "Internet Information Services (IIS) Manager" and locate the "Default Site".
-3. As the exact steps change with each version of IIS, it would be of no use to go into too much detail here, but you want to assure the following:
-   - The *physical path* of the site points to the `a32nx-webremote/web` folder.
-   - The *binding* of the site points to **(A)**'s IP address (and *not* `localhost`). In our example this would be `10.0.0.2` with a port of `80`.
-   - The IIS user has the *permission* to read from the physical path.
-4. If everything was done correctly a browser on **(A)** can now be opened and WebRemote will run when entering **(A)**'s own IP address (*not* `localhost`).
-5. If Step 4 was successful repeat it on **(B)** (still using **(A)**'s IP address). If this does not work, you will have to open the Default Site's port in **(A)**'s firewall, called Microsoft Defender.
+To test the setup so far, open `http://192.168.0.2` (*not* `localhost`) in a browser on **(A)**. WebRemote's login mask should load (but will not work yet). If not, something went wrong and you should not continue with the setup.
 
-You can now use WebRemote on as many devices as you want and update them all centrally on **(A)**! This is also the preferred variant, because we need the IIS in the next step anyways. Conveniently, IIS starts automatically with windows and once it is set up correctly you do not have to think about it again.
+#### Configure a Forward Proxy
 
-There are of course many other versions to get the data across, like shared network folders etc., but to mention all of these is out of the scope of this guide.
-
-#### Solving Problem 2
-
-Until now FSUIPC WebSockets has been listening on `localhost` and thus has only been accepting connections from "inside" of **(A)**. In order for it to accept connections from the LAN, it would need to listen on **(A)**'s public IP address instead, i.e. `10.0.0.2`. A program needs administrator privileges for that - with good reason. Even more, because WebSockets, FSUIPC and MSFS are talking to each other directly via their processes, they *all* would have to run with administrator privileges.
+Until now FSUIPC WebSockets has been listening on `localhost` and thus has only been accepting connections from "inside" of **(A)**. In order for it to accept connections from the LAN, it would need to listen on **(A)**'s public IP address instead, i.e. `192.168.0.2`. A program needs administrator privileges for that - with good reason. Even more, because WebSockets, FSUIPC and MSFS are talking to each other directly via their processes, they *all* would have to run with administrator privileges.
 
 Running all three programs with administrator privileges definitely works, ***but is wrong on so many levels***! Do not do this. Not only is it a ***huge security risk*** but also completely unnecessary. Here is a cleaner and better solution:
 
-We will use the IIS that we just set up as a *forward proxy*. That means it will listen on a second "outside" port (for our example let's use `10.0.0.2:81`) and forward whatever is sent there to the "inside" port of `localhost:2048` where FSUIPC WebSockets is listening.
+We will use the IIS that we just set up as a *forward proxy*, that forwards whatever is sent to a certain adress to FSUIPC WebSockets' "inside" port of `localhost:2048`.
 
-1. Install two extra modules to the IIS: "[URL Rewrite](https://www.iis.net/downloads/microsoft/url-rewrite)" and "[Application Request Routing](https://www.iis.net/downloads/microsoft/application-request-routing)".
-2. In the IIS Manager create a new Site next to the Default Site.
-   - The *physical path* of the site points to an empty dummy folder of your choice.
-   - The *binding* of the site points to **(A)**'s IP address. In our example this would be `10.0.0.2` with a port of `81`.
-   - The name of the site does not matter.
-3. In the new site's settings open the URL Rewrite feature and add a new *Inbound Rule*.
-   - It should match the pattern `(.*)`, which means "any incoming request".
-   - For the rule's *action* select `Rewrite` as type and `http://localhost:2048/{R:1}` as Rewrite URL.
-   - Check "Append query string".
-4. In the new site's "Configuration Editor" locate the `system.webServer/webSocket` section and assure "enabled" is set to `true`.
-5. In the "Server Proxy Settings" for the "Application Request Routing Cache" check "Enable proxy". 
+8. In the IIS Manager locate again the "Default Web Site".
+9. In the "Configuration Editor" locate the `system.webServer/webSocket` section and assure "enabled" is set to `true`.
+10. Under "URL Rewrite", add a new blank "Inbound Rule" set the following:
+    - The *Pattern* to match: `fsuipc/(.*)`
+    - The *Action type*: `Rewrite`
+    - The *Rewrite URL*: `http://localhost:2048/fsuipc/{R:1}`
 
-You are done! Following our example you can now open `http://10.0.0.2` in a browser on machine **(B)** or any other device connected to the LAN. There you enter `ws://10.0.0.2:81/fsuipc/` for the Socket URL and WebRemote is connected to your A32NX. :sunglasses:
+You are done! You can now use WebRemote on as many devices as you want and update them all centrally on **(A)**! Conveniently, IIS starts automatically with Windows and once it is set up correctly you do not have to think about it again.
+
+ You can now open `http://192.168.0.2` in a browser on machine **(B)** or any other device connected to the LAN. There you should enter `ws://192.168.0.2/fsuipc/` for the Socket URL and WebRemote is connected to your A32NX. :sunglasses:
 
 ## Quickguide
 

@@ -29,28 +29,36 @@ $(function() {
 		try {
 			socket = new WebSocket($("#socketURL").val(), "fsuipc");
 			socket.onopen = function() {
-				// declare LVARs
-				socket.send(JSON.stringify({
-					command: "vars.declare",
-					name: "fcuVars",
-					vars: $.map(lvars, function(val, key) { return { name:key } })
-				}));
-				// subscribe to declared LVARs
-				socket.send(JSON.stringify({
-					command: "vars.read",
-					name: "fcuVars",
-					interval: 100
-				}));
+				let lvarNames = Object.keys(lvars);
+				let chunk = [];
+				for (let i=0; i<lvarNames.length; i++) {
+					chunk.push(lvarNames[i]);
+					if ((i>0 && i % 10 == 0) || i == lvarNames.length-1) { // FSUIPC WebSocket only allows a certain number of variables to be declared, so we divide our declaration into chunks.
+						// declare LVARs
+						socket.send(JSON.stringify({
+							command: "vars.declare",
+							name: "fcuVars_" + i.toString(),
+							vars: $.map(chunk, function(val) { return { name:val } })
+						}));
+						// subscribe to declared LVARs
+						socket.send(JSON.stringify({
+							command: "vars.read",
+							name: "fcuVars_" + i.toString(),
+							interval: 100
+						}));
+						chunk = [];
+					}
+				}
 				// declare offset requests
 				socket.send(JSON.stringify({
 					command: "offsets.declare",
-					name: "fcuOffsets",
+					name: "offsets",
 					offsets: $.map(offsets, function(val, key) { return { name:key, address:val["offsetaddress"], type:val["offsettype"], size:val["offsetsize"] } })
 				}));
 				// read offset requests
 				socket.send(JSON.stringify({
 					command: "offsets.read",
-					name: "fcuOffsets",
+					name: "offsets",
 					interval: 100
 				}));
 				$("#connectionPanel").dialog("close");

@@ -614,6 +614,57 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
+<div id="sh_lte" class="shield" data-title="EXT LT" data-width="455">
+	<div class="shieldGroup">
+		<div class="label">STROBE</div>
+		<div class="controlgroupVertical">
+			<button class="lvar_status_indicator calculator_button" data-lvarname="LIGHTING_STROBE_0" data-highlightvalue="0" data-calculatorcommands="0 (>K:STROBES_SET)|0 (>L:STROBE_0_AUTO) 1 (>K:STROBES_SET)">ON</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="LIGHTING_STROBE_0" data-highlightvalue="1" data-calculatorcommands="0 (>K:STROBES_SET)|1 (>L:STROBE_0_AUTO) 1 (>K:STROBES_SET)">AUTO</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="LIGHTING_STROBE_0" data-highlightvalue="2" data-calculatorcommands="0 (>L:STROBE_0_AUTO) 0 (>K:STROBES_SET)">OFF</button>
+		</div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">BEACON</div>
+		<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66E3" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="1 (>K:BEACON_LIGHTS_SET)" data-disablecalculatorcommands="0 (>K:BEACON_LIGHTS_SET)">ON</button>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">WING</div>
+		<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66E4" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="1 (>K:WING_LIGHTS_SET)" data-disablecalculatorcommands="0 (>K:WING_LIGHTS_SET)">ON</button>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">NAV &amp; LOGO</div>
+		<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66E5" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="1 (>K:NAV_LIGHTS_SET) 1 (>K:LOGO_LIGHTS_SET)" data-disablecalculatorcommands="0 (>K:NAV_LIGHTS_SET) 0 (>K:LOGO_LIGHTS_SET)">ON</button>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">RWY TURN OFF</div>
+		<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66E6" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(A:CIRCUIT SWITCH ON:21, Bool) ! if{ 21 (>K:ELECTRICAL_CIRCUIT_TOGGLE) 22 (>K:ELECTRICAL_CIRCUIT_TOGGLE) }" data-disablecalculatorcommands="(A:CIRCUIT SWITCH ON:21, Bool) if{ 21 (>K:ELECTRICAL_CIRCUIT_TOGGLE) 22 (>K:ELECTRICAL_CIRCUIT_TOGGLE) }">ON</button>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">LAND L</div>
+		<div class="controlgroupVertical">
+			<button class="lvar_status_indicator calculator_button" data-lvarname="LIGHTING_LANDING_2" data-highlightvalue="0" data-calculatorcommands="1 (>L:LIGHTING_LANDING_2)|0 (>L:LIGHTING_LANDING_2)">ON</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="LIGHTING_LANDING_2" data-highlightvalue="1" data-calculatorcommands="1 (>L:LIGHTING_LANDING_2)">OFF</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="LIGHTING_LANDING_2" data-highlightvalue="2" data-calculatorcommands="1 (>L:LIGHTING_LANDING_2)|2 (>L:LIGHTING_LANDING_2)">RETR</button>
+		</div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">LAND R</div>
+		<div class="controlgroupVertical">
+			<button class="lvar_status_indicator calculator_button" data-lvarname="LIGHTING_LANDING_3" data-highlightvalue="0" data-calculatorcommands="1 (>L:LIGHTING_LANDING_3)|0 (>L:LIGHTING_LANDING_3)">ON</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="LIGHTING_LANDING_3" data-highlightvalue="1" data-calculatorcommands="1 (>L:LIGHTING_LANDING_3)">OFF</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="LIGHTING_LANDING_3" data-highlightvalue="2" data-calculatorcommands="1 (>L:LIGHTING_LANDING_3)|2 (>L:LIGHTING_LANDING_3)">RETR</button>
+		</div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">NOSE</div>
+		<div class="controlgroupVertical">
+			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66E8" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(A:CIRCUIT SWITCH ON:17, Bool) ! if{ 17 (>K:ELECTRICAL_CIRCUIT_TOGGLE) }|(A:CIRCUIT SWITCH ON:20, Bool) ! if{ 20 (>K:ELECTRICAL_CIRCUIT_TOGGLE) }">T.O</button>
+			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66E7" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(A:CIRCUIT SWITCH ON:17, Bool) if{ 17 (>K:ELECTRICAL_CIRCUIT_TOGGLE) }|(A:CIRCUIT SWITCH ON:20, Bool) ! if{ 20 (>K:ELECTRICAL_CIRCUIT_TOGGLE) }">TAXI</button>
+			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66E7" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="(A:CIRCUIT SWITCH ON:17, Bool) if{ 17 (>K:ELECTRICAL_CIRCUIT_TOGGLE) }|(A:CIRCUIT SWITCH ON:20, Bool) if{ 20 (>K:ELECTRICAL_CIRCUIT_TOGGLE) }">OFF</button>
+		</div>
+	</div>
+</div>
+
 <div id="sh_lti" class="shield" data-title="INT LT" data-width="575">
 	<div class="shieldGroup">
 		<div class="label">SEAT BELTS</div>

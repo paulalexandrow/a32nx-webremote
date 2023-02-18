@@ -814,7 +814,7 @@ input[type=text] {
 	margin-left: 1.5em;
 }
 
-#sh_lti .shieldGroup {
+#sh_lti .shieldGroup, #sh_lte .shieldGroup {
 	display: inline-block;
 	height: 9.5em;
 	width: 5em;
@@ -822,14 +822,14 @@ input[type=text] {
 	text-align: center;
 }
 
-#sh_lti .shieldGroup .label {
+#sh_lti .shieldGroup .label, #sh_lte .shieldGroup .label {
 	height: 2em;
 	text-align: center;
 	text-align-last: center;
 	margin-bottom: 0.5em;
 }
 
-#sh_lti button {
+#sh_lti button, #sh_lte button {
 	width: 4.5em;
 }
 

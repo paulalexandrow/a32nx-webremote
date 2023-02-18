@@ -309,6 +309,7 @@ $(function() {
 				switch (offsets[key].type) {
 					case "status_indicator":
 						$(".offset_status_indicator[data-offsetaddress=\'" + key + "\']").removeClass("ui-state-active");
+						if (key == "0x66E7" && data["0x66E8"] == "1") break; // Hardcoded NOSE light magic: do not highlight TAXI if T.O is active
 						$(".offset_status_indicator[data-offsetaddress=\'" + key + "\'][data-highlightvalue='" + val + "']").addClass("ui-state-active");
 						break;
 					case "value_indicator":

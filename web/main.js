@@ -521,7 +521,7 @@ $(function() {
 		}
 		socket.send(JSON.stringify({
 			command: "offsets.write",
-			name: "fcuOffsets",
+			name: "offsets",
 			offsets: [{ name:$(this).data("offsetaddress"), value:value }]
 		}));
 	});

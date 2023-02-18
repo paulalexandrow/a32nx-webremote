@@ -67,7 +67,7 @@ We will assume you are running MSFS, FSUIPC and FSUIPC WebSockets Server all on 
 1. How do we get the WebRemote, i.e. the content of `a32nx-webremote/web`, to **(B)**?
 2. How do we transfer data from FSUIPC WebSockets running on **(A)** to WebRemote running on **(B)** and back?
 
-The (only good) solution to these problems is running a webserver on **(A)**. It is planned for WebRemote to come with its own webserver in the future, but until then it is recommended to use Windows' free and built-in server called IIS. (There are of course many other versions to get the data across, like shared network folders etc., but to mention all of these is out of the scope of this guide.)
+The (only good) solution to these problems is running a webserver on **(A)**. It is planned for WebRemote to come with its own webserver in the future, but until then it is recommended to use Windows' free and built-in server called IIS. (There are of course many other ways to do this, but to cover all of them is out of the scope of this guide.)
 
 #### Install IIS
 

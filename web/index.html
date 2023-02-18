@@ -59,18 +59,20 @@ with this program. If not, see https://www.gnu.org/licenses/.
 		</div>
 		<button class="shieldButton" data-targetshield="sh_gear">Gear &amp; Brakes</button>
 		<button class="shieldButton" data-targetshield="sh_surf">Flaps &amp; Speed Brake</button>
-		<button class="shieldButton halfsize" data-targetshield="sh_trim">Trim</button><button class="shieldButton halfsize" data-targetshield="sh_eng">Engines</button>
-		<button class="shieldButton halfsize" data-targetshield="sh_ltn">Inst Lights</button><button class="shieldButton halfsize" data-targetshield="sh_atc">ATC</button>
+		<button class="shieldButton" data-targetshield="sh_eng">Engines</button>
+		<button class="shieldButton" data-targetshield="sh_ltn">Instrument Lights</button>
+		<!-- <button class="shieldButton" data-targetshield="sh_sw">Switching</button> -->
+		<!-- <button class="shieldButton" data-targetshield="sh_atc">ATC</button> -->
 	</div>
 	<div id="mg_o" class="buttonGroup switchGroup ui-helper-hidden">
 		<div class="header">
 			<button data-targetgroup="mg_p">&lt;</button><h2>Overhead</h2><button data-targetgroup="mg_g">&gt;</button>
 		</div>
-		<button class="shieldButton halfsize" data-targetshield="sh_adir">ADIRs</button><button class="shieldButton halfsize" data-targetshield="sh_fire">Fire</button>
-		<button class="shieldButton halfsize" data-targetshield="sh_hyd">Hydraulic</button><button class="shieldButton halfsize" data-targetshield="sh_fuel">Fuel</button>
-		<button class="shieldButton halfsize" data-targetshield="sh_elec">Electric</button><button class="shieldButton halfsize" data-targetshield="sh_air">Air Cond</button>
-		<button class="shieldButton halfsize" data-targetshield="sh_ice">Anti Ice</button><button class="shieldButton halfsize" data-targetshield="sh_apu">APU</button>
-		<button class="shieldButton halfsize" data-targetshield="sh_lte">Ext Lights</button><button class="shieldButton halfsize" data-targetshield="sh_lti">Int Lights</button>
+		<button class="shieldButton halfsize" data-targetshield="sh_adir">ADIRS</button><button class="shieldButton halfsize" data-targetshield="sh_fire">FIRE</button>
+		<button class="shieldButton halfsize" data-targetshield="sh_hyd">HYD</button><button class="shieldButton halfsize" data-targetshield="sh_fuel">FUEL</button>
+		<button class="shieldButton halfsize" data-targetshield="sh_elec">ELEC</button><button class="shieldButton halfsize" data-targetshield="sh_air">AIR COND</button>
+		<button class="shieldButton halfsize" data-targetshield="sh_ice">ANTI ICE</button><button class="shieldButton halfsize" data-targetshield="sh_apu">APU</button>
+		<button class="shieldButton halfsize" data-targetshield="sh_lte">EXT LT</button><button class="shieldButton halfsize" data-targetshield="sh_lti">INT LT</button>
 		<button class="shieldButton halfsize" data-targetshield="sh_gpws">GPWS</button><button class="shieldButton halfsize" data-targetshield="sh_om">Misc</button>
 	</div>
 
@@ -347,7 +349,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
-<div id="sh_elec" class="shield" data-title="Electric" data-width="480">
+<div id="sh_elec" class="shield" data-title="ELEC" data-width="480">
 	<div class="shieldGroup">
 		<span class="nobreak">
 			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ELEC_BAT_1_PB_HAS_FAULT" data-highlightvalue="1">
@@ -408,7 +410,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
-<div id="sh_fuel" class="shield" data-title="Fuel" data-width="735">
+<div id="sh_fuel" class="shield" data-title="FUEL" data-width="735">
 	<div class="shieldGroup">
 		<div class="label">L TK PUMPS</div>
 		<div class="pushButton"><!-- FAULT light not yet implemented by FBW -->
@@ -427,6 +429,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66C5" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="1 (>K:FUELSYSTEM_PUMP_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
 		</div>
 		<div class="pushButton"><!-- FAULT light not yet implemented by FBW -->
+		<div class="pushButton"><!-- OPEN light not yet implemented by FBW -->
 			<div class="label">X FEED</div>
 			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66D1" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="3 (>K:FUELSYSTEM_VALVE_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">ON</span></div>
 		</div>
@@ -448,7 +451,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
-<div id="sh_adir" class="shield" data-title="ADIRs" data-width="340">
+<div id="sh_adir" class="shield" data-title="ADIRS" data-width="340">
 	<div class="shieldGroup">
 		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ADIRS_IR_1_PB_HAS_FAULT" data-highlightvalue="1">
 			<div class="label">IR 1</div>
@@ -543,7 +546,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
-<div id="sh_air" class="shield" data-title="Air Condition" data-width="545">
+<div id="sh_air" class="shield" data-title="AIR COND" data-width="545">
 	<div class="shieldGroup">
 		<div class="nobreak">
 			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_PNEU_ENG_1_BLEED_PB_HAS_FAULT" data-highlightvalue="1">
@@ -596,7 +599,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
-<div id="sh_eng" class="shield" data-title="Engines" data-width="280">
+<div id="sh_eng" class="shield" data-title="EXT LT" data-width="280">
 	<div id="shieldGroupEngMaster" class="shieldGroup">
 		<div class="label">MASTER</div>
 			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CB" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="1 (>K:FUELSYSTEM_VALVE_OPEN)" data-disablecalculatorcommands="1 (>K:FUELSYSTEM_VALVE_CLOSE)">ENG 1</button>
@@ -612,7 +615,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
-<div id="sh_lti" class="shield" data-title="Internal Lights" data-width="575">
+<div id="sh_lti" class="shield" data-title="INT LT" data-width="575">
 	<div class="shieldGroup">
 		<div class="label">SEAT BELTS</div>
 		<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CD" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(>K:CABIN_SEATBELTS_ALERT_SWITCH_TOGGLE)">ON</button>
@@ -707,7 +710,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
-<div id="sh_ice" class="shield" data-title="Anti Ice" data-width="320">
+<div id="sh_ice" class="shield" data-title="ANTI ICE" data-width="320">
 	<div class="shieldGroup">
 		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_PNEU_WING_ANTI_ICE_HAS_FAULT" data-highlightvalue="1">
 			<div class="label">WING</div>

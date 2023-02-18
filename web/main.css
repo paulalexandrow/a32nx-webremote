@@ -355,6 +355,11 @@ input[type=text] {
 	text-shadow: 0 0 0.1em #2BEC24;
 }
 
+.pushButton.ui-state-active .pb .secondary.activeWhite {
+	color: #FFF;
+	text-shadow: 0 0 0.1em #FFF;
+}
+
 .pushButton .pb.ui-state-active .main.activeBlue {
 	color: #54BEFF;
 	border-color: #54BEFF;
@@ -365,6 +370,12 @@ input[type=text] {
 	color: #E01223;
 	border-color: #E01223;
 	text-shadow: 0 0 0.1em #E01223;
+}
+
+.pushButton .pb.ui-state-active .main.activeAmber {
+	color: #FFDF4F;
+	border-color: #FFDF4F;
+	text-shadow: 0 0 0.1em #FFDF4F;
 }
 
 /* INDIVIDUAL SHIELDS */
@@ -846,6 +857,35 @@ input[type=text] {
 	width: 10em;
 	box-sizing: border-box;
 	top: 0.1em;
+}
+
+#sh_fire .shieldGroup {
+	display: inline-block;
+	width: 15.2em;
+}
+
+.firePushButton {
+	width: 7em;
+	vertical-align: bottom;
+}
+
+.firePushButton .pb {
+	width: 9em;
+	background: linear-gradient(328deg, rgba(50,0,0,1) 0%, rgba(70,0,0,1) 83%);
+}
+.firePushButton .pb:hover {
+	background: linear-gradient(328deg, rgba(100,0,0,1) 0%, rgba(120,0,0,1) 83%);
+}
+.firePushButton .pb.ui-state-active .main {
+	color: #B00;
+	text-shadow: 0 0 0.2em #B00;
+}
+
+.firePushButton .pb .main {
+	border: none;
+	font-size: 1.5em;
+	line-height: 1.5em;
+	font-weight: bold;
 }
 
 /* HELP DIALOGS */

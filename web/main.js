@@ -262,25 +262,32 @@ $(function() {
 						break;
 					case "value_indicator":
 						$(".lvar_value_indicator[data-lvarname='" + key + "\']").each(function() {
-							let value = parseFloat(val);
-							if ($(this).data("placeholder") && data.hasOwnProperty($(this).data("placeholdertriggerlvar")) && data[$(this).data("placeholdertriggerlvar")]) {
-								$(this).text($(this).data("placeholder"));
+							let str;
+							if ($(this).data("fractiondigits")) {
+								str = parseFloat(val).toFixed($(this).data("fractiondigits"));
 							} else {
-								let str;
-								if ($(this).data("fractiondigits")) {
-									str = value.toFixed($(this).data("fractiondigits"));
-								} else {
-									str = value.toString();
-								}
-								str = $(this).data("padzeros") ? padZeros(str, $(this).data("padzeros")) : str;
-								if (str.substring(0,1) != "-" && $(this).data("alwaysshowsign")) {
-									str = "+" + str;
-								}
-								$(this).text(str);
+								str = parseFloat(val).toString();
 							}
-							$(this).data("lastvalue", $(this).text());
+							str = $(this).data("padzeros") ? padZeros(str, $(this).data("padzeros")) : str;
+							if (str.substring(0,1) != "-" && $(this).data("alwaysshowsign")) {
+								str = "+" + str;
+							}
+							$(this).data("lastvalue", str);
+							$(this).text(str);
 						});
 						break;
+				}
+			}
+		});
+
+		// check placeholders
+		$(".lvar_value_indicator").each(function() {
+			if ($(this).data("placeholder")) {
+				let trigger = $(".lvar_value_indicator[data-lvarname='" + $(this).data("placeholdertriggerlvar") + "']");
+				if (trigger.data("lastvalue") == "1") {
+					$(this).text($(this).data("placeholder"));
+				} else {
+					$(this).text($(this).data("lastvalue"));
 				}
 			}
 		});

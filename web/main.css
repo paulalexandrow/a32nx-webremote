@@ -861,16 +861,16 @@ input[type=text] {
 
 #sh_fire .shieldGroup {
 	display: inline-block;
-	width: 15.2em;
+	width: 14.2em;
 }
 
 .firePushButton {
-	width: 7em;
+	width: 6em;
 	vertical-align: bottom;
 }
 
 .firePushButton .pb {
-	width: 9em;
+	width: 8em;
 	background: linear-gradient(328deg, rgba(50,0,0,1) 0%, rgba(70,0,0,1) 83%);
 }
 .firePushButton .pb:hover {
@@ -886,6 +886,7 @@ input[type=text] {
 	font-size: 1.5em;
 	line-height: 1.5em;
 	font-weight: bold;
+	padding: 0.2em 0 0 0;
 }
 
 /* HELP DIALOGS */

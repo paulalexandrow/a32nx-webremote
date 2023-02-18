@@ -335,6 +335,10 @@ input[type=text] {
 	width: 80%;
 }
 
+.pb .main.noBorder {
+	border-color: transparent;
+}
+
 .pb.ui-state-active .main {
 	color: #FFF;
 	border-color: #FFF;

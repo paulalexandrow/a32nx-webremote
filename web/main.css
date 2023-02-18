@@ -48,7 +48,7 @@ button {
 	white-space: normal;
 }
 
-/* GENERAL FORMS */
+/* GENERIC FORMS */
 
 input, button, textarea {
 	outline: none;
@@ -251,7 +251,7 @@ input[type=text] {
 	display: none;
 }
 
-/* GENERIC SHIELDS */
+/* GENERIC WIDGETS */
 
 .shieldDialog {
 	z-index: 97;
@@ -385,154 +385,46 @@ input[type=text] {
 	text-shadow: 0 0 0.1em #FFDF4F;
 }
 
-/* INDIVIDUAL SHIELDS */
+/* INDIVIDUAL WIDGETS */
 
-.fcuValue {
-	font-family: monospace;
-	font-size: 1.4em;
-	font-weight: bold;
-	text-align: right;
-	color:  #FF8D00;
-	background-color: #2D1900;
-	box-shadow: inset 0 0 0.3em #FF8D00;
+/* ADIR widget */
+
+#sh_adir .shieldGroup {
 	display: inline-block;
+}
+
+#sh_adir .shieldGroup>* {
 	vertical-align: middle;
-	padding: 0.2em 0.5em;
-	height: 1.2em;
-	border: 0.1em solid #202C3B;
-	border-radius: 0.3em;
-	cursor: pointer;
 }
 
-#sh_gear .shieldGroup {
-	display: inline-block;
-	width: 18em;
-	vertical-align: top;
-	text-align: center;
-	box-sizing: border-box;
-	margin-right: 0.3em;
-	margin-left: 0.3em;
+#sh_adir button {
+	margin-top: 0.6em;
+	width: 3.3em;
+	height: 3.3em;
 }
 
-/* hint: only the selected autobrake button should display the DECEL light */
-#autobrakeGroup .pushButton.ui-state-active .pb .secondary.activeGreen {
-	color: #222;
-	text-shadow: none;
-}
-#autobrakeGroup .pushButton.ui-state-active .pb.ui-state-active .secondary.activeGreen {
-	color: #2BEC24;
-	text-shadow: 0 0 0.1em #2BEC24;
-}
+/* AIR widget */
 
-#brakefanPushButton {
-	border-left: 0.15em solid #FFF;
-	margin-left: 0.3em;
-	padding-left: 0.6em;
-}
-
-#gearGroup {
-	width: 7.4em;
-}
-
-#gearGroup button {
-	box-sizing: border-box;
-	width: 32%;
-	margin-right: 2%;
-}
-
-#gearGroup button:last-child {
-	margin-right: 0;
-}
-
-#sh_fuel .shieldGroup {
-	display: inline-block;
-	text-align: center;
-	width: 12em;
-}
-
-#sh_fuel .shieldGroup>.label {
-	font-size: 0.7em;
-	text-align: center;
-	text-align-last: center;
-}
-
-#sh_om .shieldGroup {
-	width: 12.2em;
-	display: inline-block;
-	vertical-align: top;
-}
-
-#shieldGroupOverheadMisc1 .pushButton {
-	margin-bottom: 0;
-	width: 50%;
-	box-sizing: border-box;
-}
-
-#shieldGroupOverheadMisc2 {
-	text-align: center;
-}
-
-#shieldGroupOverheadMisc2 button {
-	padding-left: 1em;
-	padding-right: 1em;
-}
-
-#shieldGroupWipers>div .label {
-	font-size: 0.8em;
-	width: 1em;
+#sh_air .shieldGroup {
 	display: inline-block;
 }
 
-#shieldGroupWipers>div:last-child {
-	margin-top: 0.5em;
-	margin-bottom: 0.2em;
+#shieldGroupPackFlow,  #shieldGroupXbleed {
+	text-align: center;
+	min-width: 13.55em;
 }
 
-#shieldGroupWipers .controlgroup button {
+#sh_air .controlgroup button {
 	width: 4em;
 }
 
-/* Setting the wipers to OFF does not set the circuit power to zero, so we need to use some CSS magic here */
-#shieldGroupWipers .controlgroup.ui-state-active {
-	background: transparent;
-	border: none;
-}
-#shieldGroupWipers .controlgroup:not(.ui-state-active) button {
-	border: 1px solid #333;
-    background: #333 url(libs/jquery-ui/images/ui-bg_inset-soft_30_333_1x100.png) 50% 50% repeat-x;
-}
-#shieldGroupWipers .controlgroup:not(.ui-state-active) button:first-child {
-	border: 1px solid #1bc215;
-    background: #1bc215 url(libs/jquery-ui/images/ui-bg_highlight-soft_40_1bc215_1x100.png) 50% 50% repeat-x;
-}
+/* APU widget */
 
-#scratchpad {
-	font-family: monospace;
-	background-color: #111;
-	font-size: 1.4em;
-	font-weight: bold;
-	padding: 0.2em 0;
-	height: 1.2em;
-	border: 0.1em solid #202C3B;
-	text-align: center;
-	overflow: hidden;
-	border-radius: 0.1em;
-	margin-bottom: 0.4em;
-}
-
-#scratchpadButtons {
+#sh_apu .shieldGroup {
 	text-align: center;
 }
 
-#scratchpadButtons button {
-	width: 4em;
-	height: 2.5em;
-	margin-bottom: 0.3em;
-	margin-right: 0.3em;
-}
-#scratchpadButtons button:last-child {
-	margin-right: 0;
-}
+/* BARO widget */
 
 #sh_baro {
 	text-align: center;
@@ -561,26 +453,7 @@ input[type=text] {
 	margin: 0;
 }
 
-#sh_fcub .shieldGroup {
-	text-align: center;
-}
-
-#sh_fcub button {
-	width: 4em;
-}
-
-#controlgroupAutopilot {
-	box-sizing: border-box;
-	margin-bottom: 0.4em;
-}
-
-#controlgroupLocAppr {
-	margin-right: 0.6em;
-}
-
-#controlgroupAutopilot button:nth-child(2) {
-	width: 4.6em;
-}
+/* EFIS widgets */
 
 .efisShield .shieldGroup {
 	display: inline-block;
@@ -626,6 +499,47 @@ input[type=text] {
 .shieldGroupEfisExtras button.ui-widget {
 	padding-left: 0.62em;
 	padding-right: 0.62em;
+}
+
+/* ENG widget */
+
+#sh_eng .shieldGroup {
+	width: 14em;
+	display: inline-block;
+	text-align: center;
+}
+
+#sh_eng button {
+	height: 3.5em;
+	width: 5em;
+}
+
+#shieldGroupEngMaster button {
+	width: 4em;
+	height: 4em;
+}
+
+#shieldGroupEngMaster button:last-child {
+	margin-left: 1.5em;
+}
+
+/* FCU widget */
+
+.fcuValue {
+	font-family: monospace;
+	font-size: 1.4em;
+	font-weight: bold;
+	text-align: right;
+	color:  #FF8D00;
+	background-color: #2D1900;
+	box-shadow: inset 0 0 0.3em #FF8D00;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0.2em 0.5em;
+	height: 1.2em;
+	border: 0.1em solid #202C3B;
+	border-radius: 0.3em;
+	cursor: pointer;
 }
 
 #sh_fcu .shieldGroup {
@@ -690,23 +604,259 @@ input[type=text] {
 	padding: 0.62em 0 0.48em 0;
 }
 
-#sh_warn .shieldGroup {
+/* AUTOFLIGHT widget */
+
+#sh_fcub .shieldGroup {
 	text-align: center;
 }
 
-#sh_warn button {
-	font-size: 0.7em;
-	line-height: 2em;
-	width: 5.5em;
-	height:5.5em;
-	margin-right: 0.8em;
-	border-width: 0.2em;
-	border-color: #202C3B;
+#sh_fcub button {
+	width: 4em;
 }
 
-#sh_warn button:last-child {
+#controlgroupAutopilot {
+	box-sizing: border-box;
+	margin-bottom: 0.4em;
+}
+
+#controlgroupLocAppr {
+	margin-right: 0.6em;
+}
+
+#controlgroupAutopilot button:nth-child(2) {
+	width: 4.6em;
+}
+
+/* FIRE widget*/
+
+#sh_fire .shieldGroup {
+	display: inline-block;
+	width: 14.2em;
+}
+
+.firePushButton {
+	width: 6em;
+	vertical-align: bottom;
+}
+
+.firePushButton .pb {
+	width: 8em;
+	background: linear-gradient(328deg, rgba(50,0,0,1) 0%, rgba(70,0,0,1) 83%);
+}
+.firePushButton .pb:hover {
+	background: linear-gradient(328deg, rgba(100,0,0,1) 0%, rgba(120,0,0,1) 83%);
+}
+.firePushButton .pb.ui-state-active .main {
+	color: #B00;
+	text-shadow: 0 0 0.2em #B00;
+}
+
+.firePushButton .pb .main {
+	border: none;
+	font-size: 1.5em;
+	line-height: 1.5em;
+	font-weight: bold;
+	padding: 0.2em 0 0 0;
+}
+
+/* FUEL widget */
+
+#sh_fuel .shieldGroup {
+	display: inline-block;
+	text-align: center;
+	width: 12em;
+}
+
+#sh_fuel .shieldGroup>.label {
+	font-size: 0.7em;
+	text-align: center;
+	text-align-last: center;
+}
+
+/* GEAR widget */
+
+#sh_gear .shieldGroup {
+	display: inline-block;
+	width: 18em;
+	vertical-align: top;
+	text-align: center;
+	box-sizing: border-box;
+	margin-right: 0.3em;
+	margin-left: 0.3em;
+}
+
+/* hint: only the selected autobrake button should display the DECEL light */
+#autobrakeGroup .pushButton.ui-state-active .pb .secondary.activeGreen {
+	color: #222;
+	text-shadow: none;
+}
+#autobrakeGroup .pushButton.ui-state-active .pb.ui-state-active .secondary.activeGreen {
+	color: #2BEC24;
+	text-shadow: 0 0 0.1em #2BEC24;
+}
+
+#brakefanPushButton {
+	border-left: 0.15em solid #FFF;
+	margin-left: 0.3em;
+	padding-left: 0.6em;
+}
+
+#gearGroup {
+	width: 7.4em;
+}
+
+#gearGroup button {
+	box-sizing: border-box;
+	width: 32%;
+	margin-right: 2%;
+}
+
+#gearGroup button:last-child {
 	margin-right: 0;
 }
+
+/* INT/EXT LT widgets */
+
+#sh_lti .shieldGroup, #sh_lte .shieldGroup {
+	display: inline-block;
+	height: 9.5em;
+	width: 5em;
+	vertical-align: top;
+	text-align: center;
+}
+
+#sh_lti .shieldGroup .label, #sh_lte .shieldGroup .label {
+	height: 2em;
+	text-align: center;
+	text-align-last: center;
+	margin-bottom: 0.5em;
+}
+
+#sh_lti button, #sh_lte button {
+	width: 4.5em;
+}
+
+/* INSTRUMENT LIGHTS widget */
+
+#sh_ltn .shieldGroup {
+	display: inline-block;
+	width: 21em;
+	box-sizing: border-box;
+	line-height: 2.5em;
+}
+
+#sh_ltn .shieldGroup:first-child {
+	margin-right: 0.5em;
+}
+
+#sh_ltn .sliderGroup .label {
+	font-size: 0.8em;
+	display: inline-block;
+	width: 9em;
+	box-sizing: border-box;
+	padding-bottom: 0.2em;
+}
+
+#sh_ltn .offset_percent_slider {
+	display: inline-block;
+	width: 10em;
+	box-sizing: border-box;
+	top: 0.1em;
+}
+
+/* OVERHEAD MISC widget */
+
+#sh_om .shieldGroup {
+	width: 12.2em;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#shieldGroupOverheadMisc1 .pushButton {
+	margin-bottom: 0;
+	width: 50%;
+	box-sizing: border-box;
+}
+
+#shieldGroupOverheadMisc2 {
+	text-align: center;
+}
+
+#shieldGroupOverheadMisc2 button {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+#shieldGroupWipers>div .label {
+	font-size: 0.8em;
+	width: 1em;
+	display: inline-block;
+}
+
+#shieldGroupWipers>div:last-child {
+	margin-top: 0.5em;
+	margin-bottom: 0.2em;
+}
+
+#shieldGroupWipers .controlgroup button {
+	width: 4em;
+}
+
+/* Setting the wipers to OFF does not set the circuit power to zero, so we need to use some CSS magic here */
+#shieldGroupWipers .controlgroup.ui-state-active {
+	background: transparent;
+	border: none;
+}
+#shieldGroupWipers .controlgroup:not(.ui-state-active) button {
+	border: 1px solid #333;
+    background: #333 url(libs/jquery-ui/images/ui-bg_inset-soft_30_333_1x100.png) 50% 50% repeat-x;
+}
+#shieldGroupWipers .controlgroup:not(.ui-state-active) button:first-child {
+	border: 1px solid #1bc215;
+    background: #1bc215 url(libs/jquery-ui/images/ui-bg_highlight-soft_40_1bc215_1x100.png) 50% 50% repeat-x;
+}
+
+/* SCRATCHPAD widget */
+
+#scratchpad {
+	font-family: monospace;
+	background-color: #111;
+	font-size: 1.4em;
+	font-weight: bold;
+	padding: 0.2em 0;
+	height: 1.2em;
+	border: 0.1em solid #202C3B;
+	text-align: center;
+	overflow: hidden;
+	border-radius: 0.1em;
+	margin-bottom: 0.4em;
+}
+
+#scratchpadButtons {
+	text-align: center;
+}
+
+#scratchpadButtons button {
+	width: 4em;
+	height: 2.5em;
+	margin-bottom: 0.3em;
+	margin-right: 0.3em;
+}
+#scratchpadButtons button:last-child {
+	margin-right: 0;
+}
+
+/* SIM CONTROL widget */
+
+#sh_sim .shieldGroup {
+	text-align: center;
+}
+
+#sh_sim button {
+	width: 80%;
+}
+
+/* FLAPS & SPEEDBRAKE widget */
 
 #sh_surf button {
 	width: 6em;
@@ -744,6 +894,26 @@ input[type=text] {
 	width: 8em;
 }
 
+/* WARNING widget */
+
+#sh_warn .shieldGroup {
+	text-align: center;
+}
+
+#sh_warn button {
+	font-size: 0.7em;
+	line-height: 2em;
+	width: 5.5em;
+	height:5.5em;
+	margin-right: 0.8em;
+	border-width: 0.2em;
+	border-color: #202C3B;
+}
+
+#sh_warn button:last-child {
+	margin-right: 0;
+}
+
 #button_autoland.ui-state-active {
 	color: #000;
 	background: #FF1528;
@@ -762,141 +932,7 @@ input[type=text] {
 	border-color: #202C3B;
 }
 
-#sh_sim .shieldGroup {
-	text-align: center;
-}
-
-#sh_sim button {
-	width: 80%;
-}
-
-#sh_adir .shieldGroup {
-	display: inline-block;
-}
-
-#sh_adir .shieldGroup>* {
-	vertical-align: middle;
-}
-
-#sh_adir button {
-	margin-top: 0.6em;
-	width: 3.3em;
-	height: 3.3em;
-}
-
-#sh_apu .shieldGroup {
-	text-align: center;
-}
-
-#sh_air .shieldGroup {
-	display: inline-block;
-}
-
-#shieldGroupPackFlow,  #shieldGroupXbleed {
-	text-align: center;
-	min-width: 13.55em;
-}
-
-#sh_air .controlgroup button {
-	width: 4em;
-}
-
-#sh_eng .shieldGroup {
-	width: 14em;
-	display: inline-block;
-	text-align: center;
-}
-
-#sh_eng button {
-	height: 3.5em;
-	width: 5em;
-}
-
-#shieldGroupEngMaster button {
-	width: 4em;
-	height: 4em;
-}
-
-#shieldGroupEngMaster button:last-child {
-	margin-left: 1.5em;
-}
-
-#sh_lti .shieldGroup, #sh_lte .shieldGroup {
-	display: inline-block;
-	height: 9.5em;
-	width: 5em;
-	vertical-align: top;
-	text-align: center;
-}
-
-#sh_lti .shieldGroup .label, #sh_lte .shieldGroup .label {
-	height: 2em;
-	text-align: center;
-	text-align-last: center;
-	margin-bottom: 0.5em;
-}
-
-#sh_lti button, #sh_lte button {
-	width: 4.5em;
-}
-
-#sh_ltn .shieldGroup {
-	display: inline-block;
-	width: 21em;
-	box-sizing: border-box;
-	line-height: 2.5em;
-}
-
-#sh_ltn .shieldGroup:first-child {
-	margin-right: 0.5em;
-}
-
-#sh_ltn .sliderGroup .label {
-	font-size: 0.8em;
-	display: inline-block;
-	width: 9em;
-	box-sizing: border-box;
-	padding-bottom: 0.2em;
-}
-
-#sh_ltn .offset_percent_slider {
-	display: inline-block;
-	width: 10em;
-	box-sizing: border-box;
-	top: 0.1em;
-}
-
-#sh_fire .shieldGroup {
-	display: inline-block;
-	width: 14.2em;
-}
-
-.firePushButton {
-	width: 6em;
-	vertical-align: bottom;
-}
-
-.firePushButton .pb {
-	width: 8em;
-	background: linear-gradient(328deg, rgba(50,0,0,1) 0%, rgba(70,0,0,1) 83%);
-}
-.firePushButton .pb:hover {
-	background: linear-gradient(328deg, rgba(100,0,0,1) 0%, rgba(120,0,0,1) 83%);
-}
-.firePushButton .pb.ui-state-active .main {
-	color: #B00;
-	text-shadow: 0 0 0.2em #B00;
-}
-
-.firePushButton .pb .main {
-	border: none;
-	font-size: 1.5em;
-	line-height: 1.5em;
-	font-weight: bold;
-	padding: 0.2em 0 0 0;
-}
-
-/* HELP DIALOGS */
+/* GENERIC help dialogs */
 
 .helpDialog.ui-dialog-content {
 	font-size: 12pt;
@@ -925,6 +961,8 @@ input[type=text] {
 	text-decoration: underline;
 	font-style: normal;
 }
+
+/* ABOUT help dialog */
 
 #helpDialogAbout.ui-dialog-content {
 

@@ -66,6 +66,13 @@ input[type=text] {
 	padding: 0.5em 0;
 }
 
+.ui-dialog .ui-dialog-buttonpane {
+	background: none;
+	margin-left: -0.2em;
+	margin-right: -0.2em;
+	padding-bottom: 0.1em;
+}
+
 .ui-widget-overlay {
 	z-index: 10000;
 	background-color: #0006;

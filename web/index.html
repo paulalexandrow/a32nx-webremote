@@ -92,51 +92,118 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<div id="closeMenuAction">❮</div>
 </div>
 
-<div id="sh_fcu" class="shield" data-title="FCU" data-width="735">
+<div id="sh_adir" class="shield" data-title="ADIRS" data-width="340">
 	<div class="shieldGroup">
-		<div class="label">SPD</div>
-		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_SPD_MANAGED_DASHES"><!-- we need this hidden to register the LVAR for updates --></div>
-		<span id="indicator_spd_spd" class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="100" data-maxvalue="399" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_SPD_MANAGED_DASHES"></span>
-		<span id="indicator_spd_mach" style="display:none" class="lvar_value_indicator scratchpad_calculator_command fcuValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="10" data-maxvalue="99"  data-fractiondigits="2" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_SPD_MANAGED_DASHES"></span>
-		<div class="pushPullGroup">
-			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_SPD_PUSH)">manage</button>
-			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_SPD_PULL)">pull</button>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ADIRS_IR_1_PB_HAS_FAULT" data-highlightvalue="1">
+			<div class="label">IR 1</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ADIRS_IR_1_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ADIRS_IR_1_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ADIRS_IR_1_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+		</div>
+		<div class="controlgroup">
+			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_1_MODE_SELECTOR_KNOB" data-lvarvalue="0">OFF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_1_MODE_SELECTOR_KNOB" data-lvarvalue="1">NAV</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_1_MODE_SELECTOR_KNOB" data-lvarvalue="2">ATT</button>
+		</div>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ADIRS_ADR_1_PB_HAS_FAULT" data-highlightvalue="1">
+			<div class="label">ADR 1</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ADIRS_ADR_1_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ADIRS_ADR_1_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ADIRS_ADR_1_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
 		</div>
 	</div>
 	<div class="shieldGroup">
-		<div class="label">HDG</div>
-		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_HDG_MANAGED_DASHES"><!-- we need this hidden to register the LVAR for updates --></div>
-		<span class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_FCU_HEADING_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_HDG_SET)" data-minvalue="0" data-maxvalue="360" data-padzeros="3" data-fractiondigits="0" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_HDG_MANAGED_DASHES"></span>
-		<div class="pushPullGroup">
-			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_HDG_PUSH)">manage</button>
-			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_HDG_PULL)">pull</button>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ADIRS_IR_3_PB_HAS_FAULT" data-highlightvalue="1">
+			<div class="label">IR 3</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ADIRS_IR_3_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ADIRS_IR_3_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ADIRS_IR_3_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+		</div>
+		<div class="controlgroup">
+			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_3_MODE_SELECTOR_KNOB" data-lvarvalue="0">OFF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_3_MODE_SELECTOR_KNOB" data-lvarvalue="1">NAV</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_3_MODE_SELECTOR_KNOB" data-lvarvalue="2">ATT</button>
+		</div>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ADIRS_ADR_3_PB_HAS_FAULT" data-highlightvalue="1">
+			<div class="label">ADR 3</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ADIRS_ADR_3_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ADIRS_ADR_3_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ADIRS_ADR_3_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
 		</div>
 	</div>
 	<div class="shieldGroup">
-		<div class="label">ALT</div>
-		<span class="offset_value_indicator scratchpad_calculator_command fcuValue" data-calculatorcommand="(>K:A32NX.FCU_ALT_SET)" data-minvalue="100" data-maxvalue="49000" data-offsetaddress="0x0818" data-offsettype="uint" data-offsetsize="4" data-fractiondigits="0" data-padzeros="4" data-displayfactor=".000050061643905839895013123359580052"></span>
-		<div class="pushPullGroup">
-			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_ALT_PUSH)">manage</button>
-			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_ALT_PULL)">pull</button>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ADIRS_IR_2_PB_HAS_FAULT" data-highlightvalue="1">
+			<div class="label">IR 2</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ADIRS_IR_2_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ADIRS_IR_2_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ADIRS_IR_2_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+		</div>
+		<div class="controlgroup">
+			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_2_MODE_SELECTOR_KNOB" data-lvarvalue="0">OFF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_2_MODE_SELECTOR_KNOB" data-lvarvalue="1">NAV</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_2_MODE_SELECTOR_KNOB" data-lvarvalue="2">ATT</button>
+		</div>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ADIRS_ADR_2_PB_HAS_FAULT" data-highlightvalue="1">
+			<div class="label">ADR 2</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ADIRS_ADR_2_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ADIRS_ADR_2_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ADIRS_ADR_2_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
 		</div>
 	</div>
-	<div class="shieldGroup">
-		<div class="label">VS / FPA</div>
-		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_VS_MANAGED"><!-- we need this hidden to register the LVAR for updates --></div>
-		<span id="indicator_vs_vs" class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_AUTOPILOT_VS_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-6000" data-maxvalue="6000" data-fractiondigits="0" data-padzeros="4" data-alwaysshowsign="1" data-placeholder="-----" data-placeholdertriggerlvar="A32NX_FCU_VS_MANAGED"></span>
-		<span id="indicator_vs_fpa" class="lvar_value_indicator scratchpad_calculator_command fcuValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_FPA_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-99" data-maxvalue="99" data-alwaysshowsign="1" data-fractiondigits="1"></span>
-		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_TRK_FPA_MODE_ACTIVE"><!-- we need this hidden to register the LVAR for updates --></div>
-		<div class="pushPullGroup">
-			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_VS_PUSH)">push to level off</button>
-			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_VS_PULL)">pull</button>
-		</div>
-	</div>
-	<div id="shieldGroupFcuUnits" class="shieldGroup">
-	<button class="calculator_button" data-calculatorcommands="(>K:A32NX.FCU_SPD_MACH_TOGGLE_PUSH)">SPD<br />MACH</button>
-		<button class="calculator_button" data-calculatorcommands="(>K:A32NX.FCU_TRK_FPA_TOGGLE_PUSH)">HDG / TRK<br />VS / FPA</button>
-	</div>
+</div>
 
-	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogScratchpad"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
+<div id="sh_air" class="shield" data-title="AIR COND" data-width="545">
+	<div class="shieldGroup">
+		<div class="nobreak">
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_PNEU_ENG_1_BLEED_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">ENG 1 BLEED</div>
+				<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66D6" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="1 (>K:ENGINE_BLEED_AIR_SOURCE_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+			</div>
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_PNEU_APU_BLEED_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">APU BLEED</div>
+				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_PNEU_APU_BLEED_PB_IS_ON" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_OVHD_PNEU_APU_BLEED_PB_IS_ON)" data-disablecalculatorcommands="0 (>L:A32NX_OVHD_PNEU_APU_BLEED_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main activeBlue">ON</span></div>
+			</div>
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_PNEU_ENG_2_BLEED_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">ENG 2 BLEED</div>
+				<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66D7" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="2 (>K:ENGINE_BLEED_AIR_SOURCE_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+			</div>
+		</div>
+		<div class="nobreak">
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_COND_PACK_1_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">PACK 1</div>
+				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_COND_PACK_1_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_COND_PACK_1_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_COND_PACK_1_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+			</div>
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_COND_PACK_2_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">PACK 2</div>
+				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_COND_PACK_2_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_COND_PACK_2_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_COND_PACK_2_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+			</div>
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_COND_HOT_AIR_PB_HAS_FAULT" data-highlightvalue="1">
+				<div class="label">HOT AIR</div>
+				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_COND_HOT_AIR_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_COND_HOT_AIR_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_COND_HOT_AIR_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+			</div>
+		</div>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_AIRCOND_RAMAIR_FAULT" data-highlightvalue="1">
+			<div class="label">RAM AIR</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_AIRCOND_RAMAIR_TOGGLE" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_AIRCOND_RAMAIR_TOGGLE)" data-disablecalculatorcommands="0 (>L:A32NX_AIRCOND_RAMAIR_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">ON</span></div>
+		</div>
+	</div>
+	<div id="shieldGroupPackFlow" class="shieldGroup">
+		<div class="label">PACK FLOW</div>
+		<div class="controlgroup">
+			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_PACKFLOW_Position" data-lvarvalue="0">LO</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_PACKFLOW_Position" data-lvarvalue="1">NORM</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_PACKFLOW_Position" data-lvarvalue="2">HI</button>
+		</div>
+	</div>
+	<div id="shieldGroupXbleed" class="shieldGroup">
+		<div class="label">X BLEED</div>
+		<div class="controlgroup">
+			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_XBLEED_Position" data-lvarvalue="0">SHUT</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_XBLEED_Position" data-lvarvalue="1">AUTO</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_XBLEED_Position" data-lvarvalue="2">OPEN</button>
+		</div>
+	</div>
+</div>
+
+<div id="sh_apu" class="shield" data-title="APU" data-width="170">
+	<div class="shieldGroup">
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_APU_MASTER_SW_PB_HAS_FAULT" data-highlightvalue="1">
+			<div class="label">MASTER</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_APU_MASTER_SW_PB_IS_ON" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_OVHD_APU_MASTER_SW_PB_IS_ON)" data-disablecalculatorcommands="0 (>L:A32NX_OVHD_APU_MASTER_SW_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main activeBlue">ON</span></div>
+		</div>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_APU_START_PB_IS_AVAILABLE" data-highlightvalue="1">
+			<div class="label">START</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_APU_START_PB_IS_ON" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_OVHD_APU_START_PB_IS_ON)" data-disablecalculatorcommands="0 (>L:A32NX_OVHD_APU_START_PB_IS_ON)"><span class="secondary activeGreen">AVAIL</span><br/><span class="main activeBlue">ON</span></div>
+		</div>
+	</div>
 </div>
 
 <div id="sh_baro" class="shield" data-title="Baro" data-width="180" data-noresize="1">
@@ -149,27 +216,6 @@ with this program. If not, see https://www.gnu.org/licenses/.
 			<button class="lvar_selector_button" data-lvarname="XMLVAR_Baro1_Mode" data-lvarvalue="1">QNH</button>
 			<button class="lvar_selector_button" data-lvarname="XMLVAR_Baro1_Mode" data-lvarvalue="0">QFE</button>
 			<button id="button_baro_mode_std" class="lvar_selector_button" data-lvarname="XMLVAR_Baro1_Mode" data-lvarvalue="2">STD</button>
-		</div>
-	</div>
-	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogScratchpad"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
-</div>
-
-<div id="sh_scratch" class="shield" data-title="Scratchpad" data-width="240" data-noresize="1">
-	<div class="shieldGroup">
-		<div id="scratchpad"></div>
-		<div id="scratchpadButtons">
-			<div>
-				<button data-value="1">1</button><button data-value="2">2</button><button data-value="3">3</button>
-			</div>
-			<div>
-				<button data-value="4">4</button><button data-value="5">5</button><button data-value="6">6</button>
-			</div>
-			<div>
-				<button data-value="7">7</button><button data-value="8">8</button><button data-value="9">9</button>
-			</div>
-			<div>
-				<button data-value="-">+/-</button><button data-value="0">0</button><button data-value="">CLR</button>
-			</div>
 		</div>
 	</div>
 	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogScratchpad"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
@@ -271,84 +317,6 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
-<div id="sh_fcub" class="shield" data-title="Autoflight" data-width="240" data-noresize="1">
-	<div id="shieldGroupAutopilot" class="shieldGroup"><div id="controlgroupAutopilot" class="controlgroup"><button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOPILOT_1_ACTIVE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_AP_1_PUSH)">AP1</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOTHRUST_STATUS"  data-highlightvalue="1" data-alternativehighlightvalue="2" data-calculatorcommands="(>K:A32NX.FCU_ATHR_PUSH)">A/THR</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOPILOT_2_ACTIVE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_AP_2_PUSH)">AP2</button>
-		</div><div id="controlgroupLocAppr" class="controlgroup">
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_LOC_MODE_ACTIVE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_LOC_PUSH)">LOC</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_APPR_MODE_ACTIVE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_APPR_PUSH)">APPR</button>
-		</div><button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FMA_EXPEDITE_MODE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_EXPED_PUSH)">EXPED</button>
-	</div>
-</div>
-
-<div id="sh_gear" class="shield" data-title="Gear &amp; Brakes" data-width="350">
-	<div id="autobrakeGroup" class="shieldGroup">
-		<div class="label">AUTO BRK</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_AUTOBRAKES_DECEL_LIGHT" data-highlightvalue="1">
-			<div class="label">LO</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.AUTOBRAKE_BUTTON_LO)")><span class="secondary activeGreen">DECEL</span><br/><span class="main activeBlue">ON</span></div>
-		</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_AUTOBRAKES_DECEL_LIGHT" data-highlightvalue="1">
-			<div class="label">MED</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="2" data-calculatorcommands="(>K:A32NX.AUTOBRAKE_BUTTON_MED)")><span class="secondary activeGreen">DECEL</span><br/><span class="main activeBlue">ON</span></div>
-		</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_AUTOBRAKES_DECEL_LIGHT" data-highlightvalue="1">
-			<div class="label">MAX</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="3" data-calculatorcommands="(>K:A32NX.AUTOBRAKE_BUTTON_MAX)")><span class="secondary activeGreen">DECEL</span><br/><span class="main activeBlue">ON</span></div>
-		</div>
-		<div id="brakefanPushButton" class="pushButton lvar_status_indicator" data-lvarname="A32NX_BRAKES_HOT" data-highlightvalue="1">
-			<div class="label">BRK FAN</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_BRAKE_FAN_BTN_PRESSED" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_BRAKE_FAN_BTN_PRESSED)" data-disablecalculatorcommands="0 (>L:A32NX_BRAKE_FAN_BTN_PRESSED)"><span class="secondary">HOT</span><br/><span class="main">ON</span></div>
-		</div>
-	</div><div id="gearGroup" class="shieldGroup">
-		<button class="lvar_selector_button" data-lvarname="A32NX_PARK_BRAKE_LEVER_POS" data-lvarvalue="1" data-lvardeselectvalue="0">PARK BRK</button><button class="offset_status_indicator calculator_button" data-offsetaddress="0x0BFD" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(>K:ANTISKID_BRAKES_TOGGLE)">ANTI SKID</button><button class="lvar_selector_button" data-lvarname="A32NX_GEAR_LEVER_POSITION_REQUEST" data-lvarvalue="1" data-lvardeselectvalue="0">GEAR</button>
-	</div>
-	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogGear"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
-</div>
-
-<div id="sh_warn" class="shield" data-title="Warning Panel" data-width="280" data-noresize="1">
-	<div class="shieldGroup">
-		<button id="button_autoland" class="lvar_status_indicator" data-lvarname="A32NX_AUTOPILOT_AUTOLAND_WARNING" data-highlightvalue="1">AUTO<br />LAND</button>
-		<button id="button_mastercaut" class="lvar_status_indicator calculator_button" data-lvarname="A32NX_MASTER_CAUTION" data-highlightvalue="1" data-calculatorcommands="1 (>L:PUSH_AUTOPILOT_MASTERCAUT_L)|0 (>L:PUSH_AUTOPILOT_MASTERCAUT_L)">MASTER<br />CAUT</button>
-		<button id="button_masterwarn" class="lvar_status_indicator calculator_button" data-lvarname="A32NX_MASTER_WARNING" data-highlightvalue="1" data-calculatorcommands="1 (>L:PUSH_AUTOPILOT_MASTERAWARN_L)|0 (>L:PUSH_AUTOPILOT_MASTERAWARN_L)">MASTER<br />WARN</button>
-	</div>
-</div>
-
-<div id="sh_surf" class="shield" data-title="Flaps &amp; Speed Brake" data-width="360">
-	<div class="shieldGroup">
-		<div class="label">SPEED BRAKE</div>
-		<div id="spoilerButtons">
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_ARMED" data-highlightvalue="1" data-calculatorcommands="(>K:SPOILERS_ARM_TOGGLE)">ARMED</button>
-			<div class="controlgroupVertical">
-				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_HANDLE_POSITION" data-highlightvalue="0" data-calculatorcommands="0 (>K:SPOILERS_SET)|(>K:SPOILERS_ARM_OFF)">RET</button>
-				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_HANDLE_POSITION" data-highlightvalue="0.5" data-calculatorcommands="8192 (>K:SPOILERS_SET)">1/2</button>
-				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_HANDLE_POSITION" data-highlightvalue="1" data-calculatorcommands="16384 (>K:SPOILERS_SET)">FULL</button>
-			</div>
-		</div>
-		<div id="spoilerSliderContainer">
-			<div id="spoilerSlider"></div>
-		</div>
-	</div>
-	<div class="shieldGroup">
-		<div class="label">FLAPS</div>
-		<div id="flapsButtons" class="controlgroupVertical">
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="0" data-calculatorcommands="(>K:FLAPS_UP)">0</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="1" data-calculatorcommands="(>K:FLAPS_1)">1</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="2" data-calculatorcommands="(>K:FLAPS_2)">2</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="3" data-calculatorcommands="(>K:FLAPS_3)">3</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="4" data-calculatorcommands="(>K:FLAPS_DOWN)">FULL</button>
-		</div>
-	</div>
-	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogSurf"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
-</div>
-
-<div id="sh_sim" class="shield" data-title="Sim Control" data-width="180" data-noresize="1">
-	<div class="shieldGroup">
-		<button class="offset_status_indicator calculator_button" data-offsetaddress="0x0264" data-offsettype="uint" data-offsetsize="2" data-highlightvalue="1" data-calculatorcommands="1 (>K:PAUSE_SET)" data-disablecalculatorcommands="0 (>K:PAUSE_SET)">PAUSE</button>
-	</div>
-</div>
-
 <div id="sh_elec" class="shield" data-title="ELEC" data-width="480">
 	<div class="shieldGroup">
 		<span class="nobreak">
@@ -410,6 +378,124 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
+<div id="sh_eng" class="shield" data-title="EXT LT" data-width="280">
+	<div id="shieldGroupEngMaster" class="shieldGroup">
+		<div class="label">MASTER</div>
+			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CB" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="1 (>K:FUELSYSTEM_VALVE_OPEN)" data-disablecalculatorcommands="1 (>K:FUELSYSTEM_VALVE_CLOSE)">ENG 1</button>
+			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CC" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="2 (>K:FUELSYSTEM_VALVE_OPEN)" data-disablecalculatorcommands="2 (>K:FUELSYSTEM_VALVE_CLOSE)">ENG 2</button>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">MODE</div>
+		<div class="controlgroup">
+			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CA" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="0 (>K:TURBINE_IGNITION_SWITCH_SET1) 0 (>K:TURBINE_IGNITION_SWITCH_SET2)">CRANK</button>
+			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CA" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="1 (>K:TURBINE_IGNITION_SWITCH_SET1) 1 (>K:TURBINE_IGNITION_SWITCH_SET2)">NORM</button>
+			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CA" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="2" data-calculatorcommands="2 (>K:TURBINE_IGNITION_SWITCH_SET1) 2 (>K:TURBINE_IGNITION_SWITCH_SET2)">IGN<br />START</button>
+		</div>
+	</div>
+</div>
+
+<div id="sh_fcu" class="shield" data-title="FCU" data-width="735">
+	<div class="shieldGroup">
+		<div class="label">SPD</div>
+		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_SPD_MANAGED_DASHES"><!-- we need this hidden to register the LVAR for updates --></div>
+		<span id="indicator_spd_spd" class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="100" data-maxvalue="399" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_SPD_MANAGED_DASHES"></span>
+		<span id="indicator_spd_mach" style="display:none" class="lvar_value_indicator scratchpad_calculator_command fcuValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="10" data-maxvalue="99"  data-fractiondigits="2" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_SPD_MANAGED_DASHES"></span>
+		<div class="pushPullGroup">
+			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_SPD_PUSH)">manage</button>
+			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_SPD_PULL)">pull</button>
+		</div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">HDG</div>
+		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_HDG_MANAGED_DASHES"><!-- we need this hidden to register the LVAR for updates --></div>
+		<span class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_FCU_HEADING_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_HDG_SET)" data-minvalue="0" data-maxvalue="360" data-padzeros="3" data-fractiondigits="0" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_HDG_MANAGED_DASHES"></span>
+		<div class="pushPullGroup">
+			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_HDG_PUSH)">manage</button>
+			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_HDG_PULL)">pull</button>
+		</div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">ALT</div>
+		<span class="offset_value_indicator scratchpad_calculator_command fcuValue" data-calculatorcommand="(>K:A32NX.FCU_ALT_SET)" data-minvalue="100" data-maxvalue="49000" data-offsetaddress="0x0818" data-offsettype="uint" data-offsetsize="4" data-fractiondigits="0" data-padzeros="4" data-displayfactor=".000050061643905839895013123359580052"></span>
+		<div class="pushPullGroup">
+			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_ALT_PUSH)">manage</button>
+			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_ALT_PULL)">pull</button>
+		</div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">VS / FPA</div>
+		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_VS_MANAGED"><!-- we need this hidden to register the LVAR for updates --></div>
+		<span id="indicator_vs_vs" class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_AUTOPILOT_VS_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-6000" data-maxvalue="6000" data-fractiondigits="0" data-padzeros="4" data-alwaysshowsign="1" data-placeholder="-----" data-placeholdertriggerlvar="A32NX_FCU_VS_MANAGED"></span>
+		<span id="indicator_vs_fpa" class="lvar_value_indicator scratchpad_calculator_command fcuValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_FPA_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-99" data-maxvalue="99" data-alwaysshowsign="1" data-fractiondigits="1"></span>
+		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_TRK_FPA_MODE_ACTIVE"><!-- we need this hidden to register the LVAR for updates --></div>
+		<div class="pushPullGroup">
+			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_VS_PUSH)">push to level off</button>
+			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_VS_PULL)">pull</button>
+		</div>
+	</div>
+	<div id="shieldGroupFcuUnits" class="shieldGroup">
+	<button class="calculator_button" data-calculatorcommands="(>K:A32NX.FCU_SPD_MACH_TOGGLE_PUSH)">SPD<br />MACH</button>
+		<button class="calculator_button" data-calculatorcommands="(>K:A32NX.FCU_TRK_FPA_TOGGLE_PUSH)">HDG / TRK<br />VS / FPA</button>
+	</div>
+
+	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogScratchpad"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
+</div>
+
+<div id="sh_fcub" class="shield" data-title="Autoflight" data-width="240" data-noresize="1">
+	<div id="shieldGroupAutopilot" class="shieldGroup"><div id="controlgroupAutopilot" class="controlgroup"><button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOPILOT_1_ACTIVE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_AP_1_PUSH)">AP1</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOTHRUST_STATUS"  data-highlightvalue="1" data-alternativehighlightvalue="2" data-calculatorcommands="(>K:A32NX.FCU_ATHR_PUSH)">A/THR</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOPILOT_2_ACTIVE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_AP_2_PUSH)">AP2</button>
+		</div><div id="controlgroupLocAppr" class="controlgroup">
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_LOC_MODE_ACTIVE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_LOC_PUSH)">LOC</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_APPR_MODE_ACTIVE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_APPR_PUSH)">APPR</button>
+		</div><button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FMA_EXPEDITE_MODE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_EXPED_PUSH)">EXPED</button>
+	</div>
+</div>
+
+<div id="sh_fire" class="shield" data-title="FIRE" data-width="860">
+	<div class="shieldGroup">
+		<div class="label">ENG 1</div>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_FIRE_BUTTON_ENG1" data-highlightvalue="1">
+			<div class="label">AGENT&nbsp;1</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_FIRE_ENG1_AGENT1_Discharge" data-highlightvalue="1" data-calculatorcommands="(L:A32NX_FIRE_BUTTON_ENG1, Bool) if{ 1 (>L:A32NX_FIRE_ENG1_AGENT1_Discharge) }" data-disablecalculatorcommands=""><span class="secondary activeWhite">SQUIB</span><br/><span class="main activeAmber">DISCH</span></div>
+		</div>
+		<div class="pushButton firePushButton">
+			<div class="label">FIRE</div><!-- engine fire not yet implemented by FBW -->
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_FIRE_BUTTON_ENG1" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_FIRE_GUARD_ENG1) 1 (>L:A32NX_FIRE_BUTTON_ENG1)" data-disablecalculatorcommands="0 (>L:A32NX_FIRE_GUARD_ENG1) 0 (>L:A32NX_FIRE_BUTTON_ENG1)"><span class="main">PUSHED</span></div>
+		</div>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_FIRE_BUTTON_ENG1" data-highlightvalue="1">
+			<div class="label">AGENT&nbsp;2</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_FIRE_ENG1_AGENT2_Discharge" data-highlightvalue="1" data-calculatorcommands="(L:A32NX_FIRE_BUTTON_ENG1, Bool) if{ 1 (>L:A32NX_FIRE_ENG1_AGENT2_Discharge) }" data-disablecalculatorcommands=""><span class="secondary activeWhite">SQUIB</span><br/><span class="main activeAmber">DISCH</span></div>
+		</div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">APU</div>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_FIRE_BUTTON_APU" data-highlightvalue="1">
+			<div class="label">AGENT&nbsp;1</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_FIRE_APU_AGENT1_Discharge" data-highlightvalue="1" data-calculatorcommands="(L:A32NX_FIRE_BUTTON_APU, Bool) if{ 1 (>L:A32NX_FIRE_APU_AGENT1_Discharge) }" data-disablecalculatorcommands=""><span class="secondary activeWhite">SQUIB</span><br/><span class="main activeAmber">DISCH</span></div>
+		</div>
+		<div class="pushButton firePushButton">
+			<div class="label">FIRE</div><!-- APU fire not yet implemented by FBW -->
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_FIRE_BUTTON_APU" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_FIRE_GUARD_APU) 1 (>L:A32NX_FIRE_BUTTON_APU)" data-disablecalculatorcommands="0 (>L:A32NX_FIRE_GUARD_APU) 0 (>L:A32NX_FIRE_BUTTON_APU)"><span class="main">PUSHED</span></div>
+		</div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">ENG 2</div>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_FIRE_BUTTON_ENG2" data-highlightvalue="1">
+			<div class="label">AGENT&nbsp;1</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_FIRE_ENG2_AGENT1_Discharge" data-highlightvalue="1" data-calculatorcommands="(L:A32NX_FIRE_BUTTON_ENG2, Bool) if{ 1 (>L:A32NX_FIRE_ENG2_AGENT1_Discharge) }" data-disablecalculatorcommands=""><span class="secondary activeWhite">SQUIB</span><br/><span class="main activeAmber">DISCH</span></div>
+		</div>
+		<div class="pushButton firePushButton">
+			<div class="label">FIRE</div><!-- engine fire not yet implemented by FBW -->
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_FIRE_BUTTON_ENG2" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_FIRE_GUARD_ENG2) 1 (>L:A32NX_FIRE_BUTTON_ENG2)" data-disablecalculatorcommands="0 (>L:A32NX_FIRE_GUARD_ENG2) 0 (>L:A32NX_FIRE_BUTTON_ENG2)"><span class="main">PUSHED</span></div>
+		</div>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_FIRE_BUTTON_ENG2" data-highlightvalue="1">
+			<div class="label">AGENT&nbsp;2</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_FIRE_ENG2_AGENT2_Discharge" data-highlightvalue="1" data-calculatorcommands="(L:A32NX_FIRE_BUTTON_ENG2, Bool) if{ 1 (>L:A32NX_FIRE_ENG2_AGENT2_Discharge) }" data-disablecalculatorcommands=""><span class="secondary activeWhite">SQUIB</span><br/><span class="main activeAmber">DISCH</span></div>
+		</div>
+	</div>
+</div>
+
 <div id="sh_fuel" class="shield" data-title="FUEL" data-width="735">
 	<div class="shieldGroup">
 		<div class="label">L TK PUMPS</div>
@@ -450,166 +536,102 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
-<div id="sh_adir" class="shield" data-title="ADIRS" data-width="340">
-	<div class="shieldGroup">
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ADIRS_IR_1_PB_HAS_FAULT" data-highlightvalue="1">
-			<div class="label">IR 1</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ADIRS_IR_1_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ADIRS_IR_1_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ADIRS_IR_1_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+<div id="sh_gear" class="shield" data-title="Gear &amp; Brakes" data-width="350">
+	<div id="autobrakeGroup" class="shieldGroup">
+		<div class="label">AUTO BRK</div>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_AUTOBRAKES_DECEL_LIGHT" data-highlightvalue="1">
+			<div class="label">LO</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.AUTOBRAKE_BUTTON_LO)")><span class="secondary activeGreen">DECEL</span><br/><span class="main activeBlue">ON</span></div>
 		</div>
-		<div class="controlgroup">
-			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_1_MODE_SELECTOR_KNOB" data-lvarvalue="0">OFF</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_1_MODE_SELECTOR_KNOB" data-lvarvalue="1">NAV</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_1_MODE_SELECTOR_KNOB" data-lvarvalue="2">ATT</button>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_AUTOBRAKES_DECEL_LIGHT" data-highlightvalue="1">
+			<div class="label">MED</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="2" data-calculatorcommands="(>K:A32NX.AUTOBRAKE_BUTTON_MED)")><span class="secondary activeGreen">DECEL</span><br/><span class="main activeBlue">ON</span></div>
 		</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ADIRS_ADR_1_PB_HAS_FAULT" data-highlightvalue="1">
-			<div class="label">ADR 1</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ADIRS_ADR_1_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ADIRS_ADR_1_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ADIRS_ADR_1_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_AUTOBRAKES_DECEL_LIGHT" data-highlightvalue="1">
+			<div class="label">MAX</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOBRAKES_ARMED_MODE" data-highlightvalue="3" data-calculatorcommands="(>K:A32NX.AUTOBRAKE_BUTTON_MAX)")><span class="secondary activeGreen">DECEL</span><br/><span class="main activeBlue">ON</span></div>
 		</div>
+		<div id="brakefanPushButton" class="pushButton lvar_status_indicator" data-lvarname="A32NX_BRAKES_HOT" data-highlightvalue="1">
+			<div class="label">BRK FAN</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_BRAKE_FAN_BTN_PRESSED" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_BRAKE_FAN_BTN_PRESSED)" data-disablecalculatorcommands="0 (>L:A32NX_BRAKE_FAN_BTN_PRESSED)"><span class="secondary">HOT</span><br/><span class="main">ON</span></div>
+		</div>
+	</div><div id="gearGroup" class="shieldGroup">
+		<button class="lvar_selector_button" data-lvarname="A32NX_PARK_BRAKE_LEVER_POS" data-lvarvalue="1" data-lvardeselectvalue="0">PARK BRK</button><button class="offset_status_indicator calculator_button" data-offsetaddress="0x0BFD" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(>K:ANTISKID_BRAKES_TOGGLE)">ANTI SKID</button><button class="lvar_selector_button" data-lvarname="A32NX_GEAR_LEVER_POSITION_REQUEST" data-lvarvalue="1" data-lvardeselectvalue="0">GEAR</button>
 	</div>
-	<div class="shieldGroup">
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ADIRS_IR_3_PB_HAS_FAULT" data-highlightvalue="1">
-			<div class="label">IR 3</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ADIRS_IR_3_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ADIRS_IR_3_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ADIRS_IR_3_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
-		</div>
-		<div class="controlgroup">
-			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_3_MODE_SELECTOR_KNOB" data-lvarvalue="0">OFF</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_3_MODE_SELECTOR_KNOB" data-lvarvalue="1">NAV</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_3_MODE_SELECTOR_KNOB" data-lvarvalue="2">ATT</button>
-		</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ADIRS_ADR_3_PB_HAS_FAULT" data-highlightvalue="1">
-			<div class="label">ADR 3</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ADIRS_ADR_3_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ADIRS_ADR_3_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ADIRS_ADR_3_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
-		</div>
-	</div>
-	<div class="shieldGroup">
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ADIRS_IR_2_PB_HAS_FAULT" data-highlightvalue="1">
-			<div class="label">IR 2</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ADIRS_IR_2_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ADIRS_IR_2_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ADIRS_IR_2_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
-		</div>
-		<div class="controlgroup">
-			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_2_MODE_SELECTOR_KNOB" data-lvarvalue="0">OFF</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_2_MODE_SELECTOR_KNOB" data-lvarvalue="1">NAV</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_OVHD_ADIRS_IR_2_MODE_SELECTOR_KNOB" data-lvarvalue="2">ATT</button>
-		</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_ADIRS_ADR_2_PB_HAS_FAULT" data-highlightvalue="1">
-			<div class="label">ADR 2</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_ADIRS_ADR_2_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_ADIRS_ADR_2_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_ADIRS_ADR_2_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
-		</div>
-	</div>
+	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogGear"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
 </div>
 
-<div id="sh_apu" class="shield" data-title="APU" data-width="170">
+<div id="sh_gpws" class="shield" data-title="GPWS" data-width="395">
 	<div class="shieldGroup">
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_APU_MASTER_SW_PB_HAS_FAULT" data-highlightvalue="1">
-			<div class="label">MASTER</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_APU_MASTER_SW_PB_IS_ON" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_OVHD_APU_MASTER_SW_PB_IS_ON)" data-disablecalculatorcommands="0 (>L:A32NX_OVHD_APU_MASTER_SW_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main activeBlue">ON</span></div>
+		<div class="pushButton"><!-- FAULT light not yet implemented by FBW -->
+			<div class="label">TERR</div>
+			<div class="pb lvar_status_indicator calculator_button"  data-lvarname="A32NX_GPWS_TERR_OFF" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_GPWS_TERR_OFF)" data-disablecalculatorcommands="0 (>L:A32NX_GPWS_TERR_OFF)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
 		</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_APU_START_PB_IS_AVAILABLE" data-highlightvalue="1">
-			<div class="label">START</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_APU_START_PB_IS_ON" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_OVHD_APU_START_PB_IS_ON)" data-disablecalculatorcommands="0 (>L:A32NX_OVHD_APU_START_PB_IS_ON)"><span class="secondary activeGreen">AVAIL</span><br/><span class="main activeBlue">ON</span></div>
+		<div class="pushButton"><!-- FAULT light not yet implemented by FBW -->
+			<div class="label">SYS</div>
+			<div class="pb lvar_status_indicator calculator_button"  data-lvarname="A32NX_GPWS_SYS_OFF" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_GPWS_SYS_OFF)" data-disablecalculatorcommands="0 (>L:A32NX_GPWS_SYS_OFF)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
 		</div>
-	</div>
-</div>
-
-<div id="sh_om" class="shield" data-title="Overhead Misc" data-width="245">
-	<div id="shieldGroupOverheadMisc1" class="shieldGroup">
 		<div class="pushButton">
-			<div class="label">CVR<br/>GND CTL</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_RCDR_GROUND_CONTROL_ON" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_RCDR_GROUND_CONTROL_ON)" data-disablecalculatorcommands="0 (>L:A32NX_RCDR_GROUND_CONTROL_ON)"><span class="secondary">&nbsp;</span><br/><span class="main activeBlue">ON</span></div>
-		</div><div class="pushButton">
-			<div class="label">OXY CREW<br/>SUPPLY</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="PUSH_OVHD_OXYGEN_CREW" data-highlightvalue="1" data-calculatorcommands="1 (>L:PUSH_OVHD_OXYGEN_CREW)" data-disablecalculatorcommands="0 (>L:PUSH_OVHD_OXYGEN_CREW)"><span class="secondary">&nbsp;</span><br/><span class="main">OFF</span></div>
+			<div class="label">G/S<br />MODE</div>
+			<div class="pb lvar_status_indicator calculator_button"  data-lvarname="A32NX_GPWS_GS_OFF" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_GPWS_GS_OFF)" data-disablecalculatorcommands="0 (>L:A32NX_GPWS_GS_OFF)"><span class="secondary">&nbsp;</span><br/><span class="main">OFF</span></div>
 		</div>
-	</div>
-	<div id="shieldGroupOverheadMisc2" class="shieldGroup">
-		<button class="calculator_button" data-calculatorcommands="1 (>L:PUSH_OVHD_CALLS_FWD)|0 (>L:PUSH_OVHD_CALLS_FWD)">CALL FWD</button>
-	</div>
-	<div id="shieldGroupWipers" class="shieldGroup">
-		<div class="label">WIPERS</div>
-		<div>
-			<span class="label">L</span>
-			<div class="controlgroup offset_status_indicator" data-offsetaddress="0x66D2" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1">
-				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D3" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0"   data-calculatorcommands="(A:CIRCUIT SWITCH ON:77, Bool) if{ 77 (>K:ELECTRICAL_CIRCUIT_TOGGLE) }">OFF</button>
-				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D3" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="75"  data-calculatorcommands="(A:CIRCUIT SWITCH ON:77, Bool) ! if{ 77 (>K:ELECTRICAL_CIRCUIT_TOGGLE) } 75 77 (>K:2:ELECTRICAL_CIRCUIT_POWER_SETTING_SET)">SLOW</button>
-				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D3" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="100" data-calculatorcommands="(A:CIRCUIT SWITCH ON:77, Bool) ! if{ 77 (>K:ELECTRICAL_CIRCUIT_TOGGLE) } 100 77 (>K:2:ELECTRICAL_CIRCUIT_POWER_SETTING_SET)">FAST</button>
-			</div>
+		<div class="pushButton">
+			<div class="label">FLAP<br />MODE</div>
+			<div class="pb lvar_status_indicator calculator_button"  data-lvarname="A32NX_GPWS_FLAP_OFF" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_GPWS_FLAP_OFF)" data-disablecalculatorcommands="0 (>L:A32NX_GPWS_FLAP_OFF)"><span class="secondary">&nbsp;</span><br/><span class="main">OFF</span></div>
 		</div>
-		<div>
-			<span class="label">R</span>
-			<div class="controlgroup offset_status_indicator" data-offsetaddress="0x66D4" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1">
-				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D5" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0"   data-calculatorcommands="(A:CIRCUIT SWITCH ON:80, Bool) if{ 80 (>K:ELECTRICAL_CIRCUIT_TOGGLE) }">OFF</button>
-				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D5" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="75"  data-calculatorcommands="(A:CIRCUIT SWITCH ON:80, Bool) ! if{ 80 (>K:ELECTRICAL_CIRCUIT_TOGGLE) } 75 80 (>K:2:ELECTRICAL_CIRCUIT_POWER_SETTING_SET)">SLOW</button>
-				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D5" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="100" data-calculatorcommands="(A:CIRCUIT SWITCH ON:80, Bool) ! if{ 80 (>K:ELECTRICAL_CIRCUIT_TOGGLE) } 100 80 (>K:2:ELECTRICAL_CIRCUIT_POWER_SETTING_SET)">FAST</button>
-			</div>
+		<div class="pushButton">
+			<div class="label">LDG<br />FLAP3</div>
+			<div class="pb lvar_status_indicator calculator_button"  data-lvarname="A32NX_GPWS_FLAPS3" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_GPWS_FLAPS3)" data-disablecalculatorcommands="0 (>L:A32NX_GPWS_FLAPS3)"><span class="secondary">&nbsp;</span><br/><span class="main">ON</span></div>
 		</div>
 	</div>
 </div>
 
-<div id="sh_air" class="shield" data-title="AIR COND" data-width="545">
+<div id="sh_hyd" class="shield" data-title="HYD" data-width="470">
 	<div class="shieldGroup">
-		<div class="nobreak">
-			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_PNEU_ENG_1_BLEED_PB_HAS_FAULT" data-highlightvalue="1">
-				<div class="label">ENG 1 BLEED</div>
-				<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66D6" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="1 (>K:ENGINE_BLEED_AIR_SOURCE_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
-			</div>
-			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_PNEU_APU_BLEED_PB_HAS_FAULT" data-highlightvalue="1">
-				<div class="label">APU BLEED</div>
-				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_PNEU_APU_BLEED_PB_IS_ON" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_OVHD_PNEU_APU_BLEED_PB_IS_ON)" data-disablecalculatorcommands="0 (>L:A32NX_OVHD_PNEU_APU_BLEED_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main activeBlue">ON</span></div>
-			</div>
-			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_PNEU_ENG_2_BLEED_PB_HAS_FAULT" data-highlightvalue="1">
-				<div class="label">ENG 2 BLEED</div>
-				<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x66D7" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="2 (>K:ENGINE_BLEED_AIR_SOURCE_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
-			</div>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_HYD_ENG_1_PUMP_PB_HAS_FAULT" data-highlightvalue="1">
+			<div class="label">ENG&nbsp;1 PUMP</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_HYD_ENG_1_PUMP_PB_IS_AUTO" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_HYD_ENG_1_PUMP_PB_IS_AUTO)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_HYD_ENG_1_PUMP_PB_IS_AUTO)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
 		</div>
-		<div class="nobreak">
-			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_COND_PACK_1_PB_HAS_FAULT" data-highlightvalue="1">
-				<div class="label">PACK 1</div>
-				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_COND_PACK_1_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_COND_PACK_1_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_COND_PACK_1_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
-			</div>
-			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_COND_PACK_2_PB_HAS_FAULT" data-highlightvalue="1">
-				<div class="label">PACK 2</div>
-				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_COND_PACK_2_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_COND_PACK_2_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_COND_PACK_2_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
-			</div>
-			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_COND_HOT_AIR_PB_HAS_FAULT" data-highlightvalue="1">
-				<div class="label">HOT AIR</div>
-				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_COND_HOT_AIR_PB_IS_ON" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_COND_HOT_AIR_PB_IS_ON)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_COND_HOT_AIR_PB_IS_ON)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
-			</div>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_HYD_EPUMPB_PB_HAS_FAULT" data-highlightvalue="1">
+			<div class="label">B&nbsp;ELEC PUMP</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_HYD_EPUMPB_PB_IS_AUTO" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_HYD_EPUMPB_PB_IS_AUTO)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_HYD_EPUMPB_PB_IS_AUTO)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
 		</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_AIRCOND_RAMAIR_FAULT" data-highlightvalue="1">
-			<div class="label">RAM AIR</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_AIRCOND_RAMAIR_TOGGLE" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_AIRCOND_RAMAIR_TOGGLE)" data-disablecalculatorcommands="0 (>L:A32NX_AIRCOND_RAMAIR_TOGGLE)"><span class="secondary">FAULT</span><br/><span class="main">ON</span></div>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_HYD_PTU_PB_HAS_FAULT" data-highlightvalue="1">
+			<div class="label">PTU</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_HYD_PTU_PB_IS_AUTO" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_HYD_PTU_PB_IS_AUTO)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_HYD_PTU_PB_IS_AUTO)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
 		</div>
-	</div>
-	<div id="shieldGroupPackFlow" class="shieldGroup">
-		<div class="label">PACK FLOW</div>
-		<div class="controlgroup">
-			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_PACKFLOW_Position" data-lvarvalue="0">LO</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_PACKFLOW_Position" data-lvarvalue="1">NORM</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_PACKFLOW_Position" data-lvarvalue="2">HI</button>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_HYD_ENG_2_PUMP_PB_HAS_FAULT" data-highlightvalue="1">
+			<div class="label">ENG&nbsp;2 PUMP</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_HYD_ENG_2_PUMP_PB_IS_AUTO" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_HYD_ENG_2_PUMP_PB_IS_AUTO)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_HYD_ENG_2_PUMP_PB_IS_AUTO)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
 		</div>
-	</div>
-	<div id="shieldGroupXbleed" class="shieldGroup">
-		<div class="label">X BLEED</div>
-		<div class="controlgroup">
-			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_XBLEED_Position" data-lvarvalue="0">SHUT</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_XBLEED_Position" data-lvarvalue="1">AUTO</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_KNOB_OVHD_AIRCOND_XBLEED_Position" data-lvarvalue="2">OPEN</button>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_HYD_EPUMPY_PB_HAS_FAULT" data-highlightvalue="1">
+			<div class="label">Y&nbsp;ELEC PUMP</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_HYD_EPUMPY_PB_IS_AUTO" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_HYD_EPUMPY_PB_IS_AUTO)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_HYD_EPUMPY_PB_IS_AUTO)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+		</div>
+		<div class="pushButton">
+			<div class="label">RAT MAN&nbsp;ON</div>
+			<div class="pb calculator_button" data-calculatorcommands="1 (>L:A32NX_OVHD_HYD_RAT_MAN_ON_IS_PRESSED)|0 (>L:A32NX_OVHD_HYD_RAT_MAN_ON_IS_PRESSED)"><span class="secondary">&nbsp;</span><br/><span class="main noBorder">&nbsp;</span></div>
 		</div>
 	</div>
 </div>
 
-<div id="sh_eng" class="shield" data-title="EXT LT" data-width="280">
-	<div id="shieldGroupEngMaster" class="shieldGroup">
-		<div class="label">MASTER</div>
-			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CB" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="1 (>K:FUELSYSTEM_VALVE_OPEN)" data-disablecalculatorcommands="1 (>K:FUELSYSTEM_VALVE_CLOSE)">ENG 1</button>
-			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CC" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="2 (>K:FUELSYSTEM_VALVE_OPEN)" data-disablecalculatorcommands="2 (>K:FUELSYSTEM_VALVE_CLOSE)">ENG 2</button>
-	</div>
+<div id="sh_ice" class="shield" data-title="ANTI ICE" data-width="320">
 	<div class="shieldGroup">
-		<div class="label">MODE</div>
-		<div class="controlgroup">
-			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CA" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0" data-calculatorcommands="0 (>K:TURBINE_IGNITION_SWITCH_SET1) 0 (>K:TURBINE_IGNITION_SWITCH_SET2)">CRANK</button>
-			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CA" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="1 (>K:TURBINE_IGNITION_SWITCH_SET1) 1 (>K:TURBINE_IGNITION_SWITCH_SET2)">NORM</button>
-			<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66CA" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="2" data-calculatorcommands="2 (>K:TURBINE_IGNITION_SWITCH_SET1) 2 (>K:TURBINE_IGNITION_SWITCH_SET2)">IGN<br />START</button>
+		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_PNEU_WING_ANTI_ICE_HAS_FAULT" data-highlightvalue="1">
+			<div class="label">WING</div>
+			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x337D" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(>K:TOGGLE_STRUCTURAL_DEICE)"><span class="secondary">FAULT</span><br/><span class="main activeBlue">ON</span></div>
+		</div>
+		<div class="pushButton">
+			<div class="label">ENG 1</div><!-- FAULT light not yet implemented by FBW -->
+			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x08B2" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(>K:ANTI_ICE_TOGGLE_ENG1)"><span class="secondary">FAULT</span><br/><span class="main activeBlue">ON</span></div>
+		</div>
+		<div class="pushButton">
+			<div class="label">ENG 2</div><!-- FAULT light not yet implemented by FBW -->
+			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x094A" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(>K:ANTI_ICE_TOGGLE_ENG2)"><span class="secondary">FAULT</span><br/><span class="main activeBlue">ON</span></div>
+		</div>
+		<div class="pushButton">
+			<div class="label">PROBE / WND</div>
+			<div class="pb lvar_status_indicator calculator_button"  data-lvarname="A32NX_MAN_PITOT_HEAT" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_MAN_PITOT_HEAT)" data-disablecalculatorcommands="0 (>L:A32NX_MAN_PITOT_HEAT)"><span class="secondary">&nbsp;</span><br/><span class="main activeBlue">ON</span></div>
 		</div>
 	</div>
 </div>
@@ -760,123 +782,136 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
-<div id="sh_ice" class="shield" data-title="ANTI ICE" data-width="320">
-	<div class="shieldGroup">
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_PNEU_WING_ANTI_ICE_HAS_FAULT" data-highlightvalue="1">
-			<div class="label">WING</div>
-			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x337D" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(>K:TOGGLE_STRUCTURAL_DEICE)"><span class="secondary">FAULT</span><br/><span class="main activeBlue">ON</span></div>
-		</div>
+<div id="sh_om" class="shield" data-title="Overhead Misc" data-width="245">
+	<div id="shieldGroupOverheadMisc1" class="shieldGroup">
 		<div class="pushButton">
-			<div class="label">ENG 1</div><!-- FAULT light not yet implemented by FBW -->
-			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x08B2" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(>K:ANTI_ICE_TOGGLE_ENG1)"><span class="secondary">FAULT</span><br/><span class="main activeBlue">ON</span></div>
+			<div class="label">CVR<br/>GND CTL</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_RCDR_GROUND_CONTROL_ON" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_RCDR_GROUND_CONTROL_ON)" data-disablecalculatorcommands="0 (>L:A32NX_RCDR_GROUND_CONTROL_ON)"><span class="secondary">&nbsp;</span><br/><span class="main activeBlue">ON</span></div>
+		</div><div class="pushButton">
+			<div class="label">OXY CREW<br/>SUPPLY</div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="PUSH_OVHD_OXYGEN_CREW" data-highlightvalue="1" data-calculatorcommands="1 (>L:PUSH_OVHD_OXYGEN_CREW)" data-disablecalculatorcommands="0 (>L:PUSH_OVHD_OXYGEN_CREW)"><span class="secondary">&nbsp;</span><br/><span class="main">OFF</span></div>
 		</div>
-		<div class="pushButton">
-			<div class="label">ENG 2</div><!-- FAULT light not yet implemented by FBW -->
-			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x094A" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(>K:ANTI_ICE_TOGGLE_ENG2)"><span class="secondary">FAULT</span><br/><span class="main activeBlue">ON</span></div>
+	</div>
+	<div id="shieldGroupOverheadMisc2" class="shieldGroup">
+		<button class="calculator_button" data-calculatorcommands="1 (>L:PUSH_OVHD_CALLS_FWD)|0 (>L:PUSH_OVHD_CALLS_FWD)">CALL FWD</button>
+	</div>
+	<div id="shieldGroupWipers" class="shieldGroup">
+		<div class="label">WIPERS</div>
+		<div>
+			<span class="label">L</span>
+			<div class="controlgroup offset_status_indicator" data-offsetaddress="0x66D2" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1">
+				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D3" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0"   data-calculatorcommands="(A:CIRCUIT SWITCH ON:77, Bool) if{ 77 (>K:ELECTRICAL_CIRCUIT_TOGGLE) }">OFF</button>
+				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D3" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="75"  data-calculatorcommands="(A:CIRCUIT SWITCH ON:77, Bool) ! if{ 77 (>K:ELECTRICAL_CIRCUIT_TOGGLE) } 75 77 (>K:2:ELECTRICAL_CIRCUIT_POWER_SETTING_SET)">SLOW</button>
+				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D3" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="100" data-calculatorcommands="(A:CIRCUIT SWITCH ON:77, Bool) ! if{ 77 (>K:ELECTRICAL_CIRCUIT_TOGGLE) } 100 77 (>K:2:ELECTRICAL_CIRCUIT_POWER_SETTING_SET)">FAST</button>
+			</div>
 		</div>
-		<div class="pushButton">
-			<div class="label">PROBE / WND</div>
-			<div class="pb lvar_status_indicator calculator_button"  data-lvarname="A32NX_MAN_PITOT_HEAT" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_MAN_PITOT_HEAT)" data-disablecalculatorcommands="0 (>L:A32NX_MAN_PITOT_HEAT)"><span class="secondary">&nbsp;</span><br/><span class="main activeBlue">ON</span></div>
+		<div>
+			<span class="label">R</span>
+			<div class="controlgroup offset_status_indicator" data-offsetaddress="0x66D4" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1">
+				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D5" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="0"   data-calculatorcommands="(A:CIRCUIT SWITCH ON:80, Bool) if{ 80 (>K:ELECTRICAL_CIRCUIT_TOGGLE) }">OFF</button>
+				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D5" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="75"  data-calculatorcommands="(A:CIRCUIT SWITCH ON:80, Bool) ! if{ 80 (>K:ELECTRICAL_CIRCUIT_TOGGLE) } 75 80 (>K:2:ELECTRICAL_CIRCUIT_POWER_SETTING_SET)">SLOW</button>
+				<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66D5" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="100" data-calculatorcommands="(A:CIRCUIT SWITCH ON:80, Bool) ! if{ 80 (>K:ELECTRICAL_CIRCUIT_TOGGLE) } 100 80 (>K:2:ELECTRICAL_CIRCUIT_POWER_SETTING_SET)">FAST</button>
+			</div>
 		</div>
 	</div>
 </div>
 
-<div id="sh_gpws" class="shield" data-title="GPWS" data-width="395">
+<div id="sh_scratch" class="shield" data-title="Scratchpad" data-width="240" data-noresize="1">
 	<div class="shieldGroup">
-		<div class="pushButton"><!-- FAULT light not yet implemented by FBW -->
-			<div class="label">TERR</div>
-			<div class="pb lvar_status_indicator calculator_button"  data-lvarname="A32NX_GPWS_TERR_OFF" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_GPWS_TERR_OFF)" data-disablecalculatorcommands="0 (>L:A32NX_GPWS_TERR_OFF)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+		<div id="scratchpad"></div>
+		<div id="scratchpadButtons">
+			<div>
+				<button data-value="1">1</button><button data-value="2">2</button><button data-value="3">3</button>
+			</div>
+			<div>
+				<button data-value="4">4</button><button data-value="5">5</button><button data-value="6">6</button>
+			</div>
+			<div>
+				<button data-value="7">7</button><button data-value="8">8</button><button data-value="9">9</button>
+			</div>
+			<div>
+				<button data-value="-">+/-</button><button data-value="0">0</button><button data-value="">CLR</button>
+			</div>
 		</div>
-		<div class="pushButton"><!-- FAULT light not yet implemented by FBW -->
-			<div class="label">SYS</div>
-			<div class="pb lvar_status_indicator calculator_button"  data-lvarname="A32NX_GPWS_SYS_OFF" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_GPWS_SYS_OFF)" data-disablecalculatorcommands="0 (>L:A32NX_GPWS_SYS_OFF)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
-		</div>
-		<div class="pushButton">
-			<div class="label">G/S<br />MODE</div>
-			<div class="pb lvar_status_indicator calculator_button"  data-lvarname="A32NX_GPWS_GS_OFF" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_GPWS_GS_OFF)" data-disablecalculatorcommands="0 (>L:A32NX_GPWS_GS_OFF)"><span class="secondary">&nbsp;</span><br/><span class="main">OFF</span></div>
-		</div>
-		<div class="pushButton">
-			<div class="label">FLAP<br />MODE</div>
-			<div class="pb lvar_status_indicator calculator_button"  data-lvarname="A32NX_GPWS_FLAP_OFF" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_GPWS_FLAP_OFF)" data-disablecalculatorcommands="0 (>L:A32NX_GPWS_FLAP_OFF)"><span class="secondary">&nbsp;</span><br/><span class="main">OFF</span></div>
-		</div>
-		<div class="pushButton">
-			<div class="label">LDG<br />FLAP3</div>
-			<div class="pb lvar_status_indicator calculator_button"  data-lvarname="A32NX_GPWS_FLAPS3" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_GPWS_FLAPS3)" data-disablecalculatorcommands="0 (>L:A32NX_GPWS_FLAPS3)"><span class="secondary">&nbsp;</span><br/><span class="main">ON</span></div>
-		</div>
+	</div>
+	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogScratchpad"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
+</div>
+
+<div id="sh_sim" class="shield" data-title="Sim Control" data-width="180" data-noresize="1">
+	<div class="shieldGroup">
+		<button class="offset_status_indicator calculator_button" data-offsetaddress="0x0264" data-offsettype="uint" data-offsetsize="2" data-highlightvalue="1" data-calculatorcommands="1 (>K:PAUSE_SET)" data-disablecalculatorcommands="0 (>K:PAUSE_SET)">PAUSE</button>
 	</div>
 </div>
 
-<div id="sh_hyd" class="shield" data-title="HYD" data-width="470">
+<div id="sh_surf" class="shield" data-title="Flaps &amp; Speed Brake" data-width="360">
 	<div class="shieldGroup">
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_HYD_ENG_1_PUMP_PB_HAS_FAULT" data-highlightvalue="1">
-			<div class="label">ENG&nbsp;1 PUMP</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_HYD_ENG_1_PUMP_PB_IS_AUTO" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_HYD_ENG_1_PUMP_PB_IS_AUTO)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_HYD_ENG_1_PUMP_PB_IS_AUTO)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+		<div class="label">SPEED BRAKE</div>
+		<div id="spoilerButtons">
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_ARMED" data-highlightvalue="1" data-calculatorcommands="(>K:SPOILERS_ARM_TOGGLE)">ARMED</button>
+			<div class="controlgroupVertical">
+				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_HANDLE_POSITION" data-highlightvalue="0" data-calculatorcommands="0 (>K:SPOILERS_SET)|(>K:SPOILERS_ARM_OFF)">RET</button>
+				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_HANDLE_POSITION" data-highlightvalue="0.5" data-calculatorcommands="8192 (>K:SPOILERS_SET)">1/2</button>
+				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SPOILERS_HANDLE_POSITION" data-highlightvalue="1" data-calculatorcommands="16384 (>K:SPOILERS_SET)">FULL</button>
+			</div>
 		</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_HYD_EPUMPB_PB_HAS_FAULT" data-highlightvalue="1">
-			<div class="label">B&nbsp;ELEC PUMP</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_HYD_EPUMPB_PB_IS_AUTO" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_HYD_EPUMPB_PB_IS_AUTO)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_HYD_EPUMPB_PB_IS_AUTO)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+		<div id="spoilerSliderContainer">
+			<div id="spoilerSlider"></div>
 		</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_HYD_PTU_PB_HAS_FAULT" data-highlightvalue="1">
-			<div class="label">PTU</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_HYD_PTU_PB_IS_AUTO" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_HYD_PTU_PB_IS_AUTO)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_HYD_PTU_PB_IS_AUTO)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">FLAPS</div>
+		<div id="flapsButtons" class="controlgroupVertical">
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="0" data-calculatorcommands="(>K:FLAPS_UP)">0</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="1" data-calculatorcommands="(>K:FLAPS_1)">1</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="2" data-calculatorcommands="(>K:FLAPS_2)">2</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="3" data-calculatorcommands="(>K:FLAPS_3)">3</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FLAPS_HANDLE_INDEX" data-highlightvalue="4" data-calculatorcommands="(>K:FLAPS_DOWN)">FULL</button>
 		</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_HYD_ENG_2_PUMP_PB_HAS_FAULT" data-highlightvalue="1">
-			<div class="label">ENG&nbsp;2 PUMP</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_HYD_ENG_2_PUMP_PB_IS_AUTO" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_HYD_ENG_2_PUMP_PB_IS_AUTO)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_HYD_ENG_2_PUMP_PB_IS_AUTO)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
-		</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_OVHD_HYD_EPUMPY_PB_HAS_FAULT" data-highlightvalue="1">
-			<div class="label">Y&nbsp;ELEC PUMP</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_OVHD_HYD_EPUMPY_PB_IS_AUTO" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_OVHD_HYD_EPUMPY_PB_IS_AUTO)" data-disablecalculatorcommands="1 (>L:A32NX_OVHD_HYD_EPUMPY_PB_IS_AUTO)"><span class="secondary">FAULT</span><br/><span class="main">OFF</span></div>
-		</div>
-		<div class="pushButton">
-			<div class="label">RAT MAN&nbsp;ON</div>
-			<div class="pb calculator_button" data-calculatorcommands="1 (>L:A32NX_OVHD_HYD_RAT_MAN_ON_IS_PRESSED)|0 (>L:A32NX_OVHD_HYD_RAT_MAN_ON_IS_PRESSED)"><span class="secondary">&nbsp;</span><br/><span class="main noBorder">&nbsp;</span></div>
-		</div>
+	</div>
+	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogSurf"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
+</div>
+
+<div id="sh_warn" class="shield" data-title="Warning Panel" data-width="280" data-noresize="1">
+	<div class="shieldGroup">
+		<button id="button_autoland" class="lvar_status_indicator" data-lvarname="A32NX_AUTOPILOT_AUTOLAND_WARNING" data-highlightvalue="1">AUTO<br />LAND</button>
+		<button id="button_mastercaut" class="lvar_status_indicator calculator_button" data-lvarname="A32NX_MASTER_CAUTION" data-highlightvalue="1" data-calculatorcommands="1 (>L:PUSH_AUTOPILOT_MASTERCAUT_L)|0 (>L:PUSH_AUTOPILOT_MASTERCAUT_L)">MASTER<br />CAUT</button>
+		<button id="button_masterwarn" class="lvar_status_indicator calculator_button" data-lvarname="A32NX_MASTER_WARNING" data-highlightvalue="1" data-calculatorcommands="1 (>L:PUSH_AUTOPILOT_MASTERAWARN_L)|0 (>L:PUSH_AUTOPILOT_MASTERAWARN_L)">MASTER<br />WARN</button>
 	</div>
 </div>
 
-<div id="sh_fire" class="shield" data-title="FIRE" data-width="860">
-	<div class="shieldGroup">
-		<div class="label">ENG 1</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_FIRE_BUTTON_ENG1" data-highlightvalue="1">
-			<div class="label">AGENT&nbsp;1</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_FIRE_ENG1_AGENT1_Discharge" data-highlightvalue="1" data-calculatorcommands="(L:A32NX_FIRE_BUTTON_ENG1, Bool) if{ 1 (>L:A32NX_FIRE_ENG1_AGENT1_Discharge) }" data-disablecalculatorcommands=""><span class="secondary activeWhite">SQUIB</span><br/><span class="main activeAmber">DISCH</span></div>
-		</div>
-		<div class="pushButton firePushButton">
-			<div class="label">FIRE</div><!-- engine fire not yet implemented by FBW -->
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_FIRE_BUTTON_ENG1" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_FIRE_GUARD_ENG1) 1 (>L:A32NX_FIRE_BUTTON_ENG1)" data-disablecalculatorcommands="0 (>L:A32NX_FIRE_GUARD_ENG1) 0 (>L:A32NX_FIRE_BUTTON_ENG1)"><span class="main">PUSHED</span></div>
-		</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_FIRE_BUTTON_ENG1" data-highlightvalue="1">
-			<div class="label">AGENT&nbsp;2</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_FIRE_ENG1_AGENT2_Discharge" data-highlightvalue="1" data-calculatorcommands="(L:A32NX_FIRE_BUTTON_ENG1, Bool) if{ 1 (>L:A32NX_FIRE_ENG1_AGENT2_Discharge) }" data-disablecalculatorcommands=""><span class="secondary activeWhite">SQUIB</span><br/><span class="main activeAmber">DISCH</span></div>
-		</div>
-	</div>
-	<div class="shieldGroup">
-		<div class="label">APU</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_FIRE_BUTTON_APU" data-highlightvalue="1">
-			<div class="label">AGENT&nbsp;1</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_FIRE_APU_AGENT1_Discharge" data-highlightvalue="1" data-calculatorcommands="(L:A32NX_FIRE_BUTTON_APU, Bool) if{ 1 (>L:A32NX_FIRE_APU_AGENT1_Discharge) }" data-disablecalculatorcommands=""><span class="secondary activeWhite">SQUIB</span><br/><span class="main activeAmber">DISCH</span></div>
-		</div>
-		<div class="pushButton firePushButton">
-			<div class="label">FIRE</div><!-- APU fire not yet implemented by FBW -->
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_FIRE_BUTTON_APU" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_FIRE_GUARD_APU) 1 (>L:A32NX_FIRE_BUTTON_APU)" data-disablecalculatorcommands="0 (>L:A32NX_FIRE_GUARD_APU) 0 (>L:A32NX_FIRE_BUTTON_APU)"><span class="main">PUSHED</span></div>
-		</div>
-	</div>
-	<div class="shieldGroup">
-		<div class="label">ENG 2</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_FIRE_BUTTON_ENG2" data-highlightvalue="1">
-			<div class="label">AGENT&nbsp;1</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_FIRE_ENG2_AGENT1_Discharge" data-highlightvalue="1" data-calculatorcommands="(L:A32NX_FIRE_BUTTON_ENG2, Bool) if{ 1 (>L:A32NX_FIRE_ENG2_AGENT1_Discharge) }" data-disablecalculatorcommands=""><span class="secondary activeWhite">SQUIB</span><br/><span class="main activeAmber">DISCH</span></div>
-		</div>
-		<div class="pushButton firePushButton">
-			<div class="label">FIRE</div><!-- engine fire not yet implemented by FBW -->
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_FIRE_BUTTON_ENG2" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_FIRE_GUARD_ENG2) 1 (>L:A32NX_FIRE_BUTTON_ENG2)" data-disablecalculatorcommands="0 (>L:A32NX_FIRE_GUARD_ENG2) 0 (>L:A32NX_FIRE_BUTTON_ENG2)"><span class="main">PUSHED</span></div>
-		</div>
-		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_FIRE_BUTTON_ENG2" data-highlightvalue="1">
-			<div class="label">AGENT&nbsp;2</div>
-			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_FIRE_ENG2_AGENT2_Discharge" data-highlightvalue="1" data-calculatorcommands="(L:A32NX_FIRE_BUTTON_ENG2, Bool) if{ 1 (>L:A32NX_FIRE_ENG2_AGENT2_Discharge) }" data-disablecalculatorcommands=""><span class="secondary activeWhite">SQUIB</span><br/><span class="main activeAmber">DISCH</span></div>
-		</div>
-	</div>
+<div id="helpDialogAbout" class="helpDialog" data-title="About WebRemote for FBW A32NX" data-width="700">
+	<h4>Documentation and Download</h4>
+	<p>
+		The WebRemote for FBW A32NX is an open source project released under the
+		<a href="https://www.gnu.org/licenses/quick-guide-gplv3.html">GNU GPLv3</a>.
+	</p>
+	<p>
+		You can find the latest version and all documentation on its GitHub page: <a class="repositoryLink" href="https://github.com/paulalexandrow/a32nx-webremote">https://github.com/paulalexandrow/a32nx-webremote</a>
+	</p>
+	<h4>Thanks</h4>
+	<p>
+		Thanks to all the people and teams behind the projects the WebRemote builds upon!
+	</p>
+	<ul class="thirdPartyLinks">
+		<li><a href="http://flybywiresim.com">FlyByWire Simulations</a></li>
+		<li><a href="http://www.fsuipc.com">FSUIPC</a></li>
+		<li><a href="http://fsuipcwebsockets.paulhenty.com">FSUIPC WebSocket Server</a></li>
+		<li><a href="https://github.com/furf/jquery-ui-touch-punch">Touch Punch</a></li>
+	</ul>
+	<p class="copyright">
+		&copy; 2023 <a href="https://www.alexandrow.org">Paul Alexandrow</a>
+	</p>
+</div>
+
+<div id="helpDialogGear" class="helpDialog" data-title="Help | Gear &amp; Brakes" data-width="500">
+	<h4>Commanded vs. Actual Setting</h4>
+	<p>
+		The GEAR and PARK BRK buttons indicate <em>commanded</em> lever position. They neither tell if a lever <em>actually</em> is
+		in that position nor if the gear is <em>actually</em> locked down or the parking brake set.
+	</p>
+	<p>
+		For this you must check the respective <em>indications</em> like you would in a real world aircraft.
+	</p>
 </div>
 
 <div id="helpDialogScratchpad" class="helpDialog" data-title="Help | Scratchpad" data-width="700">
@@ -907,17 +942,6 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</p>
 </div>
 
-<div id="helpDialogGear" class="helpDialog" data-title="Help | Gear &amp; Brakes" data-width="500">
-	<h4>Commanded vs. Actual Setting</h4>
-	<p>
-		The GEAR and PARK BRK buttons indicate <em>commanded</em> lever position. They neither tell if a lever <em>actually</em> is
-		in that position nor if the gear is <em>actually</em> locked down or the parking brake set.
-	</p>
-	<p>
-		For this you must check the respective <em>indications</em> like you would in a real world aircraft.
-	</p>
-</div>
-
 <div id="helpDialogSurf" class="helpDialog" data-title="Help | Flaps &amp; Speed Brake" data-width="500">
 	<h4>Commanded vs. Actual Setting</h4>
 	<p>
@@ -926,30 +950,6 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</p>
 	<p>
 		For this you must check the respective <em>indications</em> like you would in a real world aircraft.
-	</p>
-</div>
-
-<div id="helpDialogAbout" class="helpDialog" data-title="About WebRemote for FBW A32NX" data-width="700">
-	<h4>Documentation and Download</h4>
-	<p>
-		The WebRemote for FBW A32NX is an open source project released under the
-		<a href="https://www.gnu.org/licenses/quick-guide-gplv3.html">GNU GPLv3</a>.
-	</p>
-	<p>
-		You can find the latest version and all documentation on its GitHub page: <a class="repositoryLink" href="https://github.com/paulalexandrow/a32nx-webremote">https://github.com/paulalexandrow/a32nx-webremote</a>
-	</p>
-	<h4>Thanks</h4>
-	<p>
-		Thanks to all the people and teams behind the projects the WebRemote builds upon!
-	</p>
-	<ul class="thirdPartyLinks">
-		<li><a href="http://flybywiresim.com">FlyByWire Simulations</a></li>
-		<li><a href="http://www.fsuipc.com">FSUIPC</a></li>
-		<li><a href="http://fsuipcwebsockets.paulhenty.com">FSUIPC WebSocket Server</a></li>
-		<li><a href="https://github.com/furf/jquery-ui-touch-punch">Touch Punch</a></li>
-	</ul>
-	<p class="copyright">
-		&copy; 2023 <a href="https://www.alexandrow.org">Paul Alexandrow</a>
 	</p>
 </div>
 

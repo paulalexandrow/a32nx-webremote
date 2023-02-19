@@ -524,7 +524,7 @@ $(function() {
 			value = parseInt(value.toString(10), 16);
 		}
 		if (value < $(this).data("minvalue") || value > $(this).data("maxvalue")) return; // fail silently
-		if ($(this).data("sendfactor") !== undefined)) {
+		if ($(this).data("sendfactor") !== undefined) {
 			value = value * $(this).data("sendfactor");
 		}
 		socket.send(JSON.stringify({

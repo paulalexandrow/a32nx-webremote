@@ -206,11 +206,56 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
+<div id="sh_atc" class="shield" data-title="ATC" data-width="315" data-noresize="1">
+	<div class="shieldGroup">
+		<div class="label">TCAS</div>
+		<div id="controlgroupAtcMain">
+			<div class="controlgroup">
+				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_TRANSPONDER_MODE" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_TRANSPONDER_MODE)">STBY</button>
+				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_TRANSPONDER_MODE" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_TRANSPONDER_MODE)">AUTO</button>
+				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_TRANSPONDER_MODE" data-highlightvalue="2" data-calculatorcommands="2 (>L:A32NX_TRANSPONDER_MODE)">ON</button>
+			</div>
+			<span id="indicator_atc" class="offset_value_indicator scratchpad_offset_target ledValue" data-offsetaddress="0x0354" data-offsettype="uint" data-offsetsize="2" data-isbcd="1" data-padzeros="4" data-minvalue="0" data-maxvalue="30583" data-isatc="1"></span>
+		</div>
+		<div id="controlgroupAtcSystem">
+			<span class="label">SYSTEM</span>
+			<div class="controlgroup">
+				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_TRANSPONDER_SYSTEM" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_TRANSPONDER_SYSTEM)">1</button>
+				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_TRANSPONDER_SYSTEM" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_TRANSPONDER_SYSTEM)">2</button>
+			</div>
+		</div><div id="controlgroupAtcAlt">
+			<span class="label">ALT RPTG</span>
+			<div class="controlgroup">
+				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SWITCH_ATC_ALT" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_SWITCH_ATC_ALT)">OFF</button>
+				<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SWITCH_ATC_ALT" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_SWITCH_ATC_ALT)">ON</button>
+			</div>
+		</div><div id="buttonAtcIdent">
+		<span class="label">&nbsp;</span>
+			<button class="calculator_button" data-calculatorcommands="(>K:XPNDR_IDENT_ON)">IDENT</button>
+		</div>
+	</div>
+	<div id="shieldGroupTcas" class="shieldGroup">
+		<div class="label">TCAS</div>
+		<div id="controlgroupTcasTraffic" class="controlgroup">
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SWITCH_TCAS_TRAFFIC_POSITION" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_SWITCH_TCAS_TRAFFIC_POSITION)">THRT</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SWITCH_TCAS_TRAFFIC_POSITION" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_SWITCH_TCAS_TRAFFIC_POSITION)">ALL</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SWITCH_TCAS_TRAFFIC_POSITION" data-highlightvalue="2" data-calculatorcommands="2 (>L:A32NX_SWITCH_TCAS_TRAFFIC_POSITION)">ABV</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SWITCH_TCAS_TRAFFIC_POSITION" data-highlightvalue="3" data-calculatorcommands="3 (>L:A32NX_SWITCH_TCAS_TRAFFIC_POSITION)">BLW</button>
+		</div>
+		<div id="controlgroupTcasMode" class="controlgroup">
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SWITCH_TCAS_Position" data-highlightvalue="0" data-calculatorcommands="0 (>L:A32NX_SWITCH_TCAS_Position)">STBY</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SWITCH_TCAS_Position" data-highlightvalue="1" data-calculatorcommands="1 (>L:A32NX_SWITCH_TCAS_Position)">TA</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_SWITCH_TCAS_Position" data-highlightvalue="2" data-calculatorcommands="2 (>L:A32NX_SWITCH_TCAS_Position)">TA/RA</button>
+		</div>
+	</div>
+	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogScratchpad"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
+</div>
+
 <div id="sh_baro" class="shield" data-title="Baro" data-width="180" data-noresize="1">
 	<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="XMLVAR_Baro_Selector_HPA_1"><!-- we need this hidden to register the LVAR for updates --></div>
 	<div class="shieldGroup">
-		<span id="indicator_baro_hpa" class="offset_value_indicator scratchpad_offset_target qnh_indicator fcuValue" data-offsetaddress="0x0330" data-offsettype="uint" data-offsetsize="2" data-sendfactor="16" data-displayfactor=".0625"  data-minvalue="948" data-maxvalue="1084" data-fractiondigits="0"></span>
-		<span id="indicator_baro_inhg" class="offset_value_indicator scratchpad_offset_target qnh_indicator fcuValue" style="display:none" data-offsetaddress="0x0330" data-offsettype="uint" data-offsetsize="2" data-sendfactor="5.4182218667" data-displayfactor=".0018456239" data-minvalue="2799" data-maxvalue="3201" data-fractiondigits="2"></span>
+		<span id="indicator_baro_hpa" class="offset_value_indicator scratchpad_offset_target qnh_indicator ledValue" data-offsetaddress="0x0330" data-offsettype="uint" data-offsetsize="2" data-sendfactor="16" data-displayfactor=".0625"  data-minvalue="948" data-maxvalue="1084" data-fractiondigits="0"></span>
+		<span id="indicator_baro_inhg" class="offset_value_indicator scratchpad_offset_target qnh_indicator ledValue" style="display:none" data-offsetaddress="0x0330" data-offsettype="uint" data-offsetsize="2" data-sendfactor="5.4182218667" data-displayfactor=".0018456239" data-minvalue="2799" data-maxvalue="3201" data-fractiondigits="2"></span>
 		<button id="button_qnhUnits" class="calculator_button" data-calculatorcommands="(L:XMLVAR_Baro_Selector_HPA_1) ! (>L:XMLVAR_Baro_Selector_HPA_1)">hPa</br>inHg</button>
 		<div id="controlgroupBaroMode" class="controlgroup">
 			<button class="lvar_selector_button" data-lvarname="XMLVAR_Baro1_Mode" data-lvarvalue="1">QNH</button>
@@ -423,8 +468,8 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<div class="shieldGroup">
 		<div class="label">SPD</div>
 		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_SPD_MANAGED_DASHES"><!-- we need this hidden to register the LVAR for updates --></div>
-		<span id="indicator_spd_spd" class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="100" data-maxvalue="399" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_SPD_MANAGED_DASHES"></span>
-		<span id="indicator_spd_mach" style="display:none" class="lvar_value_indicator scratchpad_calculator_command fcuValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="10" data-maxvalue="99"  data-fractiondigits="2" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_SPD_MANAGED_DASHES"></span>
+		<span id="indicator_spd_spd" class="lvar_value_indicator scratchpad_calculator_command ledValue" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="100" data-maxvalue="399" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_SPD_MANAGED_DASHES"></span>
+		<span id="indicator_spd_mach" style="display:none" class="lvar_value_indicator scratchpad_calculator_command ledValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="10" data-maxvalue="99"  data-fractiondigits="2" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_SPD_MANAGED_DASHES"></span>
 		<div class="pushPullGroup">
 			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_SPD_PUSH)">manage</button>
 			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_SPD_PULL)">pull</button>
@@ -433,7 +478,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<div class="shieldGroup">
 		<div class="label">HDG</div>
 		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_HDG_MANAGED_DASHES"><!-- we need this hidden to register the LVAR for updates --></div>
-		<span class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_FCU_HEADING_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_HDG_SET)" data-minvalue="0" data-maxvalue="360" data-padzeros="3" data-fractiondigits="0" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_HDG_MANAGED_DASHES"></span>
+		<span class="lvar_value_indicator scratchpad_calculator_command ledValue" data-lvarname="A32NX_FCU_HEADING_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_HDG_SET)" data-minvalue="0" data-maxvalue="360" data-padzeros="3" data-fractiondigits="0" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_HDG_MANAGED_DASHES"></span>
 		<div class="pushPullGroup">
 			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_HDG_PUSH)">manage</button>
 			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_HDG_PULL)">pull</button>
@@ -441,7 +486,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 	<div class="shieldGroup">
 		<div class="label">ALT</div>
-		<span class="offset_value_indicator scratchpad_calculator_command fcuValue" data-calculatorcommand="(>K:A32NX.FCU_ALT_SET)" data-minvalue="100" data-maxvalue="49000" data-offsetaddress="0x0818" data-offsettype="uint" data-offsetsize="4" data-fractiondigits="0" data-padzeros="4" data-displayfactor=".000050061643905839895013123359580052"></span>
+		<span class="offset_value_indicator scratchpad_calculator_command ledValue" data-calculatorcommand="(>K:A32NX.FCU_ALT_SET)" data-minvalue="100" data-maxvalue="49000" data-offsetaddress="0x0818" data-offsettype="uint" data-offsetsize="4" data-fractiondigits="0" data-padzeros="4" data-displayfactor=".000050061643905839895013123359580052"></span>
 		<div class="pushPullGroup">
 			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_ALT_PUSH)">manage</button>
 			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_ALT_PULL)">pull</button>
@@ -450,8 +495,8 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<div class="shieldGroup">
 		<div class="label">VS / FPA</div>
 		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_VS_MANAGED"><!-- we need this hidden to register the LVAR for updates --></div>
-		<span id="indicator_vs_vs" class="lvar_value_indicator scratchpad_calculator_command fcuValue" data-lvarname="A32NX_AUTOPILOT_VS_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-6000" data-maxvalue="6000" data-fractiondigits="0" data-padzeros="4" data-alwaysshowsign="1" data-placeholder="-----" data-placeholdertriggerlvar="A32NX_FCU_VS_MANAGED"></span>
-		<span id="indicator_vs_fpa" class="lvar_value_indicator scratchpad_calculator_command fcuValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_FPA_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-99" data-maxvalue="99" data-alwaysshowsign="1" data-fractiondigits="1"></span>
+		<span id="indicator_vs_vs" class="lvar_value_indicator scratchpad_calculator_command ledValue" data-lvarname="A32NX_AUTOPILOT_VS_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-6000" data-maxvalue="6000" data-fractiondigits="0" data-padzeros="4" data-alwaysshowsign="1" data-placeholder="-----" data-placeholdertriggerlvar="A32NX_FCU_VS_MANAGED"></span>
+		<span id="indicator_vs_fpa" class="lvar_value_indicator scratchpad_calculator_command ledValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_FPA_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-99" data-maxvalue="99" data-alwaysshowsign="1" data-fractiondigits="1"></span>
 		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_TRK_FPA_MODE_ACTIVE"><!-- we need this hidden to register the LVAR for updates --></div>
 		<div class="pushPullGroup">
 			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_VS_PUSH)">push to level off</button>

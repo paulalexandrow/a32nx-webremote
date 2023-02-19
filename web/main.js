@@ -18,6 +18,8 @@ $(function() {
 	// Completely disable jQueryUI's autofocus. It does more harm than good in our case.
 	$.ui.dialog.prototype._focusTabbable = $.noop;
 
+	let regexAtc = new RegExp("^[0-7]{1,4}$"); // we accept to omit leading zeros, but not all.
+
 	let socket = null;
 	let lvars = {};
 	let offsets = {};
@@ -328,6 +330,8 @@ $(function() {
 							let str;
 							if ($(this).data("fractiondigits") !== undefined) {
 								str = value.toFixed($(this).data("fractiondigits"));
+							} if ($(this).data("isbcd") !== undefined) {
+								str = parseInt(value.toString(16), 10).toString();
 							} else {
 								str = value.toString();
 							}
@@ -515,6 +519,10 @@ $(function() {
 	$(".scratchpad_offset_target").click(function() {
 		if (socket == null) return;
 		let value = consumeScratchpad();
+		if ($(this).data("isatc") !== undefined && !regexAtc.test(value.toString())) return;
+		if ($(this).data("isbcd") !== undefined) {
+			value = parseInt(value.toString(10), 16);
+		}
 		if (value < $(this).data("minvalue") || value > $(this).data("maxvalue")) return; // fail silently
 		if ($(this).data("sendfactor")) {
 			value = value * $(this).data("sendfactor");

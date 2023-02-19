@@ -288,6 +288,25 @@ input[type=text] {
 	right: 1.7em;
 }
 
+/* GENERIC LED VALUE */
+
+.ledValue {
+	font-family: monospace;
+	font-size: 1.4em;
+	font-weight: bold;
+	text-align: right;
+	color:  #FF8D00;
+	background-color: #2D1900;
+	box-shadow: inset 0 0 0.3em #FF8D00;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0.2em 0.5em;
+	height: 1.2em;
+	border: 0.1em solid #202C3B;
+	border-radius: 0.3em;
+	cursor: pointer;
+}
+
 /* GENERIC PUSHBUTTONS */
 
 .pushButton, .pushButton.ui-state-active {
@@ -424,13 +443,63 @@ input[type=text] {
 	text-align: center;
 }
 
+/* ATC widget */
+
+#sh_atc button {
+	min-width:3.2em;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+#controlgroupAtcMain {
+	text-align: center;
+}
+
+#controlgroupAtcMain button {
+	width: 4em;
+}
+
+#controlgroupAtcSystem, #controlgroupAtcAlt, #buttonAtcIdent {
+	display: inline-block;
+	width: 38%;
+	box-sizing: border-box;
+	margin-top: 0.6em;
+	text-align: center;
+	text-align-last: center;
+}
+
+#buttonAtcIdent {
+	width: 24%;
+}
+
+#controlgroupAtcSystem .label, #controlgroupAtcAlt .label {
+	font-size: 0.8em;
+	display: block;
+	padding-bottom: 0.25em;
+	margin-left: 0;
+	text-align-last: center;
+}
+
+#shieldGroupTcas {
+	text-align: center;
+}
+
+#controlgroupTcasTraffic button {
+	width: 3.975em;
+}
+
+#controlgroupTcasMode button {
+	width: 5.3em;
+	margin-top: 0.5em;
+}
+
 /* BARO widget */
 
 #sh_baro {
 	text-align: center;
 }
 
-#sh_baro .fcuValue {
+#sh_baro .ledValue {
 	width: 2.5em;
 	margin-right: 0.3em;
 }
@@ -549,23 +618,6 @@ input[type=text] {
 
 /* FCU widget */
 
-.fcuValue {
-	font-family: monospace;
-	font-size: 1.4em;
-	font-weight: bold;
-	text-align: right;
-	color:  #FF8D00;
-	background-color: #2D1900;
-	box-shadow: inset 0 0 0.3em #FF8D00;
-	display: inline-block;
-	vertical-align: middle;
-	padding: 0.2em 0.5em;
-	height: 1.2em;
-	border: 0.1em solid #202C3B;
-	border-radius: 0.3em;
-	cursor: pointer;
-}
-
 #sh_fcu .shieldGroup {
 	box-sizing: border-box;
 	width: 7.6em;
@@ -574,7 +626,7 @@ input[type=text] {
 	vertical-align: top;
 }
 
-#sh_fcu .fcuValue {
+#sh_fcu .ledValue {
 	width: 3.4em;
 	display: block;
 	text-align: center;

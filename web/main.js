@@ -33,21 +33,17 @@ $(function() {
 			socket.onopen = function() {
 				let lvarNames = Object.keys(lvars);
 				let chunk = [];
+				let chunkNames = [];
 				for (let i=0; i<lvarNames.length; i++) {
 					chunk.push(lvarNames[i]);
-					if ((i>0 && i % 10 == 0) || i == lvarNames.length-1) { // FSUIPC WebSocket only allows a certain number of variables to be declared, so we divide our declaration into chunks.
+					if ((i>0 && i % 50 == 0) || i == lvarNames.length-1) { // FSUIPC WebSocket only allows a certain number of variables to be declared, so we divide our declaration into chunks.
 						// declare LVARs
 						socket.send(JSON.stringify({
 							command: "vars.declare",
 							name: "fcuVars_" + i.toString(),
 							vars: $.map(chunk, function(val) { return { name:val } })
 						}));
-						// subscribe to declared LVARs
-						socket.send(JSON.stringify({
-							command: "vars.read",
-							name: "fcuVars_" + i.toString(),
-							interval: 100
-						}));
+						chunkNames.push("fcuVars_" + i.toString());
 						chunk = [];
 					}
 				}
@@ -57,12 +53,22 @@ $(function() {
 					name: "offsets",
 					offsets: $.map(offsets, function(val, key) { return { name:key, address:val["offsetaddress"], type:val["offsettype"], size:val["offsetsize"] } })
 				}));
-				// read offset requests
-				socket.send(JSON.stringify({
-					command: "offsets.read",
-					name: "offsets",
-					interval: 100
-				}));
+				// subscribe to declared LVARs and offsets (it seems FSUIPC needs a short delay to process things)
+				setTimeout(function() {
+					for (let i=0; i<chunkNames.length; i++) {
+						socket.send(JSON.stringify({
+							command: "vars.read",
+							name: chunkNames[i],
+							interval: 100
+						}));
+					}
+					// read offset requests
+					socket.send(JSON.stringify({
+						command: "offsets.read",
+						name: "offsets",
+						interval: 100
+					}));
+				}, 1500);
 				$("#connectionPanel").dialog("close");
 				$("#menu").removeClass("disabled");
 				applyShieldConfig();

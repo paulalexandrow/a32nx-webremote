@@ -221,6 +221,31 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogScratchpad"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
 </div>
 
+<div id="sh_ecam" class="shield" data-title="ECAM" data-width="560">
+	<div class="shieldGroup shieldGroupEcamTop">
+		<button class="calculator_button" data-calculatorcommands="1 (>L:A32NX_BTN_TOCONFIG)|0 (>L:A32NX_BTN_TOCONFIG)">T.O. CONFIG</button>
+		<button class="calculator_button" data-calculatorcommands="1 (>L:A32NX_BTN_EMERCANC)|0 (>L:A32NX_BTN_EMERCANC)">EMER CANC</button>
+	</div>
+	<div class="shieldGroup">
+		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_ECAM_SD_CURRENT_PAGE_INDEX" data-highlightvalue="0" data-calculatorcommands="(L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) 0 != if{ 0 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } els{ -1 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } (>H:A32NX_SD_PAGE_CHANGED)">ENG</button>
+		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_ECAM_SD_CURRENT_PAGE_INDEX" data-highlightvalue="1" data-calculatorcommands="(L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) 1 != if{ 1 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } els{ -1 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } (>H:A32NX_SD_PAGE_CHANGED)">BLEED</button>
+		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_ECAM_SD_CURRENT_PAGE_INDEX" data-highlightvalue="2" data-calculatorcommands="(L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) 2 != if{ 2 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } els{ -1 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } (>H:A32NX_SD_PAGE_CHANGED)">PRESS</button>
+		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_ECAM_SD_CURRENT_PAGE_INDEX" data-highlightvalue="3" data-calculatorcommands="(L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) 3 != if{ 3 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } els{ -1 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } (>H:A32NX_SD_PAGE_CHANGED)">ELEC</button>
+		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_ECAM_SD_CURRENT_PAGE_INDEX" data-highlightvalue="4" data-calculatorcommands="(L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) 4 != if{ 4 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } els{ -1 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } (>H:A32NX_SD_PAGE_CHANGED)">HYD</button>
+		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_ECAM_SD_CURRENT_PAGE_INDEX" data-highlightvalue="5" data-calculatorcommands="(L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) 5 != if{ 5 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } els{ -1 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } (>H:A32NX_SD_PAGE_CHANGED)">FUEL</button>
+		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_ECAM_SD_CURRENT_PAGE_INDEX" data-highlightvalue="6" data-calculatorcommands="(L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) 6 != if{ 6 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } els{ -1 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } (>H:A32NX_SD_PAGE_CHANGED)">APU</button>
+		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_ECAM_SD_CURRENT_PAGE_INDEX" data-highlightvalue="7" data-calculatorcommands="(L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) 7 != if{ 7 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } els{ -1 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } (>H:A32NX_SD_PAGE_CHANGED)">COND</button>
+		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_ECAM_SD_CURRENT_PAGE_INDEX" data-highlightvalue="8" data-calculatorcommands="(L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) 8 != if{ 8 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } els{ -1 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } (>H:A32NX_SD_PAGE_CHANGED)">DOOR</button>
+		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_ECAM_SD_CURRENT_PAGE_INDEX" data-highlightvalue="9" data-calculatorcommands="(L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) 9 != if{ 9 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } els{ -1 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } (>H:A32NX_SD_PAGE_CHANGED)">WHEEL</button>
+		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_ECAM_SD_CURRENT_PAGE_INDEX" data-highlightvalue="10" data-calculatorcommands="(L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) 10 != if{ 10 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } els{ -1 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } (>H:A32NX_SD_PAGE_CHANGED)">F CTL</button>
+	</div>
+	<div class="shieldGroup shieldGroupEcamBottom">
+		<button class="calculator_button" data-calculatorcommands="1 (>L:A32NX_BTN_CLR)|0 (>L:A32NX_BTN_CLR)">CLR</button>
+		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_ECAM_SD_CURRENT_PAGE_INDEX" data-highlightvalue="11" data-calculatorcommands="(L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) 11 != if{ 11 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } els{ -1 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } (>H:A32NX_SD_PAGE_CHANGED)">STS</button>
+		<button class="calculator_button" data-calculatorcommands="1 (>L:A32NX_BTN_RCL)|0 (>L:A32NX_BTN_RCL)">RCL</button>
+	</div>
+</div>
+
 <div id="sh_efis1" class="shield efisShield" data-title="Left ND" data-width="420">
 	<div class="shieldGroup shieldGroupNdModes">
 		<div class="controlgroup controlgroupEfisFilter">

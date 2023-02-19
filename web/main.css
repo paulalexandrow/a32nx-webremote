@@ -453,6 +453,30 @@ input[type=text] {
 	margin: 0;
 }
 
+/* ECAM widget */
+
+#sh_ecam .shieldGroup {
+	line-height: 2.6em;
+}
+
+#sh_ecam .shieldGroupEcamTop, #sh_ecam .shieldGroupEcamBottom {
+	text-align: center;
+}
+
+#sh_ecam button {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	min-width: 5em;
+}
+
+#sh_ecam .shieldGroupEcamTop button, #sh_ecam .shieldGroupEcamBottom button {
+	margin-right: 2em;
+}
+
+#sh_ecam .shieldGroupEcamTop button {
+	min-width: 7.5em
+}
+
 /* EFIS widgets */
 
 .efisShield .shieldGroup {

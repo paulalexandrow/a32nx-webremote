@@ -18,6 +18,8 @@ $(function() {
 	// Completely disable jQueryUI's autofocus. It does more harm than good in our case.
 	$.ui.dialog.prototype._focusTabbable = $.noop;
 
+	let regexAtc = new RegExp("^[0-7]{1,4}$"); // we accept to omit leading zeros, but not all.
+
 	let socket = null;
 	let lvars = {};
 	let offsets = {};
@@ -29,30 +31,44 @@ $(function() {
 		try {
 			socket = new WebSocket($("#socketURL").val(), "fsuipc");
 			socket.onopen = function() {
-				// declare LVARs
-				socket.send(JSON.stringify({
-					command: "vars.declare",
-					name: "fcuVars",
-					vars: $.map(lvars, function(val, key) { return { name:key } })
-				}));
-				// subscribe to declared LVARs
-				socket.send(JSON.stringify({
-					command: "vars.read",
-					name: "fcuVars",
-					interval: 100
-				}));
+				let lvarNames = Object.keys(lvars);
+				let chunk = [];
+				let chunkNames = [];
+				for (let i=0; i<lvarNames.length; i++) {
+					chunk.push(lvarNames[i]);
+					if ((i>0 && i % 50 == 0) || i == lvarNames.length-1) { // FSUIPC WebSocket only allows a certain number of variables to be declared, so we divide our declaration into chunks.
+						// declare LVARs
+						socket.send(JSON.stringify({
+							command: "vars.declare",
+							name: "fcuVars_" + i.toString(),
+							vars: $.map(chunk, function(val) { return { name:val } })
+						}));
+						chunkNames.push("fcuVars_" + i.toString());
+						chunk = [];
+					}
+				}
 				// declare offset requests
 				socket.send(JSON.stringify({
 					command: "offsets.declare",
-					name: "fcuOffsets",
+					name: "offsets",
 					offsets: $.map(offsets, function(val, key) { return { name:key, address:val["offsetaddress"], type:val["offsettype"], size:val["offsetsize"] } })
 				}));
-				// read offset requests
-				socket.send(JSON.stringify({
-					command: "offsets.read",
-					name: "fcuOffsets",
-					interval: 100
-				}));
+				// subscribe to declared LVARs and offsets (it seems FSUIPC needs a short delay to process things)
+				setTimeout(function() {
+					for (let i=0; i<chunkNames.length; i++) {
+						socket.send(JSON.stringify({
+							command: "vars.read",
+							name: chunkNames[i],
+							interval: 100
+						}));
+					}
+					// read offset requests
+					socket.send(JSON.stringify({
+						command: "offsets.read",
+						name: "offsets",
+						interval: 100
+					}));
+				}, 1500);
 				$("#connectionPanel").dialog("close");
 				$("#menu").removeClass("disabled");
 				applyShieldConfig();
@@ -197,6 +213,10 @@ $(function() {
 		if (p["m"]) {
 			openMenu(true);
 		}
+		if (p["g"]) {
+			$(".buttonGroup.switchGroup").hide();
+			$("#" + p["g"]).show();
+		}
 		inhibitUpdateHash = false;
 	};
 
@@ -262,25 +282,32 @@ $(function() {
 						break;
 					case "value_indicator":
 						$(".lvar_value_indicator[data-lvarname='" + key + "\']").each(function() {
-							let value = parseFloat(val);
-							if ($(this).data("placeholder") && data.hasOwnProperty($(this).data("placeholdertriggerlvar")) && data[$(this).data("placeholdertriggerlvar")]) {
-								$(this).text($(this).data("placeholder"));
+							let str;
+							if ($(this).data("fractiondigits") !== undefined) {
+								str = parseFloat(val).toFixed($(this).data("fractiondigits"));
 							} else {
-								let str;
-								if ($(this).data("fractiondigits")) {
-									str = value.toFixed($(this).data("fractiondigits"));
-								} else {
-									str = value.toString();
-								}
-								str = $(this).data("padzeros") ? padZeros(str, $(this).data("padzeros")) : str;
-								if (str.substring(0,1) != "-" && $(this).data("alwaysshowsign")) {
-									str = "+" + str;
-								}
-								$(this).text(str);
+								str = parseFloat(val).toString();
 							}
-							$(this).data("lastvalue", $(this).text());
+							str = $(this).data("padzeros") ? padZeros(str, $(this).data("padzeros")) : str;
+							if (str.substring(0,1) != "-" && $(this).data("alwaysshowsign")) {
+								str = "+" + str;
+							}
+							$(this).data("lastvalue", str);
+							$(this).text(str);
 						});
 						break;
+				}
+			}
+		});
+
+		// check placeholders
+		$(".lvar_value_indicator").each(function() {
+			if ($(this).data("placeholder") !== undefined) {
+				let trigger = $(".lvar_value_indicator[data-lvarname='" + $(this).data("placeholdertriggerlvar") + "']");
+				if (trigger.data("lastvalue") == "1") {
+					$(this).text($(this).data("placeholder"));
+				} else {
+					$(this).text($(this).data("lastvalue"));
 				}
 			}
 		});
@@ -297,17 +324,20 @@ $(function() {
 				switch (offsets[key].type) {
 					case "status_indicator":
 						$(".offset_status_indicator[data-offsetaddress=\'" + key + "\']").removeClass("ui-state-active");
+						if (key == "0x66E7" && data["0x66E8"] == "1") break; // Hardcoded NOSE light magic: do not highlight TAXI if T.O is active
 						$(".offset_status_indicator[data-offsetaddress=\'" + key + "\'][data-highlightvalue='" + val + "']").addClass("ui-state-active");
 						break;
 					case "value_indicator":
 						$(".offset_value_indicator[data-offsetaddress=\'" + key + "\']").each(function() {
 							let value = parseFloat(val);
-							if ($(this).data("displayfactor")) {
+							if ($(this).data("displayfactor") !== undefined) {
 								value = value * parseFloat($(this).data("displayfactor"));
 							}
 							let str;
 							if ($(this).data("fractiondigits") !== undefined) {
 								str = value.toFixed($(this).data("fractiondigits"));
+							} else if ($(this).data("isbcd") !== undefined) {
+								str = parseInt(value.toString(16), 10).toString();
 							} else {
 								str = value.toString();
 							}
@@ -315,6 +345,11 @@ $(function() {
 							$(this).text($(this).data("lastvalue"));
 						});
 						updateBaro(); // some hardcoded necessity
+						break;
+					case "percent_slider":
+						$(".offset_percent_slider[data-offsetaddress=\'" + key + "\']").each(function() {
+							$(this).slider("value", val);
+						});
 						break;
 				}
 			}
@@ -377,7 +412,7 @@ $(function() {
 
 	// parse offsets from document
 	$(".offset_status_indicator").each(function() {
-		if (!offsets.hasOwnProperty($(this).data("offsetaddress".toString()))) {
+		if (!offsets.hasOwnProperty($(this).data("offsetaddress").toString())) {
 			offsets[$(this).data("offsetaddress").toString()] = {
 				type: "status_indicator",
 				offsetaddress: parseInt($(this).data("offsetaddress")),
@@ -387,7 +422,7 @@ $(function() {
 		}
 	});
 	$(".offset_value_indicator").each(function() {
-		if (!offsets.hasOwnProperty($(this).data("offsetaddress".toString()))) {
+		if (!offsets.hasOwnProperty($(this).data("offsetaddress").toString())) {
 			offsets[$(this).data("offsetaddress").toString()] = {
 				type: "value_indicator",
 				offsetaddress: parseInt($(this).data("offsetaddress")),
@@ -395,6 +430,33 @@ $(function() {
 				offsetsize: parseInt($(this).data("offsetsize"))
 			};
 		}
+	});
+	$(".offset_percent_slider").each(function() {
+		if (!offsets.hasOwnProperty($(this).data("offsetaddress").toString())) {
+			offsets[$(this).data("offsetaddress").toString()] = {
+				type: "percent_slider",
+				offsetaddress: parseInt($(this).data("offsetaddress")),
+				offsettype: $(this).data("offsettype"),
+				offsetsize: parseInt($(this).data("offsetsize"))
+			};
+		}
+		let calcCode = $(this).data("calculatorcommand");
+		$(this).slider({
+			range: "max",
+			min: 0,
+			max: 100,
+			step: 1,
+			value: 0,
+			animate: "slow",
+			stop: function(e, u) {
+				if (socket == null) return;
+				socket.send(JSON.stringify({
+					command: "vars.calc",
+					name: "calc",
+					code: calcCode.replace("{0}", u.value.toString())
+				}));
+			}
+		});
 	});
 
 	$("#scratchpadButtons button").click(function() {
@@ -415,7 +477,7 @@ $(function() {
 		if (socket == null) return;
 		let value = consumeScratchpad();
 		if (value < $(this).data("minvalue") || value > $(this).data("maxvalue")) return; // fail silently
-		if ($(this).data("sendfactor")) {
+		if ($(this).data("sendfactor") !== undefined) {
 			value = value * $(this).data("sendfactor");
 		}
 		socket.send(JSON.stringify({
@@ -444,7 +506,7 @@ $(function() {
 	$(".calculator_button").click(function() {
 		if (socket == null) return;
 		let commands;
-		if ($(this).data("disablecalculatorcommands") && $(this).hasClass("ui-state-active")) {
+		if ($(this).data("disablecalculatorcommands") !== undefined && $(this).hasClass("ui-state-active")) {
 			commands = $(this).data("disablecalculatorcommands").split("|");
 		} else {
 			commands = $(this).data("calculatorcommands").split("|");
@@ -463,13 +525,17 @@ $(function() {
 	$(".scratchpad_offset_target").click(function() {
 		if (socket == null) return;
 		let value = consumeScratchpad();
+		if ($(this).data("isatc") !== undefined && !regexAtc.test(value.toString())) return;
+		if ($(this).data("isbcd") !== undefined) {
+			value = parseInt(value.toString(10), 16);
+		}
 		if (value < $(this).data("minvalue") || value > $(this).data("maxvalue")) return; // fail silently
-		if ($(this).data("sendfactor")) {
+		if ($(this).data("sendfactor") !== undefined) {
 			value = value * $(this).data("sendfactor");
 		}
 		socket.send(JSON.stringify({
 			command: "offsets.write",
-			name: "fcuOffsets",
+			name: "offsets",
 			offsets: [{ name:$(this).data("offsetaddress"), value:value }]
 		}));
 	});
@@ -493,7 +559,13 @@ $(function() {
 		}
     });
 
-	$("#shieldButtons button").click(function() {
+	$(".buttonGroup .header button").click(function() {
+		$(".buttonGroup.switchGroup").hide();
+		$("#" + $(this).data("targetgroup")).show();
+		updateHash({ "g": $(this).data("targetgroup") });
+	});
+
+	$(".shieldButton").click(function() {
 		let d = $("#" + $(this).data("targetshield"));
 		if (d.dialog("isOpen")) {
 			d.dialog("close");
@@ -516,7 +588,7 @@ $(function() {
 				$(".ui-dialog-titlebar", $(this).dialog("widget")).append($(".helpButton", this));
 			},
 			close: function() {
-				$("#shieldButtons button[data-targetshield='" + $(this).attr("id") + "']").removeClass("ui-state-active");
+				$(".shieldButton[data-targetshield='" + $(this).attr("id") + "']").removeClass("ui-state-active");
 				updateShieldConfig();
 			},
 			beforeClose: function() {
@@ -524,8 +596,8 @@ $(function() {
 				$(this).data("lastPosition", { left: p.left, top: p.top }); // This position "save" will not survive in the URL, but in the current window. This is by design.
 			},
 			open: function() {
-				$("#shieldButtons button[data-targetshield='" + $(this).attr("id") + "']").addClass("ui-state-active");
-				if ($(this).data("lastPosition")) {
+				$(".shieldButton[data-targetshield='" + $(this).attr("id") + "']").addClass("ui-state-active");
+				if ($(this).data("lastPosition") !== undefined) {
 					$(this).dialog("widget").position({
 						my: "left top",
 						at: "left+" + $(this).data("lastPosition").left + " top+" + $(this).data("lastPosition").top,

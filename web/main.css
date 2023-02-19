@@ -918,6 +918,18 @@ input[type=text] {
 	width: 8em;
 }
 
+/* SWITCHING widget */
+
+#sh_sw .shieldGroup {
+	display: inline-block;
+	text-align: center;
+	min-width: 12em;
+}
+
+#sh_sw .controlgroup button {
+	width: 4.5em;
+}
+
 /* WARNING widget */
 
 #sh_warn .shieldGroup {

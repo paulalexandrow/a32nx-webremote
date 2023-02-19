@@ -330,7 +330,7 @@ $(function() {
 							let str;
 							if ($(this).data("fractiondigits") !== undefined) {
 								str = value.toFixed($(this).data("fractiondigits"));
-							} if ($(this).data("isbcd") !== undefined) {
+							} else if ($(this).data("isbcd") !== undefined) {
 								str = parseInt(value.toString(16), 10).toString();
 							} else {
 								str = value.toString();

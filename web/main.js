@@ -296,7 +296,7 @@ $(function() {
 
 		// check placeholders
 		$(".lvar_value_indicator").each(function() {
-			if ($(this).data("placeholder")) {
+			if ($(this).data("placeholder") !== undefined) {
 				let trigger = $(".lvar_value_indicator[data-lvarname='" + $(this).data("placeholdertriggerlvar") + "']");
 				if (trigger.data("lastvalue") == "1") {
 					$(this).text($(this).data("placeholder"));
@@ -324,7 +324,7 @@ $(function() {
 					case "value_indicator":
 						$(".offset_value_indicator[data-offsetaddress=\'" + key + "\']").each(function() {
 							let value = parseFloat(val);
-							if ($(this).data("displayfactor")) {
+							if ($(this).data("displayfactor") !== undefined) {
 								value = value * parseFloat($(this).data("displayfactor"));
 							}
 							let str;
@@ -471,7 +471,7 @@ $(function() {
 		if (socket == null) return;
 		let value = consumeScratchpad();
 		if (value < $(this).data("minvalue") || value > $(this).data("maxvalue")) return; // fail silently
-		if ($(this).data("sendfactor")) {
+		if ($(this).data("sendfactor") !== undefined) {
 			value = value * $(this).data("sendfactor");
 		}
 		socket.send(JSON.stringify({
@@ -500,7 +500,7 @@ $(function() {
 	$(".calculator_button").click(function() {
 		if (socket == null) return;
 		let commands;
-		if ($(this).data("disablecalculatorcommands") && $(this).hasClass("ui-state-active")) {
+		if ($(this).data("disablecalculatorcommands") !== undefined && $(this).hasClass("ui-state-active")) {
 			commands = $(this).data("disablecalculatorcommands").split("|");
 		} else {
 			commands = $(this).data("calculatorcommands").split("|");
@@ -524,7 +524,7 @@ $(function() {
 			value = parseInt(value.toString(10), 16);
 		}
 		if (value < $(this).data("minvalue") || value > $(this).data("maxvalue")) return; // fail silently
-		if ($(this).data("sendfactor")) {
+		if ($(this).data("sendfactor") !== undefined)) {
 			value = value * $(this).data("sendfactor");
 		}
 		socket.send(JSON.stringify({
@@ -591,7 +591,7 @@ $(function() {
 			},
 			open: function() {
 				$(".shieldButton[data-targetshield='" + $(this).attr("id") + "']").addClass("ui-state-active");
-				if ($(this).data("lastPosition")) {
+				if ($(this).data("lastPosition") !== undefined) {
 					$(this).dialog("widget").position({
 						my: "left top",
 						at: "left+" + $(this).data("lastPosition").left + " top+" + $(this).data("lastPosition").top,

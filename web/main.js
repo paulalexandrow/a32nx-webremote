@@ -277,7 +277,7 @@ $(function() {
 					case "value_indicator":
 						$(".lvar_value_indicator[data-lvarname='" + key + "\']").each(function() {
 							let str;
-							if ($(this).data("fractiondigits")) {
+							if ($(this).data("fractiondigits") !== undefined) {
 								str = parseFloat(val).toFixed($(this).data("fractiondigits"));
 							} else {
 								str = parseFloat(val).toString();

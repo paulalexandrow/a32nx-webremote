@@ -516,7 +516,7 @@ $(function() {
 				socket.send(JSON.stringify({
 					command: "vars.calc",
 					name: "calc",
-					code: commands[c]
+					code: commands[c].replaceAll("$", "\n")
 				}));
 			}, c * 100); // separate commands by 100ms by default (warn and caut buttons need this)
 		}

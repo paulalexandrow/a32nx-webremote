@@ -746,7 +746,11 @@ input[type=text] {
 #sh_fuel .shieldGroup {
 	display: inline-block;
 	text-align: center;
-	width: 12em;
+	width: 16.2em;
+}
+
+#sh_fuel .shieldGroupLR {
+	width: 8em;
 }
 
 #sh_fuel .shieldGroup>.label {

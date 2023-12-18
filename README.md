@@ -85,7 +85,7 @@ The (only good) solution to these problems is running a webserver on **(A)**. It
 6. As the exact steps might change with different versions of IIS, it would be of no use to go into too much detail here, but you want to assure the following:
    - The *physical path* of the site points to the `a32nx-webremote/web` folder. (under "Basic Settings")
    - The *binding* of the site points to **(A)**'s IP address `192.168.0.2` (*not* `localhost`) with a port of `80`.  (under "Bindings")
-7. Make sure the IIS user (normally called `IIS_IUSRS`) has the *permission* to read from the physical path. This is not done in the IIS Manager program but in Windows' File Explorer.
+7. Make sure the IIS user (normally called `IUSR`) has the *permission* to read from the physical path. This is not done in the IIS Manager program but in Windows' File Explorer.
 
 To test the setup so far, open `http://192.168.0.2` (*not* `localhost`) in a browser on **(A)**. WebRemote's login mask should load (but will not work yet). If not, something went wrong and you should not continue with the setup.
 

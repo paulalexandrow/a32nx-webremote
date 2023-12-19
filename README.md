@@ -34,6 +34,10 @@ It is best to think of it more like an instructor's station rather than an exter
 
 There are different options to run WebRemote. They build on top of each other, so if you are unsure which one to use, just follow this guide step by step until the setup fits your needs.
 
+I also recorded a video tutorial that explains the full setup process. Keep in mind though, that things could change over time and this README will always be master.
+
+[![tutorial thumbnail](https://img.youtube.com/vi/_fMCXbj3bt8/mqdefault.jpg)](https://youtu.be/_fMCXbj3bt8)
+
 ### Prerequesites
 
 You need the following programs installed and running:

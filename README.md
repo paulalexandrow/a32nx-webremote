@@ -116,9 +116,9 @@ You are done! You can now use WebRemote on as many devices as you want and updat
 
 After connecting to FSUIPC WebSocket (and if all programs mentioned in the [prerequesites](#prerequesites) are running and connected to each other) you may chose which widgets you want to display via the buttons in the menu. The menu can be collapsed to gain more screen real estate.
 
-All widgets can be positioned and some can be resized. Some widgets have a help button in the upper right corner with some additional information.
+All widgets can be positioned and some can be resized. To guard against unintended modifications to the layout, this can be disabled temporarily by toggling the "Lock" button. Some widgets have a help button in the upper right corner with some additional information.
 
-Not all information will be populated before the simulation is running, i.e. before you have clicked on "ready to fly" in MSFS.
+Not all buttons will work before the simulation is running, i.e. before you have clicked on "ready to fly" in MSFS.
 
 ### Configuration
 
@@ -128,6 +128,7 @@ WebRemote stores its configuration in the hash part (that comes after the `#`) o
 - The state of the "autoconnect" checkbox
 - The position and size of all open widgets
 - The position and content of the side-menu
+- The "lock" state of the layout
 
 So if you want to save a certain layout, just save the current URL as bookmark in your browser. This way WebRemote can remain a completely static solution while you can still save as many different bookmarks (i.e. configurations) for different scenarios, browser tabs, devices and so on as you like. These URLs can also be copied to other devices where they still work the same.
 

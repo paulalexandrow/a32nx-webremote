@@ -83,6 +83,7 @@ $(function() {
 					retryConnection = false;
 				} else {
 					inhibitUpdateHash = true;
+					lockLayout(false);
 					$(".shield").dialog("close");
 					$("#connectionPanel").dialog("open");
 					$("#menu").addClass("disabled");
@@ -135,6 +136,19 @@ $(function() {
 		updateHash({ "m": null });
 	};
 
+	$("#lockButton").click(function() {
+		lockLayout(!$("body").hasClass("locked"));
+	});
+
+	let lockLayout = function(lock) {
+		$("body").toggleClass("locked", lock);
+		$("#lockButton").toggleClass("ui-state-active", lock);
+		$(".shield")
+			.dialog("option", "draggable", !lock)
+			.dialog("option", "resizable", !lock);
+		updateHash({ "l": lock ? "1" : null });
+	}
+
 	$('#openMenuAction').click(function() { openMenu(false) });
 	$('#closeMenuAction').click(function() { closeMenu() });
 
@@ -172,7 +186,6 @@ $(function() {
 		});
 		window.location.hash = "#" + params.toString();
 	};
-
 
 	let updateShieldConfig = function() {
 		let config = []; // We want to save as much data as (URL length) possible, so we go with arrays and fixed indexes instead of an object with keys.
@@ -217,6 +230,9 @@ $(function() {
 			$(".buttonGroup.switchGroup").hide();
 			$("#" + p["g"]).show();
 		}
+		if (p["l"]) {
+			lockLayout(true);
+		}
 		inhibitUpdateHash = false;
 	};
 
@@ -235,7 +251,6 @@ $(function() {
 						// spd
 						$("#indicator_spd_spd").show();
 						$("#indicator_spd_mach").hide();
-
 					}
 				}
 				// ... VS/FPA
@@ -246,7 +261,6 @@ $(function() {
 					} else {
 						$("#indicator_vs_vs").show();
 						$("#indicator_vs_fpa").hide();
-
 					}
 				}
 				// ... BARO
@@ -260,7 +274,6 @@ $(function() {
 						// inHg
 						$("#indicator_baro_inhg").show();
 						$("#indicator_baro_hpa").hide();
-
 					}
 				}
 				// ... SPOILERS
@@ -314,7 +327,7 @@ $(function() {
 
 		// more hardcoded logic for the spoilers
 		if ($(".lvar_status_indicator[data-lvarname=A32NX_SPOILERS_ARMED]").hasClass("ui-state-active")) {
-			$(".lvar_status_indicator[data-lvarname=A32NX_SPOILERS_HANDLE_POSITION").removeClass("ui-state-active");
+			$(".lvar_status_indicator[data-lvarname=A32NX_SPOILERS_HANDLE_POSITION]").removeClass("ui-state-active");
 		}
 	};
 
@@ -557,7 +570,7 @@ $(function() {
 				code: Math.round((1 - u.value) * 16384).toString() + " (>K:SPOILERS_SET)"
 			}));
 		}
-    });
+	});
 
 	$(".buttonGroup .header button").click(function() {
 		$(".buttonGroup.switchGroup").hide();
@@ -566,6 +579,9 @@ $(function() {
 	});
 
 	$(".shieldButton").click(function() {
+		if ($("body").hasClass("locked")) {
+			return;
+		}
 		let d = $("#" + $(this).data("targetshield"));
 		if (d.dialog("isOpen")) {
 			d.dialog("close");
@@ -592,6 +608,7 @@ $(function() {
 				updateShieldConfig();
 			},
 			beforeClose: function() {
+				if ($("body").hasClass("locked")) return false;
 				let p = $(this).dialog("widget").position();
 				$(this).data("lastPosition", { left: p.left, top: p.top }); // This position "save" will not survive in the URL, but in the current window. This is by design.
 			},

@@ -181,6 +181,8 @@ input[type=text] {
 	width: 98%;
 	margin-right: 2%;
 	box-sizing: border-box;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
 }
 
 #menu button.ui-widget.halfsize {
@@ -200,11 +202,11 @@ input[type=text] {
 
 #menu h1 {
 	margin-bottom: 1em;
-	font-size: 1.8em;
+	font-size: 1.5em;
 }
 
 .buttonGroup {
-	margin-top: 2em;
+	margin-top: 1.2em;
 }
 
 .buttonGroup .header {
@@ -251,10 +253,18 @@ input[type=text] {
 	display: none;
 }
 
+body.locked #menu .shieldButton {
+	color: #666;
+}
+
 /* GENERIC WIDGETS */
 
 .shieldDialog {
 	z-index: 97;
+}
+
+body.locked .shieldDialog .ui-dialog-titlebar-close {
+	display: none;
 }
 
 .shieldGroup {

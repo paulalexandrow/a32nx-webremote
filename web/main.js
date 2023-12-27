@@ -624,6 +624,12 @@ $(function() {
 				updateShieldConfig();
 			},
 			dragStop: function() {
+				let p = $(this).dialog("widget").position();
+				$(this).dialog("widget").position({
+					my: "left top",
+					at: "left+" + Math.max(0, p.left) + " top+" + Math.max(0, p.top),
+					of: "body"
+				});
 				updateShieldConfig();
 			},
 			resizeStop: function() {

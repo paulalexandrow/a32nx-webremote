@@ -679,7 +679,7 @@ $(function() {
 						if (socket == null) {
 							initializeSocket();
 							updateHash({
-								"socketurl":  $("#socketURL").val(),
+								"socketurl": $("#socketURL").val(),
 								"autoconnect": $("#autoconnectField input").prop("checked") ? 1 : null
 							});
 						} else {
@@ -696,7 +696,7 @@ $(function() {
 	} else if (!window.location.host || window.location.host == "localhost") {
 		$("#socketURL").val("ws://localhost:2048/fsuipc/"); // best guess for local setup
 	} else {
-		$("#socketURL").val("ws://"  + window.location.host + "/fsuipc/");  // best guess for remote setup
+		$("#socketURL").val("ws://" + window.location.host + "/fsuipc/"); // best guess for remote setup
 	}
 	if (config["autoconnect"]) {
 		$("#autoconnectField input").prop("checked", true);

@@ -693,15 +693,15 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<div class="shieldGroup">
 		<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_PNEU_WING_ANTI_ICE_HAS_FAULT" data-highlightvalue="1">
 			<div class="label">WING</div>
-			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x337D" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(>K:TOGGLE_STRUCTURAL_DEICE)"><span class="secondary">FAULT</span><br/><span class="main activeBlue">ON</span></div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_BUTTON_OVHD_ANTI_ICE_WING_POSITION" data-highlightvalue="1" data-calculatorcommands="(L:A32NX_BUTTON_OVHD_ANTI_ICE_WING_POSITION, Bool) ! (&gt;L:A32NX_BUTTON_OVHD_ANTI_ICE_WING_POSITION, Bool)"><span class="secondary">FAULT</span><br/><span class="main activeBlue">ON</span></div>
 		</div>
 		<div class="pushButton">
 			<div class="label">ENG 1</div><!-- FAULT light not yet implemented by FBW -->
-			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x08B2" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(>K:ANTI_ICE_TOGGLE_ENG1)"><span class="secondary">FAULT</span><br/><span class="main activeBlue">ON</span></div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_BUTTON_OVHD_ANTI_ICE_ENG_1_POSITION" data-highlightvalue="1" data-calculatorcommands="(L:A32NX_BUTTON_OVHD_ANTI_ICE_ENG_1_POSITION, Bool) ! (&gt;L:A32NX_BUTTON_OVHD_ANTI_ICE_ENG_1_POSITION, Bool)"><span class="secondary">FAULT</span><br/><span class="main activeBlue">ON</span></div>
 		</div>
 		<div class="pushButton">
 			<div class="label">ENG 2</div><!-- FAULT light not yet implemented by FBW -->
-			<div class="pb offset_status_indicator calculator_button" data-offsetaddress="0x094A" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="(>K:ANTI_ICE_TOGGLE_ENG2)"><span class="secondary">FAULT</span><br/><span class="main activeBlue">ON</span></div>
+			<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_BUTTON_OVHD_ANTI_ICE_ENG_2_POSITION" data-highlightvalue="1" data-calculatorcommands="(L:A32NX_BUTTON_OVHD_ANTI_ICE_ENG_2_POSITION, Bool) ! (&gt;L:A32NX_BUTTON_OVHD_ANTI_ICE_ENG_2_POSITION, Bool)"><span class="secondary">FAULT</span><br/><span class="main activeBlue">ON</span></div>
 		</div>
 		<div class="pushButton">
 			<div class="label">PROBE / WND</div>

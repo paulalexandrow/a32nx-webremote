@@ -25,7 +25,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<script type="text/javascript" src="libs/jquery.min.js?20231226"></script>
 	<script type="text/javascript" src="libs/jquery-ui/jquery-ui.min.js?20231226"></script>
 	<script type="text/javascript" src="libs/jquery.ui.touch-punch.min.js?20231226"></script>
-	<script type="text/javascript" src="main.js?20231227"></script>
+	<script type="text/javascript" src="main.js?20240424"></script>
 </head>
 <body>
 
@@ -468,8 +468,8 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<div class="shieldGroup">
 		<div class="label">SPD</div>
 		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_SPD_MANAGED_DASHES"><!-- we need this hidden to register the LVAR for updates --></div>
-		<span id="indicator_spd_spd" class="lvar_value_indicator scratchpad_calculator_command ledValue" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="100" data-maxvalue="399" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_SPD_MANAGED_DASHES"></span>
-		<span id="indicator_spd_mach" style="display:none" class="lvar_value_indicator scratchpad_calculator_command ledValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="10" data-maxvalue="99"  data-fractiondigits="2" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_SPD_MANAGED_DASHES"></span>
+		<span id="indicator_spd_spd" class="lvar_value_indicator scratchpad_calculator_command ledValue" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="100" data-maxvalue="399" data-triggeredplaceholders='[["A32NX_FCU_SPD_MANAGED_DASHES","1","---"]]'></span>
+		<span id="indicator_spd_mach" style="display:none" class="lvar_value_indicator scratchpad_calculator_command ledValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="10" data-maxvalue="99"  data-fractiondigits="2" data-triggeredplaceholders='[["A32NX_FCU_SPD_MANAGED_DASHES","1","---"]]'></span>
 		<div class="pushPullGroup">
 			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_SPD_PUSH)">manage</button>
 			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_SPD_PULL)">pull</button>
@@ -478,7 +478,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<div class="shieldGroup">
 		<div class="label">HDG</div>
 		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_HDG_MANAGED_DASHES"><!-- we need this hidden to register the LVAR for updates --></div>
-		<span class="lvar_value_indicator scratchpad_calculator_command ledValue" data-lvarname="A32NX_FCU_HEADING_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_HDG_SET)" data-minvalue="0" data-maxvalue="360" data-padzeros="3" data-fractiondigits="0" data-placeholder="---" data-placeholdertriggerlvar="A32NX_FCU_HDG_MANAGED_DASHES"></span>
+		<span class="lvar_value_indicator scratchpad_calculator_command ledValue" data-lvarname="A32NX_FCU_HEADING_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_HDG_SET)" data-minvalue="0" data-maxvalue="360" data-padzeros="3" data-fractiondigits="0" data-triggeredplaceholders='[["A32NX_FCU_HDG_MANAGED_DASHES","1","---"]]'></span>
 		<div class="pushPullGroup">
 			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_HDG_PUSH)">manage</button>
 			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_HDG_PULL)">pull</button>
@@ -494,8 +494,8 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 	<div class="shieldGroup">
 		<div class="label">VS / FPA</div>
-		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_VS_MANAGED"><!-- we need this hidden to register the LVAR for updates --></div>
-		<span id="indicator_vs_vs" class="lvar_value_indicator scratchpad_calculator_command ledValue" data-lvarname="A32NX_AUTOPILOT_VS_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-6000" data-maxvalue="6000" data-fractiondigits="0" data-padzeros="4" data-alwaysshowsign="1" data-placeholder="-----" data-placeholdertriggerlvar="A32NX_FCU_VS_MANAGED"></span>
+		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A320_NE0_FCU_STATE"><!-- we need this hidden to register the LVAR for updates --></div>
+		<span id="indicator_vs_vs" class="lvar_value_indicator scratchpad_calculator_command ledValue" data-lvarname="A32NX_AUTOPILOT_VS_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-6000" data-maxvalue="6000" data-fractiondigits="0" data-padzeros="4" data-alwaysshowsign="1" data-triggeredplaceholders='[["A320_NE0_FCU_STATE","0","-----"],["A320_NE0_FCU_STATE","1"," 0000"]]'></span>
 		<span id="indicator_vs_fpa" class="lvar_value_indicator scratchpad_calculator_command ledValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_FPA_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-99" data-maxvalue="99" data-alwaysshowsign="1" data-fractiondigits="1"></span>
 		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_TRK_FPA_MODE_ACTIVE"><!-- we need this hidden to register the LVAR for updates --></div>
 		<div class="pushPullGroup">

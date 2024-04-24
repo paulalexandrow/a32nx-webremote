@@ -313,13 +313,18 @@ $(function() {
 			}
 		});
 
-		// check placeholders
+		// check triggered placeholders
 		$(".lvar_value_indicator").each(function() {
-			if ($(this).data("placeholder") !== undefined) {
-				let trigger = $(".lvar_value_indicator[data-lvarname='" + $(this).data("placeholdertriggerlvar") + "']");
-				if (trigger.data("lastvalue") == "1") {
-					$(this).text($(this).data("placeholder"));
-				} else {
+			if ($(this).data("triggeredplaceholders") !== undefined) {
+				let placeholderActive = false;
+				for (i=0; i<$(this).data("triggeredplaceholders").length; i++) {
+					let trigger = $(".lvar_value_indicator[data-lvarname='" + $(this).data("triggeredplaceholders")[i][0] + "']");
+					if (trigger.data("lastvalue") == $(this).data("triggeredplaceholders")[i][1]) {
+						$(this).text($(this).data("triggeredplaceholders")[i][2]);
+						placeholderActive = true;
+					}
+				}
+				if (!placeholderActive) {
 					$(this).text($(this).data("lastvalue"));
 				}
 			}

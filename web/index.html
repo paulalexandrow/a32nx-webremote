@@ -21,11 +21,11 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<link href="favicon.png" rel="shortcut icon" />
 	<title>WebRemote for FBW A32NX</title>
 	<link rel="stylesheet" href="libs/jquery-ui/jquery-ui.min.css?20231226" type="text/css" />
-	<link rel="stylesheet" href="main.css?20231226" type="text/css" />
+	<link rel="stylesheet" href="main.css?20240531" type="text/css" />
 	<script type="text/javascript" src="libs/jquery.min.js?20231226"></script>
 	<script type="text/javascript" src="libs/jquery-ui/jquery-ui.min.js?20231226"></script>
 	<script type="text/javascript" src="libs/jquery.ui.touch-punch.min.js?20231226"></script>
-	<script type="text/javascript" src="main.js?20240424"></script>
+	<script type="text/javascript" src="main.js?20240531"></script>
 </head>
 <body>
 
@@ -61,7 +61,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 		<button class="shieldButton" data-targetshield="sh_gear">Gear &amp; Brakes</button>
 		<button class="shieldButton" data-targetshield="sh_surf">Flaps &amp; Speed Brake</button>
 		<button class="shieldButton" data-targetshield="sh_eng">Engines</button>
-		<button class="shieldButton" data-targetshield="sh_atc">ATC</button>
+		<button class="shieldButton halfsize" data-targetshield="sh_rad">Radio</button><button class="shieldButton halfsize" data-targetshield="sh_atc">ATC</button>
 		<button class="shieldButton" data-targetshield="sh_ltn">Instrument Lights</button>
 	</div>
 	<div id="mg_o" class="buttonGroup switchGroup ui-helper-hidden">
@@ -890,6 +890,17 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
+<div id="sh_rad" class="shield" data-title="Radio" data-width="320">
+	<div class="shieldGroup">
+		<div class="label">VHF 1</div>
+		<span id="indicator_vhf1_freq" class="offset_value_indicator scratchpad_offset_target ledValue" data-offsetaddress="0x05C4" data-offsettype="uint" data-offsetsize="4" data-fractiondigits="3" data-sendfactor="1000" data-displayfactor=".000001" data-minvalue="118000" data-maxvalue="136975" data-isvhf="1"></span>
+	</div>
+	<div class="shieldGroup">
+		<div class="label">VHF 2</div>
+		<span id="indicator_vhf2_freq" class="offset_value_indicator scratchpad_offset_target ledValue" data-offsetaddress="0x05C8" data-offsettype="uint" data-offsetsize="4" data-fractiondigits="3" data-sendfactor="1000" data-displayfactor=".000001" data-minvalue="118000" data-maxvalue="136975" data-isvhf="1"></span>
+	</div>
+</div>
+
 <div id="sh_scratch" class="shield" data-title="Scratchpad" data-width="240" data-noresize="1">
 	<div class="shieldGroup">
 		<div id="scratchpad"></div>
@@ -1008,7 +1019,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 		<li><a href="https://github.com/furf/jquery-ui-touch-punch">Touch Punch</a></li>
 	</ul>
 	<p class="copyright">
-		&copy; 2023 <a href="https://www.alexandrow.org">Paul Alexandrow</a>
+		&copy; 2023-2024 <a href="https://www.alexandrow.org">Paul Alexandrow</a>
 	</p>
 </div>
 
@@ -1048,6 +1059,11 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<p>
 		To enter a QNH in inHg you have to enter the value <em>times 100</em>.<br />
 		For example: enter <span class="numericText">2992</span> for a QNH of <span class="numericText">29.92</span> inHg.
+	</p>
+	<h4>Entering VHF Frequencies</h4>
+	<p>
+		To enter a frequency you have to enter <em>all 6 digits</em> without the decimal point.<br />.
+		For example: enter <span class="numericText">121775</span> to select <span class="numericText">121.775</span> Mhz.
 	</p>
 </div>
 

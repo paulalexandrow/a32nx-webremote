@@ -912,6 +912,15 @@ body.locked .shieldDialog .ui-dialog-titlebar-close {
     background: #1bc215 url(libs/jquery-ui/images/ui-bg_highlight-soft_40_1bc215_1x100.png) 50% 50% repeat-x;
 }
 
+/* RADIO widget */
+
+#sh_rad .shieldGroup {
+	display: inline-block;
+	width: 7.5em;
+	text-align: center;
+	vertical-align: top;
+}
+
 /* SCRATCHPAD widget */
 
 #scratchpad {

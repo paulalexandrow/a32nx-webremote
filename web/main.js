@@ -19,6 +19,7 @@ $(function() {
 	$.ui.dialog.prototype._focusTabbable = $.noop;
 
 	let regexAtc = new RegExp("^[0-7]{1,4}$"); // we accept to omit leading zeros, but not all.
+	let regexVhf = new RegExp("^1(?:1[8-9]|2[0-9]|3[0-6])[0-9](?:00|05|10|15|25|30|35|40|50|55|60|65|75|80|85|90)$");
 
 	let socket = null;
 	let lvars = {};
@@ -544,6 +545,7 @@ $(function() {
 		if (socket == null) return;
 		let value = consumeScratchpad();
 		if ($(this).data("isatc") !== undefined && !regexAtc.test(value.toString())) return;
+		if ($(this).data("isvhf") !== undefined && !regexVhf.test(value.toString())) return;
 		if ($(this).data("isbcd") !== undefined) {
 			value = parseInt(value.toString(10), 16);
 		}

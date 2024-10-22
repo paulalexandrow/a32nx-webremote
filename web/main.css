@@ -916,12 +916,20 @@ body.locked .shieldDialog .ui-dialog-titlebar-close {
 
 #sh_rad .shieldGroup {
 	display: inline-block;
-	width: 7.5em;
+	width: 18em;
 	text-align: center;
 	vertical-align: top;
 }
 
+#sh_rad .shieldGroup .comm_change_btn {
+	width: 3.5em;
+}
+
 /* SCRATCHPAD widget */
+
+.scratchpad_offset_target {
+	min-width: 3.5em;
+}
 
 #scratchpad {
 	font-family: monospace;

@@ -21,7 +21,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<link href="favicon.png" rel="shortcut icon" />
 	<title>WebRemote for FBW A32NX</title>
 	<link rel="stylesheet" href="libs/jquery-ui/jquery-ui.min.css?20231226" type="text/css" />
-	<link rel="stylesheet" href="main.css?20240531" type="text/css" />
+	<link rel="stylesheet" href="main.css?20241111" type="text/css" />
 	<script type="text/javascript" src="libs/jquery.min.js?20231226"></script>
 	<script type="text/javascript" src="libs/jquery-ui/jquery-ui.min.js?20231226"></script>
 	<script type="text/javascript" src="libs/jquery.ui.touch-punch.min.js?20231226"></script>
@@ -890,14 +890,18 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 </div>
 
-<div id="sh_rad" class="shield" data-title="Radio" data-width="320">
+<div id="sh_rad" class="shield" data-title="Radio" data-width="345">
 	<div class="shieldGroup">
 		<div class="label">VHF 1</div>
 		<span id="indicator_vhf1_freq" class="offset_value_indicator scratchpad_offset_target ledValue" data-offsetaddress="0x05C4" data-offsettype="uint" data-offsetsize="4" data-fractiondigits="3" data-sendfactor="1000" data-displayfactor=".000001" data-minvalue="118000" data-maxvalue="136975" data-isvhf="1"></span>
+		<button class="vhf_transfer_key calculator_button" data-calculatorcommands="1 (>K:COM1_RADIO_SWAP)">⇔</button>
+		<span id="indicator_vhf1_stby_freq" class="offset_value_indicator scratchpad_offset_target ledValue" data-offsetaddress="0x05CC" data-offsettype="uint" data-offsetsize="4" data-fractiondigits="3" data-sendfactor="1000" data-displayfactor=".000001" data-minvalue="118000" data-maxvalue="136975" data-isvhf="1"></span>
 	</div>
 	<div class="shieldGroup">
 		<div class="label">VHF 2</div>
 		<span id="indicator_vhf2_freq" class="offset_value_indicator scratchpad_offset_target ledValue" data-offsetaddress="0x05C8" data-offsettype="uint" data-offsetsize="4" data-fractiondigits="3" data-sendfactor="1000" data-displayfactor=".000001" data-minvalue="118000" data-maxvalue="136975" data-isvhf="1"></span>
+		<button class="vhf_transfer_key calculator_button" data-calculatorcommands="1 (>K:COM2_RADIO_SWAP)">⇔</button>
+		<span id="indicator_vhf2_stby_freq" class="offset_value_indicator scratchpad_offset_target ledValue" data-offsetaddress="0x05D0" data-offsettype="uint" data-offsetsize="4" data-fractiondigits="3" data-sendfactor="1000" data-displayfactor=".000001" data-minvalue="118000" data-maxvalue="136975" data-isvhf="1"></span>
 	</div>
 </div>
 

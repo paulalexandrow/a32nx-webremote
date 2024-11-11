@@ -146,6 +146,6 @@ WebRemote for A32NX is released under the [GNU GPLv3](LICENSE).
 
 WebRemote for A32NX was developed by [Paul Alexandrow](http://www.alexandrow.org), freelance software developer based in Vienna, Austria.
 
-If you want to **contribute** to this project you are welcome to contact me anytime!
+Contributions by Igor Silveira. If *you* want to **contribute** to this project you are welcome to contact me anytime!
 
 If you want to **donate** let me redirect your generosity [here](https://opencollective.com/flybywire). (not affiliated)

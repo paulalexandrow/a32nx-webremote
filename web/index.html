@@ -21,11 +21,11 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<link href="favicon.png" rel="shortcut icon" />
 	<title>WebRemote for FBW A32NX</title>
 	<link rel="stylesheet" href="libs/jquery-ui/jquery-ui.min.css?20231226" type="text/css" />
-	<link rel="stylesheet" href="main.css?20241111" type="text/css" />
+	<link rel="stylesheet" href="main.css?20250301" type="text/css" />
 	<script type="text/javascript" src="libs/jquery.min.js?20231226"></script>
 	<script type="text/javascript" src="libs/jquery-ui/jquery-ui.min.js?20231226"></script>
 	<script type="text/javascript" src="libs/jquery.ui.touch-punch.min.js?20231226"></script>
-	<script type="text/javascript" src="main.js?20240531"></script>
+	<script type="text/javascript" src="main.js?20250301"></script>
 </head>
 <body>
 
@@ -252,15 +252,15 @@ with this program. If not, see https://www.gnu.org/licenses/.
 </div>
 
 <div id="sh_baro" class="shield" data-title="Baro" data-width="180" data-noresize="1">
-	<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="XMLVAR_Baro_Selector_HPA_1"><!-- we need this hidden to register the LVAR for updates --></div>
+	<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_EFIS_L_BARO_IS_INHG"><!-- we need this hidden to register the LVAR for updates --></div>
+	<div class="offset_value_indicator ui-helper-hidden" data-offsetaddress="0x0330" data-offsettype="uint" data-offsetsize="2"><!-- we need this hidden to register the offset value for updates --></div>
 	<div class="shieldGroup">
-		<span id="indicator_baro_hpa" class="offset_value_indicator scratchpad_offset_target qnh_indicator ledValue" data-offsetaddress="0x0330" data-offsettype="uint" data-offsetsize="2" data-sendfactor="16" data-displayfactor=".0625"  data-minvalue="948" data-maxvalue="1084" data-fractiondigits="0" data-padzeros="4"></span>
-		<span id="indicator_baro_inhg" class="offset_value_indicator scratchpad_offset_target qnh_indicator ledValue" style="display:none" data-offsetaddress="0x0330" data-offsettype="uint" data-offsetsize="2" data-sendfactor="5.4182218667" data-displayfactor=".0018456239" data-minvalue="2799" data-maxvalue="3201" data-fractiondigits="2"></span>
-		<button id="button_qnhUnits" class="calculator_button" data-calculatorcommands="(L:XMLVAR_Baro_Selector_HPA_1) ! (>L:XMLVAR_Baro_Selector_HPA_1)">hPa</br>inHg</button>
+		<span id="indicator_baro_hpa" class="lvar_value_indicator scratchpad_offset_target qnh_indicator ledValue" data-lvarname="A32NX_FCU_EFIS_L_DISPLAY_BARO_VALUE" data-offsetaddress="0x0330" data-sendfactor="16" data-minvalue="948" data-maxvalue="1084" data-fractiondigits="0" data-padzeros="4"></span>
+		<span id="indicator_baro_inhg" class="lvar_value_indicator scratchpad_offset_target qnh_indicator ledValue" data-lvarname="A32NX_FCU_EFIS_L_DISPLAY_BARO_VALUE" style="display:none" data-offsetaddress="0x0330" data-sendfactor="5.4182218667" data-minvalue="2799" data-maxvalue="3201" data-fractiondigits="2"></span>
+		<button id="button_qnhUnits" class="calculator_button" data-calculatorcommands="(L:A32NX_FCU_EFIS_L_BARO_IS_INHG) ! (>L:A32NX_FCU_EFIS_L_BARO_IS_INHG)|(L:A32NX_FCU_EFIS_R_BARO_IS_INHG) ! (>L:A32NX_FCU_EFIS_R_BARO_IS_INHG)">hPa</br>inHg</button>
 		<div id="controlgroupBaroMode" class="controlgroup">
-			<button class="lvar_selector_button" data-lvarname="XMLVAR_Baro1_Mode" data-lvarvalue="1">QNH</button>
-			<button class="lvar_selector_button" data-lvarname="XMLVAR_Baro1_Mode" data-lvarvalue="0">QFE</button>
-			<button id="button_baro_mode_std" class="lvar_selector_button" data-lvarname="XMLVAR_Baro1_Mode" data-lvarvalue="2">STD</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="XMLVAR_Baro1_Mode" data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_EFIS_L_BARO_PUSH)|(>K:A32NX.FCU_EFIS_R_BARO_PUSH)">QNH</button>
+			<button id="button_baro_mode_std" class="lvar_status_indicator calculator_button" data-lvarname="XMLVAR_Baro1_Mode" data-highlightvalue="2" data-calculatorcommands="(>K:A32NX.FCU_EFIS_L_BARO_PULL)|(>K:A32NX.FCU_EFIS_R_BARO_PULL)">STD</button>
 		</div>
 	</div>
 	<button type="button" class="helpButton ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Help" data-targetdialog="helpDialogScratchpad"><span class="ui-button-icon ui-icon ui-icon-help"></span><span class="ui-button-icon-space"> </span>Help</button>
@@ -286,7 +286,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 	<div class="shieldGroup shieldGroupEcamBottom">
 		<button class="calculator_button" data-calculatorcommands="1 (>L:A32NX_BTN_CLR)|0 (>L:A32NX_BTN_CLR)">CLR</button>
-		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_ECAM_SD_CURRENT_PAGE_INDEX" data-highlightvalue="11" data-calculatorcommands="(L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) 11 != if{ 11 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } els{ -1 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } (>H:A32NX_SD_PAGE_CHANGED)">STS</button>
+		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_ECAM_SD_CURRENT_PAGE_INDEX" data-highlightvalue="12" data-calculatorcommands="(L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) 12 != if{ 12 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } els{ -1 (>L:A32NX_ECAM_SD_CURRENT_PAGE_INDEX) } (>H:A32NX_SD_PAGE_CHANGED)">STS</button>
 		<button class="calculator_button" data-calculatorcommands="1 (>L:A32NX_BTN_RCL)|0 (>L:A32NX_BTN_RCL)">RCL</button>
 	</div>
 </div>
@@ -294,95 +294,95 @@ with this program. If not, see https://www.gnu.org/licenses/.
 <div id="sh_efis1" class="shield efisShield" data-title="Left ND" data-width="420">
 	<div class="shieldGroup shieldGroupNdModes">
 		<div class="controlgroup controlgroupEfisFilter">
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_OPTION" data-lvarvalue="1" data-lvardeselectvalue="0">CSTR</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_OPTION" data-lvarvalue="3" data-lvardeselectvalue="0">WPT</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_OPTION" data-lvarvalue="2" data-lvardeselectvalue="0">VOR D</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_OPTION" data-lvarvalue="4" data-lvardeselectvalue="0">NDB</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_OPTION" data-lvarvalue="5" data-lvardeselectvalue="0">ARPT</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_EFIS_L_CSTR_LIGHT_ON" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_L_CSTR_PUSH' (>F:KeyEvent)">CSTR</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_EFIS_L_WPT_LIGHT_ON" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_L_WPT_PUSH' (>F:KeyEvent)">WPT</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_EFIS_L_VORD_LIGHT_ON" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_L_VORD_PUSH' (>F:KeyEvent)">VOR D</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_EFIS_L_NDB_LIGHT_ON" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_L_NDB_PUSH' (>F:KeyEvent)">NDB</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_EFIS_L_ARPT_LIGHT_ON" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_L_ARPT_PUSH' (>F:KeyEvent)">ARPT</button>
 		</div>
 		<div class="controlgroup controlgroupNdMode">
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_MODE" data-lvarvalue="0">LS</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_MODE" data-lvarvalue="1">VOR</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_MODE" data-lvarvalue="2">NAV</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_MODE" data-lvarvalue="3">ARC</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_MODE" data-lvarvalue="4">PLAN</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_L_EFIS_MODE" data-lvarvalue="0">LS</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_L_EFIS_MODE" data-lvarvalue="1">VOR</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_L_EFIS_MODE" data-lvarvalue="2">NAV</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_L_EFIS_MODE" data-lvarvalue="3">ARC</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_L_EFIS_MODE" data-lvarvalue="4">PLAN</button>
 		</div>
 		<div class="controlgroup controlgroupNdRange">
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_RANGE" data-lvarvalue="0">10</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_RANGE" data-lvarvalue="1">20</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_RANGE" data-lvarvalue="2">40</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_RANGE" data-lvarvalue="3">80</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_RANGE" data-lvarvalue="4">160</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_ND_RANGE" data-lvarvalue="5">320</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_L_EFIS_RANGE" data-lvarvalue="0">10</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_L_EFIS_RANGE" data-lvarvalue="1">20</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_L_EFIS_RANGE" data-lvarvalue="2">40</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_L_EFIS_RANGE" data-lvarvalue="3">80</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_L_EFIS_RANGE" data-lvarvalue="4">160</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_L_EFIS_RANGE" data-lvarvalue="5">320</button>
 		</div>
 	</div>
 	<div class="shieldGroup shieldGroupNavSelector">
 		<div class="label">NAV 1</div>
 		<div class="controlgroup">
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_NAVAID_1_MODE" data-lvarvalue="1">ADF</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_NAVAID_1_MODE" data-lvarvalue="0">OFF</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_NAVAID_1_MODE" data-lvarvalue="2">VOR</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_L_NAVAID_1_MODE" data-lvarvalue="1">ADF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_L_NAVAID_1_MODE" data-lvarvalue="0">OFF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_L_NAVAID_1_MODE" data-lvarvalue="2">VOR</button>
 		</div>
 	</div>
 	<div class="shieldGroup shieldGroupNavSelector">
 		<div class="label">NAV 2</div>
 		<div class="controlgroup">
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_NAVAID_2_MODE" data-lvarvalue="1">ADF</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_NAVAID_2_MODE" data-lvarvalue="0">OFF</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_L_NAVAID_2_MODE" data-lvarvalue="2">VOR</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_L_NAVAID_2_MODE" data-lvarvalue="1">ADF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_L_NAVAID_2_MODE" data-lvarvalue="0">OFF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_L_NAVAID_2_MODE" data-lvarvalue="2">VOR</button>
 		</div>
 	</div>
 	<div class="shieldGroup shieldGroupEfisExtras">
 		<button class="calculator_button" data-calculatorcommands="(>K:A32NX.EFIS_L_CHRONO_PUSHED)">Chrono</button>
-		<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66C0" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="1 (>K:TOGGLE_FLIGHT_DIRECTOR)">FD</button>
-		<button class="lvar_selector_button" data-lvarname="BTN_LS_1_FILTER_ACTIVE" data-lvarvalue="1" data-lvardeselectvalue="0">LS</button>
+		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_EFIS_L_FD_LIGHT_ON" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_L_FD_PUSH' (&gt;F:KeyEvent)">FD</button>
+		<button class="lvar_status_indicator calculator_button" data-lvarname="BTN_LS_1_FILTER_ACTIVE" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_L_LS_PUSH' (>F:KeyEvent)">LS</button>
 	</div>
 </div>
 
 <div id="sh_efis2" class="shield efisShield" data-title="Right ND" data-width="420">
 	<div class="shieldGroup shieldGroupNdModes">
 		<div class="controlgroup controlgroupEfisFilter">
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_OPTION" data-lvarvalue="5" data-lvardeselectvalue="0">ARPT</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_OPTION" data-lvarvalue="4" data-lvardeselectvalue="0">NDB</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_OPTION" data-lvarvalue="2" data-lvardeselectvalue="0">VOR D</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_OPTION" data-lvarvalue="3" data-lvardeselectvalue="0">WPT</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_OPTION" data-lvarvalue="1" data-lvardeselectvalue="0">CSTR</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_EFIS_R_ARPT_LIGHT_ON" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_R_ARPT_PUSH' (>F:KeyEvent)">ARPT</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_EFIS_R_NDB_LIGHT_ON" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_R_NDB_PUSH' (>F:KeyEvent)">NDB</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_EFIS_R_VORD_LIGHT_ON" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_R_VORD_PUSH' (>F:KeyEvent)">VOR D</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_EFIS_R_WPT_LIGHT_ON" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_R_WPT_PUSH' (>F:KeyEvent)">WPT</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_EFIS_R_CSTR_LIGHT_ON" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_R_CSTR_PUSH' (>F:KeyEvent)">CSTR</button>
 		</div>
 		<div class="controlgroup controlgroupNdMode">
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_MODE" data-lvarvalue="0">LS</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_MODE" data-lvarvalue="1">VOR</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_MODE" data-lvarvalue="2">NAV</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_MODE" data-lvarvalue="3">ARC</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_MODE" data-lvarvalue="4">PLAN</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_R_EFIS_MODE" data-lvarvalue="0">LS</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_R_EFIS_MODE" data-lvarvalue="1">VOR</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_R_EFIS_MODE" data-lvarvalue="2">NAV</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_R_EFIS_MODE" data-lvarvalue="3">ARC</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_R_EFIS_MODE" data-lvarvalue="4">PLAN</button>
 		</div>
 		<div class="controlgroup controlgroupNdRange">
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_RANGE" data-lvarvalue="0">10</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_RANGE" data-lvarvalue="1">20</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_RANGE" data-lvarvalue="2">40</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_RANGE" data-lvarvalue="3">80</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_RANGE" data-lvarvalue="4">160</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_ND_RANGE" data-lvarvalue="5">320</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_R_EFIS_RANGE" data-lvarvalue="0">10</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_R_EFIS_RANGE" data-lvarvalue="1">20</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_R_EFIS_RANGE" data-lvarvalue="2">40</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_R_EFIS_RANGE" data-lvarvalue="3">80</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_R_EFIS_RANGE" data-lvarvalue="4">160</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_R_EFIS_RANGE" data-lvarvalue="5">320</button>
 		</div>
 	</div>
 	<div class="shieldGroup shieldGroupNavSelector">
 		<div class="label">NAV 1</div>
 		<div class="controlgroup">
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_NAVAID_1_MODE" data-lvarvalue="1">ADF</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_NAVAID_1_MODE" data-lvarvalue="0">OFF</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_NAVAID_1_MODE" data-lvarvalue="2">VOR</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_R_NAVAID_1_MODE" data-lvarvalue="1">ADF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_R_NAVAID_1_MODE" data-lvarvalue="0">OFF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_R_NAVAID_1_MODE" data-lvarvalue="2">VOR</button>
 		</div>
 	</div>
 	<div class="shieldGroup shieldGroupNavSelector">
 		<div class="label">NAV 2</div>
 		<div class="controlgroup">
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_NAVAID_2_MODE" data-lvarvalue="1">ADF</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_NAVAID_2_MODE" data-lvarvalue="0">OFF</button>
-			<button class="lvar_selector_button" data-lvarname="A32NX_EFIS_R_NAVAID_2_MODE" data-lvarvalue="2">VOR</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_R_NAVAID_2_MODE" data-lvarvalue="1">ADF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_R_NAVAID_2_MODE" data-lvarvalue="0">OFF</button>
+			<button class="lvar_selector_button" data-lvarname="A32NX_FCU_EFIS_R_NAVAID_2_MODE" data-lvarvalue="2">VOR</button>
 		</div>
 	</div>
 	<div class="shieldGroup shieldGroupEfisExtras">
-		<button class="lvar_selector_button" data-lvarname="BTN_LS_2_FILTER_ACTIVE" data-lvarvalue="1" data-lvardeselectvalue="0">LS</button>
-		<button class="offset_status_indicator calculator_button" data-offsetaddress="0x66C1" data-offsettype="uint" data-offsetsize="1" data-highlightvalue="1" data-calculatorcommands="2 (>K:TOGGLE_FLIGHT_DIRECTOR)">FD</button>
+		<button class="lvar_status_indicator calculator_button" data-lvarname="BTN_LS_2_FILTER_ACTIVE" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_R_LS_PUSH' (>F:KeyEvent)">LS</button>
+		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_EFIS_R_FD_LIGHT_ON" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_R_FD_PUSH' (&gt;F:KeyEvent)">FD</button>
 		<button class="calculator_button" data-calculatorcommands="(>K:A32NX.EFIS_R_CHRONO_PUSHED)">Chrono</button>
 	</div>
 </div>
@@ -468,8 +468,8 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<div class="shieldGroup">
 		<div class="label">SPD</div>
 		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_SPD_MANAGED_DASHES"><!-- we need this hidden to register the LVAR for updates --></div>
-		<span id="indicator_spd_spd" class="lvar_value_indicator scratchpad_calculator_command ledValue" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="100" data-maxvalue="399" data-triggeredplaceholders='[["A32NX_FCU_SPD_MANAGED_DASHES","1","---"]]'></span>
-		<span id="indicator_spd_mach" style="display:none" class="lvar_value_indicator scratchpad_calculator_command ledValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_SPD_SET)" data-minvalue="10" data-maxvalue="99"  data-fractiondigits="2" data-triggeredplaceholders='[["A32NX_FCU_SPD_MANAGED_DASHES","1","---"]]'></span>
+		<span id="indicator_spd_spd" class="lvar_value_indicator scratchpad_calculator_command ledValue" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommands="$$$ (>K:A32NX.FCU_SPD_SET)" data-minvalue="100" data-maxvalue="399" data-triggeredplaceholders='[["A32NX_FCU_SPD_MANAGED_DASHES","1","---"]]'></span>
+		<span id="indicator_spd_mach" style="display:none" class="lvar_value_indicator scratchpad_calculator_command ledValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_SPEED_SELECTED" data-calculatorcommands="$$$ (>K:A32NX.FCU_SPD_SET)" data-minvalue="10" data-maxvalue="99"  data-fractiondigits="2" data-triggeredplaceholders='[["A32NX_FCU_SPD_MANAGED_DASHES","1","---"]]'></span>
 		<div class="pushPullGroup">
 			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_SPD_PUSH)">manage</button>
 			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_SPD_PULL)">pull</button>
@@ -478,7 +478,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<div class="shieldGroup">
 		<div class="label">HDG</div>
 		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_HDG_MANAGED_DASHES"><!-- we need this hidden to register the LVAR for updates --></div>
-		<span class="lvar_value_indicator scratchpad_calculator_command ledValue" data-lvarname="A32NX_FCU_HEADING_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_HDG_SET)" data-minvalue="0" data-maxvalue="360" data-padzeros="3" data-fractiondigits="0" data-triggeredplaceholders='[["A32NX_FCU_HDG_MANAGED_DASHES","1","---"]]'></span>
+		<span class="lvar_value_indicator scratchpad_calculator_command ledValue" data-lvarname="A32NX_FCU_HEADING_SELECTED" data-calculatorcommands="$$$ (>K:A32NX.FCU_HDG_SET)" data-minvalue="0" data-maxvalue="360" data-padzeros="3" data-fractiondigits="0" data-triggeredplaceholders='[["A32NX_FCU_HDG_MANAGED_DASHES","1","---"]]'></span>
 		<div class="pushPullGroup">
 			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_HDG_PUSH)">manage</button>
 			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_HDG_PULL)">pull</button>
@@ -486,7 +486,8 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 	<div class="shieldGroup">
 		<div class="label">ALT</div>
-		<span class="offset_value_indicator scratchpad_calculator_command ledValue" data-calculatorcommand="(>K:A32NX.FCU_ALT_SET)" data-minvalue="100" data-maxvalue="49000" data-offsetaddress="0x0818" data-offsettype="uint" data-offsetsize="4" data-fractiondigits="0" data-padzeros="4" data-displayfactor=".000050061643905839895013123359580052"></span>
+		<!-- Setting A32NX_FCU_ALT_INCREMENT_SET is a workaround for a FBW A32NX bug as of 2025-03-01 -->
+		<span class="offset_value_indicator scratchpad_calculator_command ledValue" data-calculatorcommands="0 (>L:A32NX_FCU_ALT_INCREMENT_1000)|$$$ (>K:A32NX.FCU_ALT_SET)" data-minvalue="100" data-maxvalue="49000" data-offsetaddress="0x0818" data-offsettype="uint" data-offsetsize="4" data-fractiondigits="0" data-padzeros="4" data-displayfactor=".000050061643905839895013123359580052"></span>
 		<div class="pushPullGroup">
 			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_ALT_PUSH)">manage</button>
 			<button class="calculator_button button_pull" data-calculatorcommands="(>K:A32NX.FCU_ALT_PULL)">pull</button>
@@ -494,9 +495,9 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	</div>
 	<div class="shieldGroup">
 		<div class="label">VS / FPA</div>
-		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A320_NE0_FCU_STATE"><!-- we need this hidden to register the LVAR for updates --></div>
-		<span id="indicator_vs_vs" class="lvar_value_indicator scratchpad_calculator_command ledValue" data-lvarname="A32NX_AUTOPILOT_VS_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-6000" data-maxvalue="6000" data-fractiondigits="0" data-padzeros="4" data-alwaysshowsign="1" data-triggeredplaceholders='[["A320_NE0_FCU_STATE","0","-----"],["A320_NE0_FCU_STATE","1"," 0000"]]'></span>
-		<span id="indicator_vs_fpa" class="lvar_value_indicator scratchpad_calculator_command ledValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_FPA_SELECTED" data-calculatorcommand="(>K:A32NX.FCU_VS_SET)" data-minvalue="-99" data-maxvalue="99" data-alwaysshowsign="1" data-fractiondigits="1"></span>
+		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_FCU_AFS_DISPLAY_VS_FPA_DASHES"><!-- we need this hidden to register the LVAR for updates --></div>
+		<span id="indicator_vs_vs" class="lvar_value_indicator scratchpad_calculator_command ledValue" data-lvarname="A32NX_AUTOPILOT_VS_SELECTED" data-calculatorcommands="$$$ (>K:A32NX.FCU_VS_SET)" data-minvalue="-6000" data-maxvalue="6000" data-fractiondigits="0" data-padzeros="4" data-alwaysshowsign="1" data-triggeredplaceholders='[["A32NX_FCU_AFS_DISPLAY_VS_FPA_DASHES","1","-----"]]'></span>
+		<span id="indicator_vs_fpa" class="lvar_value_indicator scratchpad_calculator_command ledValue" style="display:none" data-lvarname="A32NX_AUTOPILOT_FPA_SELECTED" data-calculatorcommands="$$$ (>K:A32NX.FCU_VS_SET)" data-minvalue="-99" data-maxvalue="99" data-alwaysshowsign="1" data-fractiondigits="1" data-triggeredplaceholders='[["A32NX_FCU_AFS_DISPLAY_VS_FPA_DASHES","1","-----"]]'></span>
 		<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="A32NX_TRK_FPA_MODE_ACTIVE"><!-- we need this hidden to register the LVAR for updates --></div>
 		<div class="pushPullGroup">
 			<button class="calculator_button button_push" data-calculatorcommands="(>K:A32NX.FCU_VS_PUSH)">push to level off</button>
@@ -516,9 +517,9 @@ with this program. If not, see https://www.gnu.org/licenses/.
 			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOTHRUST_STATUS"  data-highlightvalue="1" data-alternativehighlightvalue="2" data-calculatorcommands="(>K:A32NX.FCU_ATHR_PUSH)">A/THR</button>
 			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_AUTOPILOT_2_ACTIVE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_AP_2_PUSH)">AP2</button>
 		</div><div id="controlgroupLocAppr" class="controlgroup">
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_LOC_MODE_ACTIVE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_LOC_PUSH)">LOC</button>
-			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_APPR_MODE_ACTIVE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_APPR_PUSH)">APPR</button>
-		</div><button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FMA_EXPEDITE_MODE"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_EXPED_PUSH)">EXPED</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_LOC_LIGHT_ON"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_LOC_PUSH)">LOC</button>
+			<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_APPR_LIGHT_ON"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_APPR_PUSH)">APPR</button>
+		</div><button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_EXPED_LIGHT_ON"  data-highlightvalue="1" data-calculatorcommands="(>K:A32NX.FCU_EXPED_PUSH)">EXPED</button>
 	</div>
 </div>
 

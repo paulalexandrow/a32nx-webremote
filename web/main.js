@@ -266,8 +266,8 @@ $(function() {
 				}
 				// ... BARO
 				if (key == "XMLVAR_Baro1_Mode" && val == "3") val = "2";
-				if (key == "XMLVAR_Baro_Selector_HPA_1") {
-					if (val == 1) {
+				if (key == "A32NX_FCU_EFIS_L_BARO_IS_INHG") {
+					if (val == 0) {
 						// hPa
 						$("#indicator_baro_inhg").hide();
 						$("#indicator_baro_hpa").show();
@@ -287,7 +287,6 @@ $(function() {
 					case "selector_button":
 						$(".lvar_selector_button[data-lvarname='" + key + "\']").removeClass("ui-state-active");
 						$(".lvar_selector_button[data-lvarname='" + key + "\'][data-lvarvalue='" + val + "']").addClass("ui-state-active");
-						updateBaro(); // some hardcoded necessity
 						break;
 					case "status_indicator":
 						$(".lvar_status_indicator[data-lvarname='" + key + "\']").removeClass("ui-state-active");
@@ -309,8 +308,10 @@ $(function() {
 							$(this).data("lastvalue", str);
 							$(this).text(str);
 						});
+						
 						break;
 				}
+				updateBaro(); // some hardcoded necessity
 			}
 		});
 
@@ -499,11 +500,17 @@ $(function() {
 		if ($(this).data("sendfactor") !== undefined) {
 			value = value * $(this).data("sendfactor");
 		}
-		socket.send(JSON.stringify({
-			command: "vars.calc",
-			name: "calc",
-			code: value + " " + $(this).data("calculatorcommand")
-		}));
+		
+		let commands = $(this).data("calculatorcommands").split("|");
+		for (let c in commands) {
+			setTimeout(function() {
+				socket.send(JSON.stringify({
+					command: "vars.calc",
+					name: "calc",
+					code: commands[c].replaceAll("$$$", value)
+				}));
+			}, c * 100); // separate commands by 100ms by default (warn and caut buttons need this)
+		}
 	});
 
 	$(".lvar_selector_button").click(function() {

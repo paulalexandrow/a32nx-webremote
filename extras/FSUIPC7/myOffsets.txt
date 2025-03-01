@@ -1,6 +1,6 @@
 // offset, size, simvar, type, units [, w]
-0x66C0, 1, AUTOPILOT FLIGHT DIRECTOR ACTIVE:1, I64, Bool
-0x66C1, 1, AUTOPILOT FLIGHT DIRECTOR ACTIVE:2, I64, Bool
+// 0x66C0 deprecated and free again
+// 0x66C1 deprecated and free again
 0x66C2, 1, GENERAL ENG MASTER ALTERNATOR:1, I64, Bool
 0x66C3, 1, GENERAL ENG MASTER ALTERNATOR:2, I64, Bool
 0x66C4, 1, APU GENERATOR SWITCH, I64, Bool

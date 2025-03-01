@@ -254,7 +254,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 <div id="sh_baro" class="shield" data-title="Baro" data-width="180" data-noresize="1">
 	<div class="lvar_value_indicator ui-helper-hidden" data-lvarname="XMLVAR_Baro_Selector_HPA_1"><!-- we need this hidden to register the LVAR for updates --></div>
 	<div class="shieldGroup">
-		<span id="indicator_baro_hpa" class="offset_value_indicator scratchpad_offset_target qnh_indicator ledValue" data-offsetaddress="0x0330" data-offsettype="uint" data-offsetsize="2" data-sendfactor="16" data-displayfactor=".0625"  data-minvalue="948" data-maxvalue="1084" data-fractiondigits="0"></span>
+		<span id="indicator_baro_hpa" class="offset_value_indicator scratchpad_offset_target qnh_indicator ledValue" data-offsetaddress="0x0330" data-offsettype="uint" data-offsetsize="2" data-sendfactor="16" data-displayfactor=".0625"  data-minvalue="948" data-maxvalue="1084" data-fractiondigits="0" data-padzeros="4"></span>
 		<span id="indicator_baro_inhg" class="offset_value_indicator scratchpad_offset_target qnh_indicator ledValue" style="display:none" data-offsetaddress="0x0330" data-offsettype="uint" data-offsetsize="2" data-sendfactor="5.4182218667" data-displayfactor=".0018456239" data-minvalue="2799" data-maxvalue="3201" data-fractiondigits="2"></span>
 		<button id="button_qnhUnits" class="calculator_button" data-calculatorcommands="(L:XMLVAR_Baro_Selector_HPA_1) ! (>L:XMLVAR_Baro_Selector_HPA_1)">hPa</br>inHg</button>
 		<div id="controlgroupBaroMode" class="controlgroup">

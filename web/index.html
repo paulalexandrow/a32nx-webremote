@@ -21,7 +21,7 @@ with this program. If not, see https://www.gnu.org/licenses/.
 	<link href="favicon.png" rel="shortcut icon" />
 	<title>WebRemote for FBW A32NX</title>
 	<link rel="stylesheet" href="libs/jquery-ui/jquery-ui.min.css?20231226" type="text/css" />
-	<link rel="stylesheet" href="main.css?20250301" type="text/css" />
+	<link rel="stylesheet" href="main.css?20250306" type="text/css" />
 	<script type="text/javascript" src="libs/jquery.min.js?20231226"></script>
 	<script type="text/javascript" src="libs/jquery-ui/jquery-ui.min.js?20231226"></script>
 	<script type="text/javascript" src="libs/jquery.ui.touch-punch.min.js?20231226"></script>
@@ -337,6 +337,12 @@ with this program. If not, see https://www.gnu.org/licenses/.
 		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_EFIS_L_FD_LIGHT_ON" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_L_FD_PUSH' (&gt;F:KeyEvent)">FD</button>
 		<button class="lvar_status_indicator calculator_button" data-lvarname="BTN_LS_1_FILTER_ACTIVE" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_L_LS_PUSH' (>F:KeyEvent)">LS</button>
 	</div>
+	<div class="shieldGroup shieldGroupTerrainExtra">
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_EFIS_TERR_L_ACTIVE" data-highlightvalue="1">
+				<div class="label">TERR ON ND</div>
+				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_EFIS_TERR_L_ACTIVE" data-highlightvalue="1" data-calculatorcommands="(L:A32NX_EFIS_TERR_L_ACTIVE) ! (>L:A32NX_EFIS_TERR_L_ACTIVE)"><span class="secondary">&nbsp;</span><br/><span class="main activeGreen">ON</span></div>
+			</div>
+	</div>
 </div>
 
 <div id="sh_efis2" class="shield efisShield" data-title="Right ND" data-width="420">
@@ -384,6 +390,12 @@ with this program. If not, see https://www.gnu.org/licenses/.
 		<button class="lvar_status_indicator calculator_button" data-lvarname="BTN_LS_2_FILTER_ACTIVE" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_R_LS_PUSH' (>F:KeyEvent)">LS</button>
 		<button class="lvar_status_indicator calculator_button" data-lvarname="A32NX_FCU_EFIS_R_FD_LIGHT_ON" data-highlightvalue="1" data-calculatorcommands="'A32NX.FCU_EFIS_R_FD_PUSH' (&gt;F:KeyEvent)">FD</button>
 		<button class="calculator_button" data-calculatorcommands="(>K:A32NX.EFIS_R_CHRONO_PUSHED)">Chrono</button>
+	</div>
+	<div class="shieldGroup shieldGroupTerrainExtra">
+			<div class="pushButton lvar_status_indicator" data-lvarname="A32NX_EFIS_TERR_R_ACTIVE" data-highlightvalue="1">
+				<div class="label">TERR ON ND</div>
+				<div class="pb lvar_status_indicator calculator_button" data-lvarname="A32NX_EFIS_TERR_R_ACTIVE" data-highlightvalue="1" data-calculatorcommands="(L:A32NX_EFIS_TERR_R_ACTIVE) ! (>L:A32NX_EFIS_TERR_R_ACTIVE)"><span class="secondary">&nbsp;</span><br/><span class="main activeGreen">ON</span></div>
+			</div>
 	</div>
 </div>
 

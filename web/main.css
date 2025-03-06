@@ -413,6 +413,12 @@ body.locked .shieldDialog .ui-dialog-titlebar-close {
 	text-shadow: 0 0 0.1em #FFDF4F;
 }
 
+.pushButton .pb.ui-state-active .main.activeGreen {
+	color: #2BEC24;
+	border-color: #2BEC24;
+	text-shadow: 0 0 0.1em #2BEC24;
+}
+
 /* INDIVIDUAL WIDGETS */
 
 /* ADIR widget */
@@ -588,9 +594,14 @@ body.locked .shieldDialog .ui-dialog-titlebar-close {
 	width: 4em;
 }
 
-.shieldGroupNavSelector, .shieldGroupEfisExtras {
+.shieldGroupNavSelector, .shieldGroupEfisExtras, .shieldGroupTerrainExtra {
 	width: 10.2em;
 	text-align: center;
+}
+
+.shieldGroupTerrainExtra .pushButton {
+	width: 100%;
+	margin-bottom: 0;
 }
 
 .shieldGroupNavSelector button {

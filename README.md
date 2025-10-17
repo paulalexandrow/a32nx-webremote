@@ -75,7 +75,7 @@ The (only good) solution to these problems is running a webserver on **(A)**. It
 
 #### Install IIS
 
-1. To install IIS, open "Turn Windows features on or off" and select "Internet Information Services". The subselection should already be set with reasonable defaults. Additionally,  make sure "WebSocket Protocol" is checked.
+1. To install IIS, open "Turn Windows features on or off" and select "Internet Information Services". The subselection should already be set with reasonable defaults. Additionally,  **make sure** "WebSocket Protocol" is checked.
 2. Download and install two extra modules for the IIS: "[URL Rewrite](https://www.iis.net/downloads/microsoft/url-rewrite)" and "[Application Request Routing](https://www.iis.net/downloads/microsoft/application-request-routing)".
 
 #### Configure the Server
